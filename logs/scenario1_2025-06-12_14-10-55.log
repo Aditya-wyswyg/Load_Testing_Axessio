@@ -1,0 +1,81 @@
+[36mINFO[0m[0008] [DEBUG 2025-06-12T14:11:04.687Z] Starting upload of document-100KB.docx (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/document-100KB.docx 
+[36mINFO[0m[0008] [DEBUG 2025-06-12T14:11:04.688Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0010] [DEBUG 2025-06-12T14:11:09.518Z] Starting upload of spreadsheet-100KB.xlsx (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/spreadsheet-100KB.xlsx 
+[36mINFO[0m[0010] [DEBUG 2025-06-12T14:11:09.518Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0011] [DEBUG 2025-06-12T14:11:10.466Z] Starting upload of presentation-50KB.pptx (51200 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/presentation-50KB.pptx 
+[36mINFO[0m[0011] [DEBUG 2025-06-12T14:11:10.466Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0011] [DEBUG 2025-06-12T14:11:11.028Z] Starting upload of document-100KB.docx (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/document-100KB.docx 
+[36mINFO[0m[0011] [DEBUG 2025-06-12T14:11:11.028Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0011] [DEBUG 2025-06-12T14:11:11.119Z] Starting upload of document-100KB.docx (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/document-100KB.docx 
+[36mINFO[0m[0011] [DEBUG 2025-06-12T14:11:11.120Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0012] [DEBUG 2025-06-12T14:11:11.357Z] Upload successful for document-100KB.docx, took 6669ms, file ID: 3b9bdc5f-2886-470c-b085-dc38c7dddeeb 
+[36mINFO[0m[0013] [DEBUG 2025-06-12T14:11:13.006Z] Upload successful for spreadsheet-100KB.xlsx, took 3487ms, file ID: 59b53dea-0707-44c7-a9a0-0df7fe6780b5 
+[36mINFO[0m[0014] [DEBUG 2025-06-12T14:11:13.897Z] Upload FAILED for document-100KB.docx: Status 500 
+[36mINFO[0m[0014] [DEBUG 2025-06-12T14:11:13.897Z] Response body: {"detail":"Failed to convert file to PDF"} 
+[36mINFO[0m[0015] [DEBUG 2025-06-12T14:11:14.266Z] Upload successful for presentation-50KB.pptx, took 3799ms, file ID: f818bb70-a25d-400b-a0c1-5442d5e3f85c 
+[36mINFO[0m[0016] [DEBUG 2025-06-12T14:11:15.909Z] Upload successful for document-100KB.docx, took 4881ms, file ID: 0517d667-f693-482a-96a5-0fe9cd7ce391 
+[36mINFO[0m[0021] [DEBUG 2025-06-12T14:11:20.345Z] Starting upload of document-50KB.docx (51200 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/document-50KB.docx 
+[36mINFO[0m[0021] [DEBUG 2025-06-12T14:11:20.345Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0023] [DEBUG 2025-06-12T14:11:22.784Z] Upload successful for document-50KB.docx, took 2438ms, file ID: b8cdfa8d-61ca-4385-952e-e4c2f7b59d2f 
+[36mINFO[0m[0023] [DEBUG 2025-06-12T14:11:23.061Z] Starting upload of spreadsheet-50KB.xlsx (51200 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/spreadsheet-50KB.xlsx 
+[36mINFO[0m[0023] [DEBUG 2025-06-12T14:11:23.061Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0025] [DEBUG 2025-06-12T14:11:24.749Z] Starting upload of spreadsheet-50KB.xlsx (51200 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/spreadsheet-50KB.xlsx 
+[36mINFO[0m[0025] [DEBUG 2025-06-12T14:11:24.750Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0025] [DEBUG 2025-06-12T14:11:24.830Z] Starting upload of medium-1MB.txt (1048576 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/medium-1MB.txt 
+[36mINFO[0m[0025] [DEBUG 2025-06-12T14:11:24.830Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0026] [DEBUG 2025-06-12T14:11:25.810Z] Upload successful for spreadsheet-50KB.xlsx, took 2749ms, file ID: ad1fdb34-3e10-4e31-8a6d-2efffe0df211 
+[36mINFO[0m[0026] [DEBUG 2025-06-12T14:11:26.070Z] Starting upload of spreadsheet-100KB.xlsx (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/spreadsheet-100KB.xlsx 
+[36mINFO[0m[0026] [DEBUG 2025-06-12T14:11:26.070Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0027] [DEBUG 2025-06-12T14:11:26.803Z] Upload FAILED for medium-1MB.txt: Status 500 
+[36mINFO[0m[0027] [DEBUG 2025-06-12T14:11:26.803Z] Response body: {"detail":"Failed to convert file to PDF"} 
+[36mINFO[0m[0028] [DEBUG 2025-06-12T14:11:27.376Z] Upload successful for spreadsheet-50KB.xlsx, took 2626ms, file ID: acee4c8c-dc8c-40db-8694-545af0f5eb70 
+[36mINFO[0m[0029] [DEBUG 2025-06-12T14:11:28.680Z] Upload successful for spreadsheet-100KB.xlsx, took 2609ms, file ID: d976e2b0-26ab-4f56-9178-d6e264ec7225 
+[36mINFO[0m[0033] [DEBUG 2025-06-12T14:11:32.464Z] Starting upload of medium-1MB.txt (1048576 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/medium-1MB.txt 
+[36mINFO[0m[0033] [DEBUG 2025-06-12T14:11:32.464Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0034] [DEBUG 2025-06-12T14:11:33.934Z] Starting upload of spreadsheet-100KB.xlsx (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/spreadsheet-100KB.xlsx 
+[36mINFO[0m[0034] [DEBUG 2025-06-12T14:11:33.934Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0035] [DEBUG 2025-06-12T14:11:34.822Z] Upload successful for medium-1MB.txt, took 2357ms, file ID: 087ccdfe-26f4-4845-a345-50d845a8b647 
+[36mINFO[0m[0037] [DEBUG 2025-06-12T14:11:36.511Z] Upload successful for spreadsheet-100KB.xlsx, took 2577ms, file ID: f3d5b228-8502-430e-8e0c-a33442ede6be 
+[36mINFO[0m[0037] [DEBUG 2025-06-12T14:11:36.989Z] Starting upload of spreadsheet-50KB.xlsx (51200 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/spreadsheet-50KB.xlsx 
+[36mINFO[0m[0037] [DEBUG 2025-06-12T14:11:36.989Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0038] [DEBUG 2025-06-12T14:11:37.625Z] Starting upload of document-100KB.docx (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/document-100KB.docx 
+[36mINFO[0m[0038] [DEBUG 2025-06-12T14:11:37.625Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0040] [DEBUG 2025-06-12T14:11:39.438Z] Upload successful for spreadsheet-50KB.xlsx, took 2449ms, file ID: 83a70bfb-2726-4fe3-b83c-5d2a9d42c0e0 
+[36mINFO[0m[0040] [DEBUG 2025-06-12T14:11:39.475Z] Starting upload of spreadsheet-50KB.xlsx (51200 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/spreadsheet-50KB.xlsx 
+[36mINFO[0m[0040] [DEBUG 2025-06-12T14:11:39.475Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0041] [DEBUG 2025-06-12T14:11:40.922Z] Upload successful for document-100KB.docx, took 3297ms, file ID: 6c8c5ae9-b3d4-41d8-b00c-53d7336ec09a 
+[36mINFO[0m[0043] [DEBUG 2025-06-12T14:11:45.431Z] Upload successful for spreadsheet-50KB.xlsx, took 5956ms, file ID: 2df20fae-a382-4c02-b6f9-5d37e53a2b9c 
+[36mINFO[0m[0045] [DEBUG 2025-06-12T14:11:47.656Z] Starting upload of medium-1MB.txt (1048576 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/medium-1MB.txt 
+[36mINFO[0m[0045] [DEBUG 2025-06-12T14:11:47.657Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0047] [DEBUG 2025-06-12T14:11:49.783Z] Starting upload of document-100KB.docx (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/document-100KB.docx 
+[36mINFO[0m[0047] [DEBUG 2025-06-12T14:11:49.783Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0047] [DEBUG 2025-06-12T14:11:49.936Z] Upload successful for medium-1MB.txt, took 2279ms, file ID: 75f2d843-1528-4964-9318-63ce15ae46f6 
+[36mINFO[0m[0050] [DEBUG 2025-06-12T14:11:52.159Z] Upload successful for document-100KB.docx, took 2376ms, file ID: bb8dd025-78a5-4754-bcad-1ea1f9584ac7 
+[36mINFO[0m[0051] [DEBUG 2025-06-12T14:11:53.548Z] Starting upload of spreadsheet-50KB.xlsx (51200 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/spreadsheet-50KB.xlsx 
+[36mINFO[0m[0051] [DEBUG 2025-06-12T14:11:53.549Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0051] [DEBUG 2025-06-12T14:11:53.727Z] Starting upload of very-small-10KB.txt (10240 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/very-small-10KB.txt 
+[36mINFO[0m[0051] [DEBUG 2025-06-12T14:11:53.727Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0051] [DEBUG 2025-06-12T14:11:54.045Z] Starting upload of spreadsheet-100KB.xlsx (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/spreadsheet-100KB.xlsx 
+[36mINFO[0m[0051] [DEBUG 2025-06-12T14:11:54.046Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0054] [DEBUG 2025-06-12T14:11:56.062Z] Upload successful for spreadsheet-50KB.xlsx, took 2513ms, file ID: b591bab6-49bc-4e1f-a303-dbb294324a0b 
+[36mINFO[0m[0055] [DEBUG 2025-06-12T14:11:57.172Z] Upload FAILED for spreadsheet-100KB.xlsx: Status 500 
+[36mINFO[0m[0055] [DEBUG 2025-06-12T14:11:57.172Z] Response body: {"detail":"Failed to convert file to PDF"} 
+[36mINFO[0m[0055] [DEBUG 2025-06-12T14:11:57.530Z] Upload successful for very-small-10KB.txt, took 3803ms, file ID: 68e5c00d-c4bb-47da-83d5-2fc8ca93e8e0 
+[36mINFO[0m[0056] [DEBUG 2025-06-12T14:11:58.162Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt 
+[36mINFO[0m[0056] [DEBUG 2025-06-12T14:11:58.162Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0058] [DEBUG 2025-06-12T14:12:00.637Z] Upload successful for small-100KB.txt, took 2475ms, file ID: d16c397e-6ffc-4405-9b50-5c546195142c 
+[36mINFO[0m[0060] [DEBUG 2025-06-12T14:12:02.673Z] Starting upload of spreadsheet-100KB.xlsx (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/spreadsheet-100KB.xlsx 
+[36mINFO[0m[0060] [DEBUG 2025-06-12T14:12:02.673Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0062] [DEBUG 2025-06-12T14:12:04.891Z] Starting upload of presentation-50KB.pptx (51200 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/presentation-50KB.pptx 
+[36mINFO[0m[0062] [DEBUG 2025-06-12T14:12:04.892Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0063] [DEBUG 2025-06-12T14:12:05.331Z] Upload successful for spreadsheet-100KB.xlsx, took 2657ms, file ID: 01a68833-4f7c-4955-9e35-e95b9e80554f 
+[36mINFO[0m[0065] [DEBUG 2025-06-12T14:12:07.308Z] Starting upload of document-50KB.docx (51200 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/document-50KB.docx 
+[36mINFO[0m[0065] [DEBUG 2025-06-12T14:12:07.308Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0065] [DEBUG 2025-06-12T14:12:07.338Z] Upload successful for presentation-50KB.pptx, took 2446ms, file ID: 73a836b8-b388-46c2-99f8-8555fcd93689 
+[36mINFO[0m[0066] [DEBUG 2025-06-12T14:12:08.448Z] Starting upload of spreadsheet-100KB.xlsx (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/spreadsheet-100KB.xlsx 
+[36mINFO[0m[0066] [DEBUG 2025-06-12T14:12:08.449Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0067] [DEBUG 2025-06-12T14:12:09.794Z] Upload successful for document-50KB.docx, took 2485ms, file ID: 6493d6f2-73a8-400c-8244-4657b6e4b095 
+[36mINFO[0m[0069] [DEBUG 2025-06-12T14:12:11.243Z] Upload successful for spreadsheet-100KB.xlsx, took 2794ms, file ID: 27de71b8-322c-451d-bcc7-ebb646e5ed34 
+[36mINFO[0m[0070] [DEBUG 2025-06-12T14:12:12.431Z] Starting upload of very-small-10KB.txt (10240 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/very-small-10KB.txt 
+[36mINFO[0m[0070] [DEBUG 2025-06-12T14:12:12.431Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/ 
+[36mINFO[0m[0072] [DEBUG 2025-06-12T14:12:14.755Z] Upload successful for very-small-10KB.txt, took 2324ms, file ID: 00444bce-598a-4ef0-b496-792a0de1f070 
