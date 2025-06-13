@@ -5,18 +5,15 @@ export default function() {
 }
 
 export const options = {
-  stages: [
-    { duration: '10s', target: 10 },  // Quick ramp-up to 10 users
-    { duration: '20s', target: 10 },  // Stay at 10 users for 20s
-    { duration: '10s', target: 0 },   // Quick ramp-down
-  ],
+  vus: 10,
+  duration: '2m',
   thresholds: {
-    http_req_duration: ['p(95)<20000'], // 95% of requests must complete within 20s (PDF conversion takes time)
-    http_req_failed: ['rate<0.30'],     // Less than 30% of requests should fail (some PDF conversions may fail)
-    'success_rate': ['rate>0.70'],      // At least 70% of requests should be successful
+    http_req_duration: ['p(95)<15000'], // May show temporary slowdown during burst
+    http_req_failed: ['rate<0.05'],     // System should handle burst without failures
+    'success_rate': ['rate>0.95'],      // At least 95% of requests should be successful
   },
   summaryTrendStats: ['avg', 'min', 'med', 'max', 'p(90)', 'p(95)', 'p(99)'],
-  userAgent: 'K6LoadTest/1.0',
+  userAgent: 'K6LoadTest/BurstActivity',
   noConnectionReuse: false,
   insecureSkipTLSVerify: true,
   discardResponseBodies: false,

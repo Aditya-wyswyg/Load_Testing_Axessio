@@ -21,7 +21,35 @@ function log(message) {
 // Configuration Constants
 export const API_BASE_URL = 'https://axxessio.wyswyg.in/api/v1'; // Updated with actual server URL
 const FILE_UPLOAD_ENDPOINT = `${API_BASE_URL}/files/`;
-const AUTH_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkxODQ2M2YyLWNjZDYtNDliZS1hMzQzLThlZGFiZDQxZmFmNyJ9.dbdf6Qvy2YIMyuI39KBSVxh6VF8AMW5xyDeZXDuKuL4';
+
+// Multiple user tokens for realistic load testing
+const USER_TOKENS = [
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmN2RjZGFhLTgzNmYtNDc2OS05NDdkLTkyZjcwYTQ4NTc3NSJ9.VU4IMu7-KED8BhphzNiKF4HoXDGp7bzRhvuzJK006Tk',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmZDJjZWM2LWVmYzAtNDU4MS1hMDA3LTU2MWJhZTEwYTVhNSJ9.DVT76JkMxpKE6m907KWSwUi0iwjo1C-BCHr5mfOydus',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwOTlkNzQzLWUxNDctNGE1NC05Nzg5LTZhMzllNTgzZWU2ZCJ9.rUcarQctc5rPvGCbOo1zjloqh7LGdYwo1hYk-EKEDu8',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2ZmZlYjQ0LWQzNmQtNGViOS04NmRmLWY0NDFmNmE0OTVhZCJ9.L9fKhVu7eiYAFZZuDbjBSqFJolzzEbAjn4D6PU6Kgi0',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMzY2OTI0LThjNmMtNGU1OS04NWY0LTc2NDY4MmFjZmNjZCJ9.vHYCJ0I3Xz_dIq9fVUNsD1dGziTgHQukPCFbF5B5AKU',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY3MTkzOGFhLTllYTgtNDAxOC04MzlmLTI5OTEwODM4MmE0NyJ9.5PIiXOcxhTriMBeuv0NOsqewfpzhMyR6iCaq6i6oaZk',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRlMTYxMTMxLTJkMzAtNDZiNS04OTBkLTJlZmE3NDM0MjUzNyJ9.v7XL5j-spteI40QHBuqoiejomojBcbAhE9wny4CVmI4',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA2NTY3YmVhLWZiOGItNDJhMS1hZGQxLTA3NDc5YWMzMDU1MSJ9.Ckz_XqQ8mqN1XGi2yS9C3vsFWUbUoj9ynBKJRm5DJjg',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3ZDMxZjRjLWNiMzctNDdiNC1iZGVlLWY5MmMzMWNlZmY0OSJ9.dzVF8vSeKtVfxpcWokkLUklCg2pwnoNaX7hQJHwGoxM',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI0MGJlMTMwLTU1YjYtNGIzZS1iZmVlLTA1ZDg5OGYxMjIzNSJ9.42h1T_Tf4qhuUHOxyTxTd1LfeG2LR5A-o6Mr3BI2dvQ',
+];
+
+// Function to get a random user token
+function getRandomUserToken() {
+  if (USER_TOKENS.length === 1) {
+    return USER_TOKENS[0];
+  }
+  const randomIndex = Math.floor(Math.random() * USER_TOKENS.length);
+  return USER_TOKENS[randomIndex];
+}
+
+// Function to get user token based on VU (Virtual User) ID for consistent user simulation
+function getUserTokenByVU() {
+  const vuIndex = (__VU - 1) % USER_TOKENS.length;
+  return USER_TOKENS[vuIndex];
+}
 
 // Define file paths for disk-based test files
 const TEST_FILES = {
@@ -61,7 +89,7 @@ function uploadFile(file, simulatedNetworkDelay = 0) {
     const params = {
       headers: {
         'Accept': 'application/json',
-        'Authorization': `Bearer ${AUTH_TOKEN}`,
+        'Authorization': `Bearer ${getUserTokenByVU()}`,
       },
       tags: { name: `Upload ${file.name}` },
       timeout: '120s', // Longer timeout for larger files
@@ -209,13 +237,18 @@ function getRandomNonPdfFile() {
   return getRandomOfficeFile(); // Word, PowerPoint, or Excel files
 }
 
-// Simulate a basic concurrent upload test
+// Simulate a basic concurrent upload test - 5 users uploading small files (100KB)
 export function basicConcurrentUpload() {
-  // Get a random file
-  const file = getRandomFile();
+  // Use specifically small 100KB files for baseline testing
+  const file = {
+    name: 'small-100KB.txt',
+    path: TEST_FILES['small-100KB.txt'].path,
+    contentType: TEST_FILES['small-100KB.txt'].contentType,
+    size: TEST_FILES['small-100KB.txt'].size
+  };
   
-  // Upload the file with randomized delay between 8-12 seconds
-  const delay = randomIntBetween(8000, 12000);
+  // Minimal delay for concurrent testing
+  const delay = randomIntBetween(1000, 2000);
   uploadFile(file, delay);
 }
 
@@ -229,49 +262,59 @@ export function gradualUserScaling() {
   uploadFile(file, delay);
 }
 
-// Simulate a realistic office usage pattern
+// Simulate a realistic office usage pattern - 10 users with varied behavior
 export function realisticOfficePattern() {
-  // Get a random file, with higher probability of smaller files
+  // Determine user behavior based on VU number
+  const vuNumber = __VU;
   let file;
-  const choice = Math.random();
-  if (choice < 0.6) {
-    // 60% chance for very small file
-    file = {
-      name: 'very-small-10KB.txt',
-      path: TEST_FILES['very-small-10KB.txt'].path,
-      contentType: TEST_FILES['very-small-10KB.txt'].contentType,
-      size: TEST_FILES['very-small-10KB.txt'].size
-    };
-  } else if (choice < 0.9) {
-    // 30% chance for small file
-    file = {
-      name: 'small-100KB.txt',
-      path: TEST_FILES['small-100KB.txt'].path,
-      contentType: TEST_FILES['small-100KB.txt'].contentType,
-      size: TEST_FILES['small-100KB.txt'].size
-    };
-  } else {
-    // 10% chance for medium file
+  
+  if (vuNumber <= 2) {
+    // 2 users uploading large files (5-10MB) - use medium-1MB.txt as proxy since server has 10MB limit
     file = {
       name: 'medium-1MB.txt',
       path: TEST_FILES['medium-1MB.txt'].path,
       contentType: TEST_FILES['medium-1MB.txt'].contentType,
       size: TEST_FILES['medium-1MB.txt'].size
     };
+  } else if (vuNumber <= 7) {
+    // 5 users uploading medium files (1-2MB) - use medium-1MB.txt and small-100KB.txt
+    const mediumFiles = ['medium-1MB.txt', 'small-100KB.txt'];
+    const randomMediumFile = mediumFiles[Math.floor(Math.random() * mediumFiles.length)];
+    file = {
+      name: randomMediumFile,
+      path: TEST_FILES[randomMediumFile].path,
+      contentType: TEST_FILES[randomMediumFile].contentType,
+      size: TEST_FILES[randomMediumFile].size
+    };
+  } else {
+    // 3 users uploading small files (100-500KB)
+    const smallFiles = ['small-100KB.txt', 'very-small-10KB.txt'];
+    const randomSmallFile = smallFiles[Math.floor(Math.random() * smallFiles.length)];
+    file = {
+      name: randomSmallFile,
+      path: TEST_FILES[randomSmallFile].path,
+      contentType: TEST_FILES[randomSmallFile].contentType,
+      size: TEST_FILES[randomSmallFile].size
+    };
   }
   
-  // Longer delay to simulate office behavior (8-12 seconds)
-  const delay = randomIntBetween(8000, 12000);
+  // Random 1-3 second delays between actions as specified
+  const delay = randomIntBetween(1000, 3000);
   uploadFile(file, delay);
 }
 
-// Simulate a burst upload activity
+// Simulate a burst upload activity - 10 users simultaneously uploading 1MB files
 export function burstUploadActivity() {
-  // Get a random file
-  const file = getRandomFile();
+  // Use 1MB files for burst testing
+  const file = {
+    name: 'medium-1MB.txt',
+    path: TEST_FILES['medium-1MB.txt'].path,
+    contentType: TEST_FILES['medium-1MB.txt'].contentType,
+    size: TEST_FILES['medium-1MB.txt'].size
+  };
   
-  // Short delay to simulate rapid succession uploads
-  const delay = randomIntBetween(1000, 3000);
+  // Minimal delay to simulate simultaneous burst
+  const delay = randomIntBetween(500, 1500);
   uploadFile(file, delay);
 }
 
@@ -290,21 +333,67 @@ export function largeFileHandling() {
   uploadFile(file, delay);
 }
 
-// Mixed operations test
+// Mixed operations test - 5 uploading, 2 downloading, 3 browsing
 export function mixedOperations() {
-  // Randomly choose between different operations
-  const choice = Math.random();
+  // Determine operation based on VU number
+  const vuNumber = __VU;
   
-  if (choice < 0.8) {
-    // 80% chance to upload a file
+  if (vuNumber <= 5) {
+    // 5 users uploading files (mix of sizes)
     const file = getRandomFile();
-    const delay = randomIntBetween(8000, 12000);
+    const delay = randomIntBetween(2000, 5000);
     uploadFile(file, delay);
+  } else if (vuNumber <= 7) {
+    // 2 users downloading (simulated by API health check)
+    apiHealthCheck();
+    const browseTime = randomIntBetween(3000, 8000);
+    sleep(browseTime / 1000);
   } else {
-    // 20% chance to just browse (simulated by sleep)
-    const browseTime = randomIntBetween(8000, 12000);
+    // 3 users browsing/searching (simulated by sleep)
+    const browseTime = randomIntBetween(5000, 15000);
     sleep(browseTime / 1000);
   }
+}
+
+// Network variance test - different connection qualities
+export function networkVariance() {
+  // Determine network condition based on VU number
+  const vuNumber = __VU;
+  const file = {
+    name: 'small-100KB.txt',
+    path: TEST_FILES['small-100KB.txt'].path,
+    contentType: TEST_FILES['small-100KB.txt'].contentType,
+    size: TEST_FILES['small-100KB.txt'].size
+  };
+  
+  let delay;
+  if (vuNumber <= 3) {
+    // 3 users with excellent connection (100Mbps) - minimal delay
+    delay = randomIntBetween(500, 1500);
+  } else if (vuNumber <= 7) {
+    // 4 users with moderate connection (10Mbps) - moderate delay
+    delay = randomIntBetween(2000, 5000);
+  } else {
+    // 3 users with poor connection (2Mbps with packet loss) - high delay
+    delay = randomIntBetween(8000, 15000);
+  }
+  
+  uploadFile(file, delay);
+}
+
+// Maximum capacity test - 10 users continuously uploading for sustained load
+export function maximumCapacity() {
+  // Use 1MB files for sustained capacity testing
+  const file = {
+    name: 'medium-1MB.txt',
+    path: TEST_FILES['medium-1MB.txt'].path,
+    contentType: TEST_FILES['medium-1MB.txt'].contentType,
+    size: TEST_FILES['medium-1MB.txt'].size
+  };
+  
+  // Minimal delay to maximize load
+  const delay = randomIntBetween(1000, 2000);
+  uploadFile(file, delay);
 }
 
 // Test with variable network conditions
@@ -314,21 +403,6 @@ export function networkVariance() {
   
   // Very variable delay to simulate different network conditions
   const delay = randomIntBetween(8000, 20000);
-  uploadFile(file, delay);
-}
-
-// Test maximum capacity
-export function maximumCapacity() {
-  // Use small file instead of medium file due to server limitations
-  const file = {
-    name: 'small-100KB.txt',
-    path: TEST_FILES['small-100KB.txt'].path,
-    contentType: TEST_FILES['small-100KB.txt'].contentType,
-    size: TEST_FILES['small-100KB.txt'].size
-  };
-  
-  // Minimal delay to maximize load
-  const delay = randomIntBetween(1000, 2000);
   uploadFile(file, delay);
 }
 
@@ -398,7 +472,10 @@ export function apiHealthCheck() {
   try {
     log(`Running API health check, VU: ${__VU}`);
     const response = http.get(`${API_BASE_URL}/files/`, {
-      headers: getHeaders(),
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${getUserTokenByVU()}`,
+      },
       tags: { name: 'API Health Check' },
     });
     

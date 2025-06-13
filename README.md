@@ -26,6 +26,23 @@ Our tests use small text files (10KB and 100KB) which work reliably with the ser
 
    This will create various test files of different sizes and types in the `test_files` directory.
 
+2. **Multi-User Testing (Optional)**
+
+   For more realistic load testing with multiple users, you can create additional test accounts:
+
+   ```bash
+   chmod +x create_test_users.sh
+   ./create_test_users.sh 5  # Creates 5 test users
+   ```
+
+   This will:
+   - Create multiple test user accounts
+   - Generate tokens for each user
+   - Save tokens to `test_user_tokens.txt`
+   - You can then copy these tokens to the `USER_TOKENS` array in `Load.js`
+
+   **Note**: The current setup works fine with a single user for most performance testing scenarios.
+
 ## Supported File Types
 
 The Load.js script now supports testing with multiple document types:
@@ -88,15 +105,36 @@ For example, to run scenario 1 (Basic Concurrent Upload):
 
 ## Available Scenarios
 
-1. **Basic Concurrent Upload**: Tests concurrent uploads with multiple users
+1. **Basic Concurrent Upload**: 5 users simultaneously uploading small files (100KB) - Baseline test
 2. **Gradual User Scaling**: Simulates gradually increasing user load
-3. **Realistic Office Pattern**: Mimics realistic office usage patterns
-4. **Burst Upload Activity**: Tests rapid succession of uploads
-5. **Mixed Operations**: Combines uploads with other operations
-6. **Network Variance**: Tests uploads with variable network conditions
-7. **Maximum Capacity**: Tests the maximum upload capacity of the server
-8. **Mixed File Types with Longer Delays**: Tests a mix of file types with realistic delays
-9. **Document Upload Stress Test**: Tests if uploading many documents stalls the UI/APIs
+3. **Realistic Office Pattern**: 10 users with varied behavior (2 large, 5 medium, 3 small files)
+4. **Burst Upload Activity**: 10 users simultaneously uploading 1MB files
+5. **Large File Handling**: 3 users uploading very large files simultaneously  
+6. **Mixed Operations**: 10 users total (5 uploading, 2 downloading, 3 browsing)
+7. **Network Variance**: 10 users with different simulated connection qualities
+8. **Maximum Capacity**: 10 users continuously uploading 1MB files for 5 minutes
+9. **Mixed File Types with Longer Delays**: Tests a mix of file types with realistic delays
+10. **Document Upload Stress Test**: Tests if uploading many documents stalls the UI/APIs
+
+## Key Metrics Measured
+
+- **Response time** (average, median, 95th percentile)
+- **Error rate** and success rate
+- **Throughput** (uploads/second)
+- **Time to first byte (TTFB)**
+- **Connection time**
+- **Upload duration** (custom metric)
+- **Data transferred** (uploaded_bytes)
+
+## Expected Outcomes by Scenario
+
+- **Scenario 1**: All uploads complete successfully with response time < 3 seconds
+- **Scenario 3**: System maintains responsiveness, 95% of uploads complete in < 10 seconds  
+- **Scenario 4**: System handles burst without failures, may show temporary slowdown
+- **Scenario 5**: Files upload successfully without server crashes
+- **Scenario 6**: Upload operations complete without significant delay from mixed operations
+- **Scenario 7**: All uploads eventually complete successfully despite connection variance
+- **Scenario 8**: Identify system limits and degradation patterns under sustained load
 
 ## Logs
 
