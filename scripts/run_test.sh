@@ -68,8 +68,8 @@ main() {
   fi
 
   # Check if scenario number is valid
-  if [ "$scenario_number" -lt 1 ] || [ "$scenario_number" -gt 10 ]; then
-    echo -e "${RED}Error: Invalid scenario number. Must be between 1 and 10${NC}"
+  if [ "$scenario_number" -lt 1 ] || [ "$scenario_number" -gt 12 ]; then
+    echo -e "${RED}Error: Invalid scenario number. Must be between 1 and 12${NC}"
     usage
   fi
 
@@ -86,6 +86,8 @@ main() {
     8) scenario_file="scenarios/scenario8_maximum_capacity.js" ;;
     9) scenario_file="scenarios/scenario9_mixed_file_types_longer_delays.js" ;;
     10) scenario_file="scenarios/scenario10_document_upload_stress_test.js" ;;
+    11) scenario_file="scenarios/scenario11_pdf_only_upload.js" ;;
+    12) scenario_file="scenarios/scenario12_sequential_pdf_upload.js" ;; 
   esac
 
   # Check if scenario file exists

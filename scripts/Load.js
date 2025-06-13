@@ -20,7 +20,7 @@ function log(message) {
 
 // Configuration Constants
 export const API_BASE_URL = 'https://axxessio.wyswyg.in/api/v1'; // Updated with actual server URL
-const FILE_UPLOAD_ENDPOINT = `${API_BASE_URL}/files/`;
+const FILE_UPLOAD_ENDPOINT = `${API_BASE_URL}/files/?type=chat`;
 
 // Multiple user tokens for realistic load testing
 const USER_TOKENS = [
@@ -51,27 +51,59 @@ export function getUserTokenByVU() {
   return USER_TOKENS[vuIndex];
 }
 
-// Define file paths for disk-based test files
-const TEST_FILES = {
-  // Text files - these will be converted to PDF by the server
-  'very-small-10KB.txt': { path: '/home/dev/WYSWYG/Load Testing/test_files/very-small-10KB.txt', contentType: 'text/plain', size: 10 * 1024 },
-  'small-100KB.txt': { path: '/home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt', contentType: 'text/plain', size: 100 * 1024 },
-  'medium-1MB.txt': { path: '/home/dev/WYSWYG/Load Testing/test_files/medium-1MB.txt', contentType: 'text/plain', size: 1 * 1024 * 1024 },
+// PRE-LOAD ALL FILES IN INIT STAGE - This is the correct k6 way!
+const FILE_CONTENTS = {
+  // Text files
+  'very-small-10KB.txt': open('../test_files/very-small-10KB.txt', 'b'),
+  'small-100KB.txt': open('../test_files/small-100KB.txt', 'b'),
+  'medium-1MB.txt': open('../test_files/medium-1MB.txt', 'b'),
   
   // Word documents
-  'document-50KB.docx': { path: '/home/dev/WYSWYG/Load Testing/test_files/document-50KB.docx', contentType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', size: 50 * 1024 },
-  'document-100KB.docx': { path: '/home/dev/WYSWYG/Load Testing/test_files/document-100KB.docx', contentType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', size: 100 * 1024 },
+  'document-50KB.docx': open('../test_files/document-50KB.docx', 'b'),
+  'document-100KB.docx': open('../test_files/document-100KB.docx', 'b'),
   
   // PowerPoint presentations
-  'presentation-50KB.pptx': { path: '/home/dev/WYSWYG/Load Testing/test_files/presentation-50KB.pptx', contentType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', size: 50 * 1024 },
-  'presentation-100KB.pptx': { path: '/home/dev/WYSWYG/Load Testing/test_files/presentation-100KB.pptx', contentType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', size: 100 * 1024 },
+  'presentation-50KB.pptx': open('../test_files/presentation-50KB.pptx', 'b'),
+  'presentation-100KB.pptx': open('../test_files/presentation-100KB.pptx', 'b'),
   
   // Excel spreadsheets
-  'spreadsheet-50KB.xlsx': { path: '/home/dev/WYSWYG/Load Testing/test_files/spreadsheet-50KB.xlsx', contentType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', size: 50 * 1024 },
-  'spreadsheet-100KB.xlsx': { path: '/home/dev/WYSWYG/Load Testing/test_files/spreadsheet-100KB.xlsx', contentType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', size: 100 * 1024 },
+  'spreadsheet-50KB.xlsx': open('../test_files/spreadsheet-50KB.xlsx', 'b'),
+  'spreadsheet-100KB.xlsx': open('../test_files/spreadsheet-100KB.xlsx', 'b'),
+  
+  // PDF files
+  'Data Science.pdf': open('../test_files/Data Science.pdf', 'b'),
+  'Software Development Engineer.pdf': open('../test_files/Software Development Engineer.pdf', 'b'),
+  'Resume.pdf': open('../test_files/Resume.pdf', 'b'),
+  'Cyber-Security.pdf': open('../test_files/Cyber-Security.pdf', 'b'),
 };
 
-// Helper function to upload a file from disk
+// Define file metadata
+const TEST_FILES = {
+  // Text files - these will be converted to PDF by the server
+  'very-small-10KB.txt': { contentType: 'text/plain', size: 10 * 1024 },
+  'small-100KB.txt': { contentType: 'text/plain', size: 100 * 1024 },
+  'medium-1MB.txt': { contentType: 'text/plain', size: 1 * 1024 * 1024 },
+  
+  // Word documents
+  'document-50KB.docx': { contentType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', size: 50 * 1024 },
+  'document-100KB.docx': { contentType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', size: 100 * 1024 },
+  
+  // PowerPoint presentations
+  'presentation-50KB.pptx': { contentType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', size: 50 * 1024 },
+  'presentation-100KB.pptx': { contentType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', size: 100 * 1024 },
+  
+  // Excel spreadsheets
+  'spreadsheet-50KB.xlsx': { contentType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', size: 50 * 1024 },
+  'spreadsheet-100KB.xlsx': { contentType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', size: 100 * 1024 },
+  
+  // PDF files - these bypass conversion and upload directly
+  'Data Science.pdf': { contentType: 'application/pdf', size: 111 * 1024 },
+  'Software Development Engineer.pdf': { contentType: 'application/pdf', size: 104 * 1024 },
+  'Resume.pdf': { contentType: 'application/pdf', size: 94 * 1024 },
+  'Cyber-Security.pdf': { contentType: 'application/pdf', size: 113 * 1024 },
+};
+
+// Helper function to upload a file from pre-loaded content
 function uploadFile(file, simulatedNetworkDelay = 0) {
   try {
     // Simulate network latency if specified
@@ -79,10 +111,18 @@ function uploadFile(file, simulatedNetworkDelay = 0) {
       sleep(simulatedNetworkDelay / 1000); // Convert ms to seconds
     }
 
-    log(`Starting upload of ${file.name} (${file.size} bytes) from path ${file.path}`);
+    log(`Starting upload of ${file.name} (${file.size} bytes)`);
+
+    // Use pre-loaded file content
+    const fileContent = FILE_CONTENTS[file.name];
+    if (!fileContent) {
+      throw new Error(`File content not found for ${file.name}`);
+    }
+
+    log(`Using pre-loaded file content, size: ${fileContent.length} bytes`);
 
     const formData = {
-      file: http.file(file.path, file.name, file.contentType),
+      file: http.file(fileContent, file.name, file.contentType),
     };
 
     // IMPORTANT: Don't specify Content-Type here, k6 will set it correctly with boundary
@@ -158,7 +198,6 @@ function getRandomFile() {
   
   return {
     name: randomKey,
-    path: selectedFile.path,
     contentType: selectedFile.contentType,
     size: selectedFile.size
   };
@@ -172,7 +211,6 @@ function getRandomTextFile() {
   
   return {
     name: randomKey,
-    path: selectedFile.path,
     contentType: selectedFile.contentType,
     size: selectedFile.size
   };
@@ -186,7 +224,6 @@ function getRandomWordFile() {
   
   return {
     name: randomKey,
-    path: selectedFile.path,
     contentType: selectedFile.contentType,
     size: selectedFile.size
   };
@@ -200,7 +237,6 @@ function getRandomPowerPointFile() {
   
   return {
     name: randomKey,
-    path: selectedFile.path,
     contentType: selectedFile.contentType,
     size: selectedFile.size
   };
@@ -214,7 +250,6 @@ function getRandomExcelFile() {
   
   return {
     name: randomKey,
-    path: selectedFile.path,
     contentType: selectedFile.contentType,
     size: selectedFile.size
   };
@@ -227,9 +262,23 @@ function getRandomOfficeFile() {
   return randomFunction();
 }
 
-// Helper to get a random PDF file (using text files since the server will convert them)
+// Helper to get a random PDF file (actual PDF files that bypass conversion)
 function getRandomPdfFile() {
-  return getRandomTextFile(); // Text files get converted to PDF by the server
+  // Only include PDF files that actually exist in the test_files directory
+  const pdfFiles = [
+    'Data Science.pdf',
+    'Software Development Engineer.pdf',
+    'Resume.pdf',
+    'Cyber-Security.pdf'
+  ];
+  const randomKey = pdfFiles[Math.floor(Math.random() * pdfFiles.length)];
+  const selectedFile = TEST_FILES[randomKey];
+  
+  return {
+    name: randomKey,
+    contentType: selectedFile.contentType,
+    size: selectedFile.size
+  };
 }
 
 // Helper to get a random non-PDF file (office documents)
@@ -242,7 +291,6 @@ export function basicConcurrentUpload() {
   // Use specifically small 100KB files for baseline testing
   const file = {
     name: 'small-100KB.txt',
-    path: TEST_FILES['small-100KB.txt'].path,
     contentType: TEST_FILES['small-100KB.txt'].contentType,
     size: TEST_FILES['small-100KB.txt'].size
   };
@@ -272,7 +320,6 @@ export function realisticOfficePattern() {
     // 2 users uploading large files (5-10MB) - use medium-1MB.txt as proxy since server has 10MB limit
     file = {
       name: 'medium-1MB.txt',
-      path: TEST_FILES['medium-1MB.txt'].path,
       contentType: TEST_FILES['medium-1MB.txt'].contentType,
       size: TEST_FILES['medium-1MB.txt'].size
     };
@@ -282,7 +329,6 @@ export function realisticOfficePattern() {
     const randomMediumFile = mediumFiles[Math.floor(Math.random() * mediumFiles.length)];
     file = {
       name: randomMediumFile,
-      path: TEST_FILES[randomMediumFile].path,
       contentType: TEST_FILES[randomMediumFile].contentType,
       size: TEST_FILES[randomMediumFile].size
     };
@@ -292,7 +338,6 @@ export function realisticOfficePattern() {
     const randomSmallFile = smallFiles[Math.floor(Math.random() * smallFiles.length)];
     file = {
       name: randomSmallFile,
-      path: TEST_FILES[randomSmallFile].path,
       contentType: TEST_FILES[randomSmallFile].contentType,
       size: TEST_FILES[randomSmallFile].size
     };
@@ -308,7 +353,6 @@ export function burstUploadActivity() {
   // Use 1MB files for burst testing
   const file = {
     name: 'medium-1MB.txt',
-    path: TEST_FILES['medium-1MB.txt'].path,
     contentType: TEST_FILES['medium-1MB.txt'].contentType,
     size: TEST_FILES['medium-1MB.txt'].size
   };
@@ -323,7 +367,7 @@ export function largeFileHandling() {
   // Use small file instead of large one due to server limitations
   const file = {
     name: 'small-100KB.txt',
-    path: TEST_FILES['small-100KB.txt'].path,
+    
     contentType: TEST_FILES['small-100KB.txt'].contentType,
     size: TEST_FILES['small-100KB.txt'].size
   };
@@ -361,7 +405,7 @@ export function networkVariance() {
   const vuNumber = __VU;
   const file = {
     name: 'small-100KB.txt',
-    path: TEST_FILES['small-100KB.txt'].path,
+    
     contentType: TEST_FILES['small-100KB.txt'].contentType,
     size: TEST_FILES['small-100KB.txt'].size
   };
@@ -386,7 +430,7 @@ export function maximumCapacity() {
   // Use 1MB files for sustained capacity testing
   const file = {
     name: 'medium-1MB.txt',
-    path: TEST_FILES['medium-1MB.txt'].path,
+    
     contentType: TEST_FILES['medium-1MB.txt'].contentType,
     size: TEST_FILES['medium-1MB.txt'].size
   };
@@ -395,8 +439,6 @@ export function maximumCapacity() {
   const delay = randomIntBetween(1000, 2000);
   uploadFile(file, delay);
 }
-
-
 
 // Test with mixed file types and longer delays
 export function mixedFileTypesWithLongerDelays() {
@@ -496,7 +538,7 @@ export { uploadFile as uploadFileToOpenAI };
 export function smallFileTest() {
   const file = {
     name: 'very-small-10KB.txt',
-    path: TEST_FILES['very-small-10KB.txt'].path,
+    
     contentType: TEST_FILES['very-small-10KB.txt'].contentType,
     size: TEST_FILES['very-small-10KB.txt'].size
   };
@@ -508,7 +550,7 @@ export function smallFileTest() {
 export function mediumFileTest() {
   const file = {
     name: 'small-100KB.txt',
-    path: TEST_FILES['small-100KB.txt'].path,
+    
     contentType: TEST_FILES['small-100KB.txt'].contentType,
     size: TEST_FILES['small-100KB.txt'].size
   };
@@ -520,7 +562,7 @@ export function mediumFileTest() {
 export function largeFileTest() {
   const file = {
     name: 'medium-1MB.txt',
-    path: TEST_FILES['medium-1MB.txt'].path,
+    
     contentType: TEST_FILES['medium-1MB.txt'].contentType,
     size: TEST_FILES['medium-1MB.txt'].size
   };
@@ -532,6 +574,16 @@ export function largeFileTest() {
 export function textFileTest() {
   const file = getRandomTextFile();
   const delay = randomIntBetween(2000, 6000);
+  uploadFile(file, delay);
+}
+
+// PDF-only upload test - bypasses conversion for faster/more reliable uploads
+export function pdfOnlyUpload() {
+  // Use actual PDF files to bypass LibreOffice conversion
+  const file = getRandomPdfFile();
+  
+  // Minimal delay since no conversion is needed
+  const delay = randomIntBetween(500, 1500);
   uploadFile(file, delay);
 }
 

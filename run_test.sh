@@ -29,6 +29,7 @@ usage() {
   echo -e "  8: Maximum Capacity"
   echo -e "  9: Mixed File Types with Longer Delays"
   echo -e "  10: Document Upload Stress Test"
+  echo -e "  11: PDF-Only Upload (bypasses conversion)"
   echo
   echo -e "${BLUE}Options:${NC}"
   echo -e "  --no-log     Don't generate log file"
@@ -88,8 +89,8 @@ main() {
   fi
 
   # Check if scenario number is valid
-  if [ "$scenario_number" -lt 1 ] || [ "$scenario_number" -gt 10 ]; then
-    echo -e "${RED}❌ Error: Invalid scenario number. Must be between 1 and 10${NC}"
+  if [ "$scenario_number" -lt 1 ] || [ "$scenario_number" -gt 12 ]; then
+    echo -e "${RED}❌ Error: Invalid scenario number. Must be between 1 and 12${NC}"
     usage
   fi
 
@@ -117,6 +118,10 @@ main() {
        scenario_name="Mixed File Types with Longer Delays" ;;
     10) scenario_file="scenarios/scenario10_document_upload_stress_test.js"
         scenario_name="Document Upload Stress Test" ;;
+    11) scenario_file="scenarios/scenario11_pdf_only_upload.js"
+        scenario_name="PDF-Only Upload (bypasses conversion)" ;;
+    12) scenario_file="scenarios/scenario12_sequential_pdf_upload.js"
+        scenario_name="Sequential PDF Upload" ;;
   esac
 
   # Check if scenario file exists

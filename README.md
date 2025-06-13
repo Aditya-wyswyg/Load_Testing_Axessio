@@ -140,6 +140,7 @@ Use the main `run_test.sh` script to execute the tests:
 8. **Maximum Capacity**: 10 users continuously uploading 1MB files for 5 minutes
 9. **Mixed File Types with Longer Delays**: Tests a mix of file types with realistic delays
 10. **Document Upload Stress Test**: Tests if uploading many documents stalls the UI/APIs
+11. **PDF-Only Upload**: 5 users uploading pre-converted PDF files (bypasses LibreOffice conversion)
 
 ## Key Metrics Measured
 
@@ -160,6 +161,7 @@ Use the main `run_test.sh` script to execute the tests:
 - **Scenario 6**: Upload operations complete without significant delay from mixed operations
 - **Scenario 7**: All uploads eventually complete successfully despite connection variance
 - **Scenario 8**: Identify system limits and degradation patterns under sustained load
+- **Scenario 11**: Significantly better success rate and faster response times (no conversion overhead)
 
 ## Logs
 

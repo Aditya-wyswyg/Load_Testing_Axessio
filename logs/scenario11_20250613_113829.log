@@ -1,0 +1,354 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: scenarios/scenario11_pdf_only_upload.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 5 max VUs, 1m0s max duration (incl. graceful stop):
+              * default: 5 looping VUs for 30s (gracefulStop: 30s)
+
+time="2025-06-13T11:38:30Z" level=info msg="[DEBUG 2025-06-13T11:38:30.950Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:30Z" level=info msg="[DEBUG 2025-06-13T11:38:30.951Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:30Z" level=info msg="[DEBUG 2025-06-13T11:38:30.951Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:31Z" level=info msg="[DEBUG 2025-06-13T11:38:31.262Z] Starting upload of Software Development Engineer.pdf (106496 bytes)" source=console
+time="2025-06-13T11:38:31Z" level=info msg="[DEBUG 2025-06-13T11:38:31.262Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:31Z" level=info msg="[DEBUG 2025-06-13T11:38:31.263Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m01.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   3% ] 5 VUs  01.0s/30s
+time="2025-06-13T11:38:31Z" level=info msg="[DEBUG 2025-06-13T11:38:31.636Z] Starting upload of Software Development Engineer.pdf (106496 bytes)" source=console
+time="2025-06-13T11:38:31Z" level=info msg="[DEBUG 2025-06-13T11:38:31.637Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:31Z" level=info msg="[DEBUG 2025-06-13T11:38:31.637Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:31Z" level=info msg="[DEBUG 2025-06-13T11:38:31.762Z] Starting upload of Resume.pdf (96256 bytes)" source=console
+time="2025-06-13T11:38:31Z" level=info msg="[DEBUG 2025-06-13T11:38:31.763Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:31Z" level=info msg="[DEBUG 2025-06-13T11:38:31.763Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:31Z" level=info msg="[DEBUG 2025-06-13T11:38:31.880Z] Starting upload of Resume.pdf (96256 bytes)" source=console
+time="2025-06-13T11:38:31Z" level=info msg="[DEBUG 2025-06-13T11:38:31.881Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:31Z" level=info msg="[DEBUG 2025-06-13T11:38:31.881Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m02.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   7% ] 5 VUs  02.0s/30s
+
+running (0m03.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [  10% ] 5 VUs  03.0s/30s
+time="2025-06-13T11:38:34Z" level=info msg="[DEBUG 2025-06-13T11:38:34.094Z] Upload successful for Cyber-Security.pdf, took 3143ms, file ID: ff5f2bb3-6d05-4f4e-8974-56213fe7a67b" source=console
+
+running (0m04.0s), 5/5 VUs, 1 complete and 0 interrupted iterations
+default   [  13% ] 5 VUs  04.0s/30s
+time="2025-06-13T11:38:34Z" level=info msg="[DEBUG 2025-06-13T11:38:34.447Z] Upload successful for Resume.pdf, took 2684ms, file ID: fa16d153-2f39-4097-ba99-63e37f7af095" source=console
+time="2025-06-13T11:38:34Z" level=info msg="[DEBUG 2025-06-13T11:38:34.454Z] Upload successful for Software Development Engineer.pdf, took 3191ms, file ID: 3c3c5b28-47c6-4cc7-8641-28eaf23e6eb4" source=console
+time="2025-06-13T11:38:34Z" level=info msg="[DEBUG 2025-06-13T11:38:34.612Z] Upload successful for Software Development Engineer.pdf, took 2975ms, file ID: 3afc3173-b107-4a04-aea5-767087abfcc4" source=console
+time="2025-06-13T11:38:34Z" level=info msg="[DEBUG 2025-06-13T11:38:34.734Z] Upload successful for Resume.pdf, took 2853ms, file ID: 112869f3-32e3-4914-bf80-49474b0a2921" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.109Z] Starting upload of Software Development Engineer.pdf (106496 bytes)" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.109Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.109Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.300Z] Starting upload of Software Development Engineer.pdf (106496 bytes)" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.300Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.300Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m05.0s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  17% ] 5 VUs  05.0s/30s
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.462Z] Starting upload of Data Science.pdf (113664 bytes)" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.463Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.463Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.822Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.822Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.823Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.843Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.843Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:35Z" level=info msg="[DEBUG 2025-06-13T11:38:35.844Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m06.0s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  20% ] 5 VUs  06.0s/30s
+
+running (0m07.0s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  23% ] 5 VUs  07.0s/30s
+time="2025-06-13T11:38:37Z" level=info msg="[DEBUG 2025-06-13T11:38:37.755Z] Upload successful for Software Development Engineer.pdf, took 2455ms, file ID: af61cedd-70c0-4989-90ea-b3b846f3901a" source=console
+time="2025-06-13T11:38:37Z" level=info msg="[DEBUG 2025-06-13T11:38:37.755Z] Upload successful for Data Science.pdf, took 2292ms, file ID: 769f0693-2c06-45fd-bc77-84b2605b26fe" source=console
+time="2025-06-13T11:38:38Z" level=info msg="[DEBUG 2025-06-13T11:38:38.111Z] Upload successful for Cyber-Security.pdf, took 2267ms, file ID: 5bbbfc7b-d293-42dd-a18d-a13f1344f2c3" source=console
+time="2025-06-13T11:38:38Z" level=info msg="[DEBUG 2025-06-13T11:38:38.111Z] Upload successful for Software Development Engineer.pdf, took 3002ms, file ID: 14dd5326-5d5f-412e-bbc6-55fc4eecde93" source=console
+time="2025-06-13T11:38:38Z" level=info msg="[DEBUG 2025-06-13T11:38:38.179Z] Upload successful for Cyber-Security.pdf, took 2355ms, file ID: 701fd333-6501-4987-bd35-9d9686aae739" source=console
+
+running (0m08.0s), 5/5 VUs, 10 complete and 0 interrupted iterations
+default   [  27% ] 5 VUs  08.0s/30s
+time="2025-06-13T11:38:38Z" level=info msg="[DEBUG 2025-06-13T11:38:38.612Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:38Z" level=info msg="[DEBUG 2025-06-13T11:38:38.612Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:38Z" level=info msg="[DEBUG 2025-06-13T11:38:38.612Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:38Z" level=info msg="[DEBUG 2025-06-13T11:38:38.698Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:38Z" level=info msg="[DEBUG 2025-06-13T11:38:38.699Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:38Z" level=info msg="[DEBUG 2025-06-13T11:38:38.699Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:38Z" level=info msg="[DEBUG 2025-06-13T11:38:38.846Z] Starting upload of Data Science.pdf (113664 bytes)" source=console
+time="2025-06-13T11:38:38Z" level=info msg="[DEBUG 2025-06-13T11:38:38.846Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:38Z" level=info msg="[DEBUG 2025-06-13T11:38:38.846Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m09.0s), 5/5 VUs, 10 complete and 0 interrupted iterations
+default   [  30% ] 5 VUs  09.0s/30s
+time="2025-06-13T11:38:42Z" level=info msg="[DEBUG 2025-06-13T11:38:42.420Z] Starting upload of Resume.pdf (96256 bytes)" source=console
+time="2025-06-13T11:38:42Z" level=info msg="[DEBUG 2025-06-13T11:38:42.420Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:42Z" level=info msg="[DEBUG 2025-06-13T11:38:42.420Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:42Z" level=info msg="[DEBUG 2025-06-13T11:38:42.449Z] Starting upload of Resume.pdf (96256 bytes)" source=console
+time="2025-06-13T11:38:42Z" level=info msg="[DEBUG 2025-06-13T11:38:42.450Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:42Z" level=info msg="[DEBUG 2025-06-13T11:38:42.450Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m12.9s), 5/5 VUs, 10 complete and 0 interrupted iterations
+default   [  33% ] 5 VUs  10.0s/30s
+time="2025-06-13T11:38:43Z" level=info msg="[DEBUG 2025-06-13T11:38:43.578Z] Upload successful for Cyber-Security.pdf, took 4966ms, file ID: ae54fbae-fa56-4ba0-848d-ba0aab68ccc1" source=console
+time="2025-06-13T11:38:43Z" level=info msg="[DEBUG 2025-06-13T11:38:43.863Z] Upload successful for Cyber-Security.pdf, took 5164ms, file ID: ded0ebe0-c737-4359-ada4-c7bdf5c8b6c3" source=console
+
+running (0m13.9s), 5/5 VUs, 12 complete and 0 interrupted iterations
+default   [  37% ] 5 VUs  11.0s/30s
+time="2025-06-13T11:38:44Z" level=info msg="[DEBUG 2025-06-13T11:38:44.562Z] Upload successful for Resume.pdf, took 2112ms, file ID: d2162b03-3304-4961-a352-bb8d29e01770" source=console
+time="2025-06-13T11:38:44Z" level=info msg="[DEBUG 2025-06-13T11:38:44.647Z] Upload successful for Data Science.pdf, took 5801ms, file ID: 52d54c51-bb70-4c54-aef9-5f82227562b9" source=console
+time="2025-06-13T11:38:44Z" level=info msg="[DEBUG 2025-06-13T11:38:44.670Z] Upload successful for Resume.pdf, took 2250ms, file ID: 30521e06-f0f1-484e-83ff-012bf5ed76bc" source=console
+time="2025-06-13T11:38:44Z" level=info msg="[DEBUG 2025-06-13T11:38:44.784Z] Starting upload of Software Development Engineer.pdf (106496 bytes)" source=console
+time="2025-06-13T11:38:44Z" level=info msg="[DEBUG 2025-06-13T11:38:44.785Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:44Z" level=info msg="[DEBUG 2025-06-13T11:38:44.785Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:44Z" level=info msg="[DEBUG 2025-06-13T11:38:44.863Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:44Z" level=info msg="[DEBUG 2025-06-13T11:38:44.863Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:44Z" level=info msg="[DEBUG 2025-06-13T11:38:44.863Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m14.9s), 5/5 VUs, 15 complete and 0 interrupted iterations
+default   [  40% ] 5 VUs  12.0s/30s
+time="2025-06-13T11:38:45Z" level=info msg="[DEBUG 2025-06-13T11:38:45.673Z] Starting upload of Data Science.pdf (113664 bytes)" source=console
+time="2025-06-13T11:38:45Z" level=info msg="[DEBUG 2025-06-13T11:38:45.673Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:45Z" level=info msg="[DEBUG 2025-06-13T11:38:45.673Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:45Z" level=info msg="[DEBUG 2025-06-13T11:38:45.745Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:45Z" level=info msg="[DEBUG 2025-06-13T11:38:45.745Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:45Z" level=info msg="[DEBUG 2025-06-13T11:38:45.745Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:46Z" level=info msg="[DEBUG 2025-06-13T11:38:46.007Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:46Z" level=info msg="[DEBUG 2025-06-13T11:38:46.007Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:46Z" level=info msg="[DEBUG 2025-06-13T11:38:46.007Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m15.9s), 5/5 VUs, 15 complete and 0 interrupted iterations
+default   [  43% ] 5 VUs  13.0s/30s
+
+running (0m16.9s), 5/5 VUs, 15 complete and 0 interrupted iterations
+default   [  47% ] 5 VUs  14.0s/30s
+time="2025-06-13T11:38:47Z" level=info msg="[DEBUG 2025-06-13T11:38:47.448Z] Upload successful for Software Development Engineer.pdf, took 2663ms, file ID: 5b5d19a5-95c6-45cf-ad7d-318ffedea629" source=console
+time="2025-06-13T11:38:47Z" level=info msg="[DEBUG 2025-06-13T11:38:47.448Z] Upload successful for Cyber-Security.pdf, took 2585ms, file ID: 2ac2a917-be44-409b-8a98-b8ff5d98b36e" source=console
+time="2025-06-13T11:38:48Z" level=info msg="[DEBUG 2025-06-13T11:38:48.073Z] Upload successful for Data Science.pdf, took 2400ms, file ID: 4f9466d6-716a-49c5-9200-abb76a025cb7" source=console
+time="2025-06-13T11:38:48Z" level=info msg="[DEBUG 2025-06-13T11:38:48.082Z] Starting upload of Resume.pdf (96256 bytes)" source=console
+time="2025-06-13T11:38:48Z" level=info msg="[DEBUG 2025-06-13T11:38:48.083Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:48Z" level=info msg="[DEBUG 2025-06-13T11:38:48.083Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:48Z" level=info msg="[DEBUG 2025-06-13T11:38:48.177Z] Upload successful for Cyber-Security.pdf, took 2432ms, file ID: e4a1b78c-4f7f-4ad7-bc7f-83c2d4a73ee5" source=console
+time="2025-06-13T11:38:48Z" level=info msg="[DEBUG 2025-06-13T11:38:48.218Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:48Z" level=info msg="[DEBUG 2025-06-13T11:38:48.218Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:48Z" level=info msg="[DEBUG 2025-06-13T11:38:48.218Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m17.9s), 5/5 VUs, 19 complete and 0 interrupted iterations
+default   [  50% ] 5 VUs  15.0s/30s
+time="2025-06-13T11:38:48Z" level=info msg="[DEBUG 2025-06-13T11:38:48.669Z] Upload successful for Cyber-Security.pdf, took 2661ms, file ID: f8aee673-56cc-4369-bcf4-c0ee86be0cd2" source=console
+time="2025-06-13T11:38:48Z" level=info msg="[DEBUG 2025-06-13T11:38:48.987Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:48Z" level=info msg="[DEBUG 2025-06-13T11:38:48.988Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:48Z" level=info msg="[DEBUG 2025-06-13T11:38:48.988Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:49Z" level=info msg="[DEBUG 2025-06-13T11:38:49.164Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:49Z" level=info msg="[DEBUG 2025-06-13T11:38:49.164Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:49Z" level=info msg="[DEBUG 2025-06-13T11:38:49.164Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m18.9s), 5/5 VUs, 20 complete and 0 interrupted iterations
+default   [  53% ] 5 VUs  16.0s/30s
+time="2025-06-13T11:38:49Z" level=info msg="[DEBUG 2025-06-13T11:38:49.592Z] Starting upload of Software Development Engineer.pdf (106496 bytes)" source=console
+time="2025-06-13T11:38:49Z" level=info msg="[DEBUG 2025-06-13T11:38:49.593Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:49Z" level=info msg="[DEBUG 2025-06-13T11:38:49.593Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:49Z" level=info msg="[DEBUG 2025-06-13T11:38:49.893Z] Upload successful for Resume.pdf, took 1809ms, file ID: dfcb4985-5fdf-4b2a-8785-58cb1491211b" source=console
+
+running (0m19.9s), 5/5 VUs, 21 complete and 0 interrupted iterations
+default   [  57% ] 5 VUs  17.0s/30s
+time="2025-06-13T11:38:50Z" level=info msg="[DEBUG 2025-06-13T11:38:50.502Z] Upload successful for Cyber-Security.pdf, took 2284ms, file ID: 1bf3a43e-6aca-4227-a238-a90f2ae1c2c5" source=console
+time="2025-06-13T11:38:50Z" level=info msg="[DEBUG 2025-06-13T11:38:50.639Z] Upload successful for Cyber-Security.pdf, took 1651ms, file ID: ce91564d-19a6-46c6-8cea-207e7a3d6802" source=console
+time="2025-06-13T11:38:50Z" level=info msg="[DEBUG 2025-06-13T11:38:50.823Z] Starting upload of Data Science.pdf (113664 bytes)" source=console
+time="2025-06-13T11:38:50Z" level=info msg="[DEBUG 2025-06-13T11:38:50.823Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:50Z" level=info msg="[DEBUG 2025-06-13T11:38:50.823Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:51Z" level=info msg="[DEBUG 2025-06-13T11:38:51.186Z] Starting upload of Resume.pdf (96256 bytes)" source=console
+time="2025-06-13T11:38:51Z" level=info msg="[DEBUG 2025-06-13T11:38:51.186Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:51Z" level=info msg="[DEBUG 2025-06-13T11:38:51.186Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m20.9s), 5/5 VUs, 23 complete and 0 interrupted iterations
+default   [  60% ] 5 VUs  18.0s/30s
+time="2025-06-13T11:38:51Z" level=info msg="[DEBUG 2025-06-13T11:38:51.391Z] Upload successful for Software Development Engineer.pdf, took 1798ms, file ID: 7681df11-21d6-460f-99ff-7d7b7ffdc8ba" source=console
+time="2025-06-13T11:38:51Z" level=info msg="[DEBUG 2025-06-13T11:38:51.399Z] Starting upload of Data Science.pdf (113664 bytes)" source=console
+time="2025-06-13T11:38:51Z" level=info msg="[DEBUG 2025-06-13T11:38:51.399Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:51Z" level=info msg="[DEBUG 2025-06-13T11:38:51.399Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:51Z" level=info msg="[DEBUG 2025-06-13T11:38:51.466Z] Upload successful for Cyber-Security.pdf, took 2302ms, file ID: 67810999-2b41-4b93-ae43-822ccdb6bfa4" source=console
+
+running (0m21.9s), 5/5 VUs, 25 complete and 0 interrupted iterations
+default   [  63% ] 5 VUs  19.0s/30s
+time="2025-06-13T11:38:52Z" level=info msg="[DEBUG 2025-06-13T11:38:52.467Z] Starting upload of Resume.pdf (96256 bytes)" source=console
+time="2025-06-13T11:38:52Z" level=info msg="[DEBUG 2025-06-13T11:38:52.468Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:52Z" level=info msg="[DEBUG 2025-06-13T11:38:52.468Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:52Z" level=info msg="[DEBUG 2025-06-13T11:38:52.516Z] Starting upload of Software Development Engineer.pdf (106496 bytes)" source=console
+time="2025-06-13T11:38:52Z" level=info msg="[DEBUG 2025-06-13T11:38:52.517Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:52Z" level=info msg="[DEBUG 2025-06-13T11:38:52.517Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:52Z" level=info msg="[DEBUG 2025-06-13T11:38:52.631Z] Upload successful for Data Science.pdf, took 1807ms, file ID: 4bc25a14-e75f-4301-befb-487f5102937b" source=console
+time="2025-06-13T11:38:52Z" level=info msg="[DEBUG 2025-06-13T11:38:52.766Z] Upload successful for Resume.pdf, took 1579ms, file ID: f836db22-7c6b-4421-b30e-8be0fbf79d92" source=console
+
+running (0m22.9s), 5/5 VUs, 27 complete and 0 interrupted iterations
+default   [  67% ] 5 VUs  20.0s/30s
+time="2025-06-13T11:38:53Z" level=info msg="[DEBUG 2025-06-13T11:38:53.537Z] Upload successful for Data Science.pdf, took 2137ms, file ID: bbe4c67d-404f-4c34-8b11-52b0ea126316" source=console
+time="2025-06-13T11:38:53Z" level=info msg="[DEBUG 2025-06-13T11:38:53.747Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:53Z" level=info msg="[DEBUG 2025-06-13T11:38:53.747Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:53Z" level=info msg="[DEBUG 2025-06-13T11:38:53.747Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:53Z" level=info msg="[DEBUG 2025-06-13T11:38:53.753Z] Starting upload of Data Science.pdf (113664 bytes)" source=console
+time="2025-06-13T11:38:53Z" level=info msg="[DEBUG 2025-06-13T11:38:53.753Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:53Z" level=info msg="[DEBUG 2025-06-13T11:38:53.754Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m23.9s), 5/5 VUs, 28 complete and 0 interrupted iterations
+default   [  70% ] 5 VUs  21.0s/30s
+time="2025-06-13T11:38:54Z" level=info msg="[DEBUG 2025-06-13T11:38:54.472Z] Starting upload of Data Science.pdf (113664 bytes)" source=console
+time="2025-06-13T11:38:54Z" level=info msg="[DEBUG 2025-06-13T11:38:54.472Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:54Z" level=info msg="[DEBUG 2025-06-13T11:38:54.472Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:54Z" level=info msg="[DEBUG 2025-06-13T11:38:54.485Z] Upload successful for Software Development Engineer.pdf, took 1967ms, file ID: 9634302d-ae6b-48f7-9cf0-2b9778b3388c" source=console
+time="2025-06-13T11:38:55Z" level=info msg="[DEBUG 2025-06-13T11:38:55.173Z] Upload successful for Resume.pdf, took 2705ms, file ID: 8c02ef69-86f4-40c7-a6bf-88a7b4c8e4db" source=console
+
+running (0m24.9s), 5/5 VUs, 30 complete and 0 interrupted iterations
+default   [  73% ] 5 VUs  22.0s/30s
+time="2025-06-13T11:38:55Z" level=info msg="[DEBUG 2025-06-13T11:38:55.354Z] Starting upload of Software Development Engineer.pdf (106496 bytes)" source=console
+time="2025-06-13T11:38:55Z" level=info msg="[DEBUG 2025-06-13T11:38:55.354Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:55Z" level=info msg="[DEBUG 2025-06-13T11:38:55.354Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:55Z" level=info msg="[DEBUG 2025-06-13T11:38:55.520Z] Upload successful for Cyber-Security.pdf, took 1773ms, file ID: f71ab97b-9639-4f32-85e4-8d4114b467a3" source=console
+time="2025-06-13T11:38:55Z" level=info msg="[DEBUG 2025-06-13T11:38:55.556Z] Upload successful for Data Science.pdf, took 1802ms, file ID: 6dc53363-eb81-4be8-a438-8fea39c44777" source=console
+
+running (0m25.9s), 5/5 VUs, 32 complete and 0 interrupted iterations
+default   [  77% ] 5 VUs  23.0s/30s
+time="2025-06-13T11:38:56Z" level=info msg="[DEBUG 2025-06-13T11:38:56.352Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:56Z" level=info msg="[DEBUG 2025-06-13T11:38:56.352Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:56Z" level=info msg="[DEBUG 2025-06-13T11:38:56.352Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:56Z" level=info msg="[DEBUG 2025-06-13T11:38:56.455Z] Starting upload of Resume.pdf (96256 bytes)" source=console
+time="2025-06-13T11:38:56Z" level=info msg="[DEBUG 2025-06-13T11:38:56.455Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:56Z" level=info msg="[DEBUG 2025-06-13T11:38:56.455Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:56Z" level=info msg="[DEBUG 2025-06-13T11:38:56.471Z] Starting upload of Data Science.pdf (113664 bytes)" source=console
+time="2025-06-13T11:38:56Z" level=info msg="[DEBUG 2025-06-13T11:38:56.472Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:56Z" level=info msg="[DEBUG 2025-06-13T11:38:56.472Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:56Z" level=info msg="[DEBUG 2025-06-13T11:38:56.958Z] Upload successful for Data Science.pdf, took 2486ms, file ID: 5fce5023-0bdd-4269-bac2-59a79a761b16" source=console
+
+running (0m26.9s), 5/5 VUs, 33 complete and 0 interrupted iterations
+default   [  80% ] 5 VUs  24.0s/30s
+time="2025-06-13T11:38:57Z" level=info msg="[DEBUG 2025-06-13T11:38:57.333Z] Upload successful for Software Development Engineer.pdf, took 1979ms, file ID: 9b95eed3-a2a1-46cb-8212-f0c0d522408e" source=console
+time="2025-06-13T11:38:57Z" level=info msg="[DEBUG 2025-06-13T11:38:57.473Z] Starting upload of Software Development Engineer.pdf (106496 bytes)" source=console
+time="2025-06-13T11:38:57Z" level=info msg="[DEBUG 2025-06-13T11:38:57.474Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:57Z" level=info msg="[DEBUG 2025-06-13T11:38:57.474Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:58Z" level=info msg="[DEBUG 2025-06-13T11:38:58.242Z] Upload successful for Data Science.pdf, took 1770ms, file ID: d1ce0dd4-40d5-4709-89ef-7e9c73f181cc" source=console
+time="2025-06-13T11:38:58Z" level=info msg="[DEBUG 2025-06-13T11:38:58.290Z] Upload successful for Resume.pdf, took 1835ms, file ID: d52d1210-0822-496b-86c5-aeb14b78b08b" source=console
+
+running (0m27.9s), 5/5 VUs, 36 complete and 0 interrupted iterations
+default   [  83% ] 5 VUs  25.0s/30s
+time="2025-06-13T11:38:58Z" level=info msg="[DEBUG 2025-06-13T11:38:58.484Z] Starting upload of Software Development Engineer.pdf (106496 bytes)" source=console
+time="2025-06-13T11:38:58Z" level=info msg="[DEBUG 2025-06-13T11:38:58.485Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:58Z" level=info msg="[DEBUG 2025-06-13T11:38:58.485Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m28.9s), 5/5 VUs, 36 complete and 0 interrupted iterations
+default   [  87% ] 5 VUs  26.0s/30s
+time="2025-06-13T11:38:59Z" level=info msg="[DEBUG 2025-06-13T11:38:59.324Z] Starting upload of Cyber-Security.pdf (115712 bytes)" source=console
+time="2025-06-13T11:38:59Z" level=info msg="[DEBUG 2025-06-13T11:38:59.324Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:59Z" level=info msg="[DEBUG 2025-06-13T11:38:59.324Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:59Z" level=info msg="[DEBUG 2025-06-13T11:38:59.330Z] Upload successful for Cyber-Security.pdf, took 2978ms, file ID: 8b0e36c4-563b-4790-8085-9420dcbd582a" source=console
+time="2025-06-13T11:38:59Z" level=info msg="[DEBUG 2025-06-13T11:38:59.358Z] Starting upload of Data Science.pdf (113664 bytes)" source=console
+time="2025-06-13T11:38:59Z" level=info msg="[DEBUG 2025-06-13T11:38:59.358Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:38:59Z" level=info msg="[DEBUG 2025-06-13T11:38:59.359Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:38:59Z" level=info msg="[DEBUG 2025-06-13T11:38:59.402Z] Upload successful for Software Development Engineer.pdf, took 1927ms, file ID: b3b363a1-07e5-49d6-94e0-45c46c51622a" source=console
+time="2025-06-13T11:39:00Z" level=info msg="[DEBUG 2025-06-13T11:39:00.121Z] Starting upload of Data Science.pdf (113664 bytes)" source=console
+time="2025-06-13T11:39:00Z" level=info msg="[DEBUG 2025-06-13T11:39:00.122Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:39:00Z" level=info msg="[DEBUG 2025-06-13T11:39:00.122Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m29.9s), 5/5 VUs, 38 complete and 0 interrupted iterations
+default   [  90% ] 5 VUs  27.0s/30s
+time="2025-06-13T11:39:00Z" level=info msg="[DEBUG 2025-06-13T11:39:00.442Z] Upload successful for Software Development Engineer.pdf, took 1956ms, file ID: 3712be45-fbc1-44bf-ba06-e02b715c657b" source=console
+time="2025-06-13T11:39:00Z" level=info msg="[DEBUG 2025-06-13T11:39:00.519Z] Starting upload of Software Development Engineer.pdf (106496 bytes)" source=console
+time="2025-06-13T11:39:00Z" level=info msg="[DEBUG 2025-06-13T11:39:00.519Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:39:00Z" level=info msg="[DEBUG 2025-06-13T11:39:00.520Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:39:00Z" level=info msg="[DEBUG 2025-06-13T11:39:00.969Z] Starting upload of Data Science.pdf (113664 bytes)" source=console
+time="2025-06-13T11:39:00Z" level=info msg="[DEBUG 2025-06-13T11:39:00.969Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:39:00Z" level=info msg="[DEBUG 2025-06-13T11:39:00.969Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:39:01Z" level=info msg="[DEBUG 2025-06-13T11:39:01.247Z] Upload successful for Cyber-Security.pdf, took 1923ms, file ID: 33b7f27e-12a1-4812-94f4-8a16439129a5" source=console
+time="2025-06-13T11:39:01Z" level=info msg="[DEBUG 2025-06-13T11:39:01.247Z] Upload successful for Data Science.pdf, took 1888ms, file ID: 889076f3-ba4c-4f01-81d7-cb85b95fdb2e" source=console
+
+running (0m30.9s), 5/5 VUs, 41 complete and 0 interrupted iterations
+default   [  93% ] 5 VUs  28.0s/30s
+time="2025-06-13T11:39:01Z" level=info msg="[DEBUG 2025-06-13T11:39:01.874Z] Starting upload of Resume.pdf (96256 bytes)" source=console
+time="2025-06-13T11:39:01Z" level=info msg="[DEBUG 2025-06-13T11:39:01.875Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:39:01Z" level=info msg="[DEBUG 2025-06-13T11:39:01.875Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:39:02Z" level=info msg="[DEBUG 2025-06-13T11:39:02.279Z] Upload successful for Software Development Engineer.pdf, took 1758ms, file ID: 0ddc9fa1-cae7-444c-9bc9-2a9ae0c399a2" source=console
+
+running (0m31.9s), 5/5 VUs, 42 complete and 0 interrupted iterations
+default   [  97% ] 5 VUs  29.0s/30s
+time="2025-06-13T11:39:02Z" level=info msg="[DEBUG 2025-06-13T11:39:02.545Z] Starting upload of Data Science.pdf (113664 bytes)" source=console
+time="2025-06-13T11:39:02Z" level=info msg="[DEBUG 2025-06-13T11:39:02.545Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:39:02Z" level=info msg="[DEBUG 2025-06-13T11:39:02.546Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:39:02Z" level=info msg="[DEBUG 2025-06-13T11:39:02.871Z] Upload successful for Data Science.pdf, took 2748ms, file ID: 3198a02e-f822-43ce-8757-58afc78b5da5" source=console
+time="2025-06-13T11:39:02Z" level=info msg="[DEBUG 2025-06-13T11:39:02.894Z] Upload successful for Data Science.pdf, took 1925ms, file ID: 32557373-8157-4b62-ad4f-03bd661e84fc" source=console
+
+running (0m32.9s), 5/5 VUs, 44 complete and 0 interrupted iterations
+default   [ 100% ] 5 VUs  30.0s/30s
+time="2025-06-13T11:39:03Z" level=info msg="[DEBUG 2025-06-13T11:39:03.426Z] Upload successful for Resume.pdf, took 1550ms, file ID: ce8eacd5-922d-4635-8a3f-d3592f4c2cf5" source=console
+time="2025-06-13T11:39:03Z" level=info msg="[DEBUG 2025-06-13T11:39:03.700Z] Starting upload of Software Development Engineer.pdf (106496 bytes)" source=console
+time="2025-06-13T11:39:03Z" level=info msg="[DEBUG 2025-06-13T11:39:03.700Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:39:03Z" level=info msg="[DEBUG 2025-06-13T11:39:03.700Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:39:03Z" level=info msg="[DEBUG 2025-06-13T11:39:03.723Z] Starting upload of Software Development Engineer.pdf (106496 bytes)" source=console
+time="2025-06-13T11:39:03Z" level=info msg="[DEBUG 2025-06-13T11:39:03.724Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:39:03Z" level=info msg="[DEBUG 2025-06-13T11:39:03.724Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+time="2025-06-13T11:39:04Z" level=info msg="[DEBUG 2025-06-13T11:39:04.226Z] Starting upload of Resume.pdf (96256 bytes)" source=console
+time="2025-06-13T11:39:04Z" level=info msg="[DEBUG 2025-06-13T11:39:04.227Z] Using pre-loaded file content, size: undefined bytes" source=console
+time="2025-06-13T11:39:04Z" level=info msg="[DEBUG 2025-06-13T11:39:04.227Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/?type=chat" source=console
+
+running (0m33.9s), 4/5 VUs, 45 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  30s
+time="2025-06-13T11:39:04Z" level=info msg="[DEBUG 2025-06-13T11:39:04.404Z] Upload successful for Data Science.pdf, took 1857ms, file ID: 04122122-7b2d-4069-a5fe-34b5ed1cf98e" source=console
+
+running (0m34.9s), 3/5 VUs, 46 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  30s
+time="2025-06-13T11:39:05Z" level=info msg="[DEBUG 2025-06-13T11:39:05.501Z] Upload successful for Software Development Engineer.pdf, took 1777ms, file ID: 64c31e5c-e575-4f3f-9bd0-c9b523e8184d" source=console
+
+running (0m35.9s), 2/5 VUs, 47 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  30s
+time="2025-06-13T11:39:06Z" level=info msg="[DEBUG 2025-06-13T11:39:06.403Z] Upload successful for Software Development Engineer.pdf, took 2703ms, file ID: 91b32e8b-a962-47b9-ae9c-e884ca579d6b" source=console
+time="2025-06-13T11:39:06Z" level=info msg="[DEBUG 2025-06-13T11:39:06.427Z] Upload successful for Resume.pdf, took 2199ms, file ID: 93583ec0-948c-4aec-9f4e-2af526dbe4f0" source=console
+
+
+  █ THRESHOLDS 
+
+    http_req_duration
+    ✗ 'p(95)<2000' p(95)=4.17s
+
+    http_req_failed
+    ✓ 'rate<0.02' rate=0.00%
+
+    success_rate
+    ✓ 'rate>0.98' rate=100.00%
+
+
+  █ TOTAL RESULTS 
+
+    CUSTOM
+    connection_time.........................................................: avg=26.977766   min=0           med=0           max=289.352035  p(90)=50.42236    p(95)=252.684977  p(99)=282.591142 
+    success_rate............................................................: 100.00% 49 out of 49
+    time_to_first_byte......................................................: avg=2351.592373 min=1549.690304 med=2174.293101 max=5798.655516 p(90)=2793.484506 p(95)=4178.022173 p(99)=5493.309409
+    upload_duration.........................................................: avg=2431.102041 min=1550        med=2267        max=5801        p(90)=3030.2      p(95)=4256        p(99)=5495.24    
+    uploaded_bytes..........................................................: 5330944 148002.299914/s
+
+    HTTP
+    http_req_duration.......................................................: avg=2.36s       min=1.55s       med=2.23s       max=5.79s       p(90)=2.79s       p(95)=4.17s       p(99)=5.49s      
+      { expected_response:true }............................................: avg=2.36s       min=1.55s       med=2.23s       max=5.79s       p(90)=2.79s       p(95)=4.17s       p(99)=5.49s      
+    http_req_failed.........................................................: 0.00%   0 out of 49
+    http_reqs...............................................................: 49      1.360381/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=3.25s       min=2.12s       med=3.28s       max=4.32s       p(90)=4.02s       p(95)=4.11s       p(99)=4.26s      
+    iterations..............................................................: 49      1.360381/s
+    vus.....................................................................: 2       min=2           max=5
+    vus_max.................................................................: 5       min=5           max=5
+
+    NETWORK
+    data_received...........................................................: 60 kB   1.7 kB/s
+    data_sent...............................................................: 5.4 MB  149 kB/s
+
+
+
+
+running (0m36.0s), 0/5 VUs, 49 complete and 0 interrupted iterations
+default ✓ [ 100% ] 5 VUs  30s
+time="2025-06-13T11:39:06Z" level=error msg="thresholds on metrics 'http_req_duration' have been crossed"
