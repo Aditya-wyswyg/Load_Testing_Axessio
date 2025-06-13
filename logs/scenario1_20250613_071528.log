@@ -1,0 +1,883 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: scenarios/scenario1_basic_concurrent_upload.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 5 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 5 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+running (0m01.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   1% ] 5 VUs  0m01.0s/2m0s
+time="2025-06-13T07:15:30Z" level=info msg="[DEBUG 2025-06-13T07:15:30.243Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:30Z" level=info msg="[DEBUG 2025-06-13T07:15:30.244Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:30Z" level=info msg="[DEBUG 2025-06-13T07:15:30.258Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:30Z" level=info msg="[DEBUG 2025-06-13T07:15:30.259Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:30Z" level=info msg="[DEBUG 2025-06-13T07:15:30.913Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:30Z" level=info msg="[DEBUG 2025-06-13T07:15:30.914Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:31Z" level=info msg="[DEBUG 2025-06-13T07:15:31.071Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:31Z" level=info msg="[DEBUG 2025-06-13T07:15:31.071Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:31Z" level=info msg="[DEBUG 2025-06-13T07:15:31.176Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:31Z" level=info msg="[DEBUG 2025-06-13T07:15:31.176Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m02.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   2% ] 5 VUs  0m02.0s/2m0s
+
+running (0m03.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   2% ] 5 VUs  0m03.0s/2m0s
+
+running (0m04.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   3% ] 5 VUs  0m04.0s/2m0s
+time="2025-06-13T07:15:33Z" level=info msg="[DEBUG 2025-06-13T07:15:33.228Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:15:33Z" level=info msg="[DEBUG 2025-06-13T07:15:33.228Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:15:33Z" level=info msg="[DEBUG 2025-06-13T07:15:33.803Z] Upload successful for small-100KB.txt, took 3559ms, file ID: cd69bdcb-a539-4594-9d52-208300ba9783" source=console
+
+running (0m05.0s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [   4% ] 5 VUs  0m05.0s/2m0s
+time="2025-06-13T07:15:34Z" level=info msg="[DEBUG 2025-06-13T07:15:34.589Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:34Z" level=info msg="[DEBUG 2025-06-13T07:15:34.589Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:34Z" level=info msg="[DEBUG 2025-06-13T07:15:34.799Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:15:34Z" level=info msg="[DEBUG 2025-06-13T07:15:34.799Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:15:35Z" level=info msg="[DEBUG 2025-06-13T07:15:35.183Z] Upload successful for small-100KB.txt, took 4007ms, file ID: 8329fd1a-ac5c-4fae-80c3-ad9237d98242" source=console
+
+running (0m06.0s), 5/5 VUs, 4 complete and 0 interrupted iterations
+default   [   5% ] 5 VUs  0m06.0s/2m0s
+time="2025-06-13T07:15:35Z" level=info msg="[DEBUG 2025-06-13T07:15:35.282Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:35Z" level=info msg="[DEBUG 2025-06-13T07:15:35.282Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m07.0s), 5/5 VUs, 4 complete and 0 interrupted iterations
+default   [   6% ] 5 VUs  0m07.0s/2m0s
+time="2025-06-13T07:15:36Z" level=info msg="[DEBUG 2025-06-13T07:15:36.559Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:15:36Z" level=info msg="[DEBUG 2025-06-13T07:15:36.560Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:15:36Z" level=info msg="[DEBUG 2025-06-13T07:15:36.787Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:36Z" level=info msg="[DEBUG 2025-06-13T07:15:36.787Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:36Z" level=info msg="[DEBUG 2025-06-13T07:15:36.904Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:36Z" level=info msg="[DEBUG 2025-06-13T07:15:36.904Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:37Z" level=info msg="[DEBUG 2025-06-13T07:15:37.048Z] Upload successful for small-100KB.txt, took 5977ms, file ID: 77d4409c-64ea-4039-9af1-6553ac13ff40" source=console
+
+running (0m08.0s), 5/5 VUs, 6 complete and 0 interrupted iterations
+default   [   7% ] 5 VUs  0m08.0s/2m0s
+
+running (0m09.0s), 5/5 VUs, 6 complete and 0 interrupted iterations
+default   [   7% ] 5 VUs  0m09.0s/2m0s
+time="2025-06-13T07:15:38Z" level=info msg="[DEBUG 2025-06-13T07:15:38.436Z] Upload successful for small-100KB.txt, took 3154ms, file ID: 128c724e-b6cb-4bbd-9031-4cc760ca8e2e" source=console
+time="2025-06-13T07:15:38Z" level=info msg="[DEBUG 2025-06-13T07:15:38.530Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:38Z" level=info msg="[DEBUG 2025-06-13T07:15:38.530Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:38Z" level=info msg="[DEBUG 2025-06-13T07:15:38.776Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:38Z" level=info msg="[DEBUG 2025-06-13T07:15:38.776Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m10.0s), 5/5 VUs, 7 complete and 0 interrupted iterations
+default   [   8% ] 5 VUs  0m10.0s/2m0s
+time="2025-06-13T07:15:39Z" level=info msg="[DEBUG 2025-06-13T07:15:39.620Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:15:39Z" level=info msg="[DEBUG 2025-06-13T07:15:39.620Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:15:39Z" level=info msg="[DEBUG 2025-06-13T07:15:39.969Z] Upload successful for small-100KB.txt, took 3065ms, file ID: bf53da09-ed6a-4cbd-9bd1-aa4b73a867a5" source=console
+time="2025-06-13T07:15:43Z" level=info msg="[DEBUG 2025-06-13T07:15:43.031Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:43Z" level=info msg="[DEBUG 2025-06-13T07:15:43.031Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m13.9s), 5/5 VUs, 9 complete and 0 interrupted iterations
+default   [   9% ] 5 VUs  0m11.0s/2m0s
+time="2025-06-13T07:15:43Z" level=info msg="[DEBUG 2025-06-13T07:15:43.727Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:43Z" level=info msg="[DEBUG 2025-06-13T07:15:43.727Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:44Z" level=info msg="[DEBUG 2025-06-13T07:15:44.085Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:15:44Z" level=info msg="[DEBUG 2025-06-13T07:15:44.085Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:15:44Z" level=info msg="[DEBUG 2025-06-13T07:15:44.158Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:44Z" level=info msg="[DEBUG 2025-06-13T07:15:44.158Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m14.9s), 5/5 VUs, 10 complete and 0 interrupted iterations
+default   [  10% ] 5 VUs  0m12.0s/2m0s
+time="2025-06-13T07:15:44Z" level=info msg="[DEBUG 2025-06-13T07:15:44.491Z] Upload successful for small-100KB.txt, took 5715ms, file ID: 1aa816a1-8ff4-420d-b819-786af4b94216" source=console
+
+running (0m15.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  11% ] 5 VUs  0m13.0s/2m0s
+time="2025-06-13T07:15:45Z" level=info msg="[DEBUG 2025-06-13T07:15:45.564Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:45Z" level=info msg="[DEBUG 2025-06-13T07:15:45.564Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:45Z" level=info msg="[DEBUG 2025-06-13T07:15:45.829Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:45Z" level=info msg="[DEBUG 2025-06-13T07:15:45.829Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:46Z" level=info msg="[DEBUG 2025-06-13T07:15:46.119Z] Upload successful for small-100KB.txt, took 3088ms, file ID: f4cf4951-f950-4d05-9ae4-d5ef6e66eda3" source=console
+
+running (0m16.9s), 5/5 VUs, 12 complete and 0 interrupted iterations
+default   [  12% ] 5 VUs  0m14.0s/2m0s
+time="2025-06-13T07:15:47Z" level=info msg="[DEBUG 2025-06-13T07:15:47.098Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:15:47Z" level=info msg="[DEBUG 2025-06-13T07:15:47.098Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (0m17.9s), 5/5 VUs, 13 complete and 0 interrupted iterations
+default   [  12% ] 5 VUs  0m15.0s/2m0s
+time="2025-06-13T07:15:47Z" level=info msg="[DEBUG 2025-06-13T07:15:47.611Z] Upload successful for small-100KB.txt, took 3453ms, file ID: 553793b3-e85e-4a1c-ad8b-a0c6b0e33131" source=console
+time="2025-06-13T07:15:47Z" level=info msg="[DEBUG 2025-06-13T07:15:47.826Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:47Z" level=info msg="[DEBUG 2025-06-13T07:15:47.826Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m18.9s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  13% ] 5 VUs  0m16.0s/2m0s
+time="2025-06-13T07:15:48Z" level=info msg="[DEBUG 2025-06-13T07:15:48.572Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:15:48Z" level=info msg="[DEBUG 2025-06-13T07:15:48.572Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:15:48Z" level=info msg="[DEBUG 2025-06-13T07:15:48.589Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:48Z" level=info msg="[DEBUG 2025-06-13T07:15:48.589Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:48Z" level=info msg="[DEBUG 2025-06-13T07:15:48.932Z] Upload successful for small-100KB.txt, took 3367ms, file ID: b5ca36b7-3d86-480e-8426-0699529752a0" source=console
+
+running (0m19.9s), 5/5 VUs, 16 complete and 0 interrupted iterations
+default   [  14% ] 5 VUs  0m17.0s/2m0s
+time="2025-06-13T07:15:49Z" level=info msg="[DEBUG 2025-06-13T07:15:49.520Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:49Z" level=info msg="[DEBUG 2025-06-13T07:15:49.520Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:50Z" level=info msg="[DEBUG 2025-06-13T07:15:50.078Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:50Z" level=info msg="[DEBUG 2025-06-13T07:15:50.078Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m20.9s), 5/5 VUs, 16 complete and 0 interrupted iterations
+default   [  15% ] 5 VUs  0m18.0s/2m0s
+time="2025-06-13T07:15:50Z" level=info msg="[DEBUG 2025-06-13T07:15:50.378Z] Upload successful for small-100KB.txt, took 2552ms, file ID: de96beb8-b5ae-4deb-bd5e-2585893159a1" source=console
+time="2025-06-13T07:15:50Z" level=info msg="[DEBUG 2025-06-13T07:15:50.553Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:50Z" level=info msg="[DEBUG 2025-06-13T07:15:50.553Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m21.9s), 5/5 VUs, 17 complete and 0 interrupted iterations
+default   [  16% ] 5 VUs  0m19.0s/2m0s
+time="2025-06-13T07:15:51Z" level=info msg="[DEBUG 2025-06-13T07:15:51.617Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:15:51Z" level=info msg="[DEBUG 2025-06-13T07:15:51.617Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:15:51Z" level=info msg="[DEBUG 2025-06-13T07:15:51.636Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:51Z" level=info msg="[DEBUG 2025-06-13T07:15:51.636Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m22.9s), 5/5 VUs, 18 complete and 0 interrupted iterations
+default   [  17% ] 5 VUs  0m20.0s/2m0s
+time="2025-06-13T07:15:52Z" level=info msg="[DEBUG 2025-06-13T07:15:52.186Z] Upload successful for small-100KB.txt, took 3597ms, file ID: c8999bfc-3d63-4ec9-b99d-f760b9bb653c" source=console
+time="2025-06-13T07:15:52Z" level=info msg="[DEBUG 2025-06-13T07:15:52.894Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:52Z" level=info msg="[DEBUG 2025-06-13T07:15:52.894Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:53Z" level=info msg="[DEBUG 2025-06-13T07:15:53.113Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:15:53Z" level=info msg="[DEBUG 2025-06-13T07:15:53.113Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (0m23.9s), 5/5 VUs, 20 complete and 0 interrupted iterations
+default   [  17% ] 5 VUs  0m21.0s/2m0s
+time="2025-06-13T07:15:53Z" level=info msg="[DEBUG 2025-06-13T07:15:53.438Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:53Z" level=info msg="[DEBUG 2025-06-13T07:15:53.439Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:53Z" level=info msg="[DEBUG 2025-06-13T07:15:53.818Z] Upload successful for small-100KB.txt, took 3740ms, file ID: b627e0e0-20c1-4e5d-b525-6d0d75781c19" source=console
+
+running (0m24.9s), 5/5 VUs, 21 complete and 0 interrupted iterations
+default   [  18% ] 5 VUs  0m22.0s/2m0s
+time="2025-06-13T07:15:54Z" level=info msg="[DEBUG 2025-06-13T07:15:54.902Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:54Z" level=info msg="[DEBUG 2025-06-13T07:15:54.902Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:55Z" level=info msg="[DEBUG 2025-06-13T07:15:55.036Z] Upload successful for small-100KB.txt, took 3400ms, file ID: b1d88e86-13b2-4970-b1af-c113fa88025d" source=console
+
+running (0m25.9s), 5/5 VUs, 22 complete and 0 interrupted iterations
+default   [  19% ] 5 VUs  0m23.0s/2m0s
+time="2025-06-13T07:15:55Z" level=info msg="[DEBUG 2025-06-13T07:15:55.434Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:55Z" level=info msg="[DEBUG 2025-06-13T07:15:55.434Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:56Z" level=info msg="[DEBUG 2025-06-13T07:15:56.118Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:15:56Z" level=info msg="[DEBUG 2025-06-13T07:15:56.119Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (0m26.9s), 5/5 VUs, 23 complete and 0 interrupted iterations
+default   [  20% ] 5 VUs  0m24.0s/2m0s
+time="2025-06-13T07:15:56Z" level=info msg="[DEBUG 2025-06-13T07:15:56.430Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:56Z" level=info msg="[DEBUG 2025-06-13T07:15:56.430Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:56Z" level=info msg="[DEBUG 2025-06-13T07:15:56.549Z] Upload successful for small-100KB.txt, took 3655ms, file ID: d9fcb588-d301-4a25-88d9-ff4ffdfb3eba" source=console
+
+running (0m27.9s), 5/5 VUs, 24 complete and 0 interrupted iterations
+default   [  21% ] 5 VUs  0m25.0s/2m0s
+time="2025-06-13T07:15:57Z" level=info msg="[DEBUG 2025-06-13T07:15:57.653Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:15:57Z" level=info msg="[DEBUG 2025-06-13T07:15:57.653Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:15:57Z" level=info msg="[DEBUG 2025-06-13T07:15:57.848Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:57Z" level=info msg="[DEBUG 2025-06-13T07:15:57.848Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:58Z" level=info msg="[DEBUG 2025-06-13T07:15:58.135Z] Upload successful for small-100KB.txt, took 2701ms, file ID: a5ab7ab4-e5a1-4aee-84b9-5b3d5fd0d716" source=console
+
+running (0m28.9s), 5/5 VUs, 26 complete and 0 interrupted iterations
+default   [  22% ] 5 VUs  0m26.0s/2m0s
+time="2025-06-13T07:15:58Z" level=info msg="[DEBUG 2025-06-13T07:15:58.470Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:58Z" level=info msg="[DEBUG 2025-06-13T07:15:58.470Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m29.9s), 5/5 VUs, 26 complete and 0 interrupted iterations
+default   [  22% ] 5 VUs  0m27.0s/2m0s
+time="2025-06-13T07:15:59Z" level=info msg="[DEBUG 2025-06-13T07:15:59.524Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:15:59Z" level=info msg="[DEBUG 2025-06-13T07:15:59.524Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:15:59Z" level=info msg="[DEBUG 2025-06-13T07:15:59.643Z] Upload successful for small-100KB.txt, took 3213ms, file ID: 7b246979-b7df-4a6d-877b-b03cf06c81d2" source=console
+time="2025-06-13T07:16:00Z" level=info msg="[DEBUG 2025-06-13T07:16:00.113Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:00Z" level=info msg="[DEBUG 2025-06-13T07:16:00.113Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m30.9s), 5/5 VUs, 27 complete and 0 interrupted iterations
+default   [  23% ] 5 VUs  0m28.0s/2m0s
+time="2025-06-13T07:16:00Z" level=info msg="[DEBUG 2025-06-13T07:16:00.700Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:00Z" level=info msg="[DEBUG 2025-06-13T07:16:00.700Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:00Z" level=info msg="[DEBUG 2025-06-13T07:16:00.991Z] Upload successful for small-100KB.txt, took 3143ms, file ID: b87f9e10-4754-4306-ae72-56cebd7ef68e" source=console
+
+running (0m31.9s), 5/5 VUs, 29 complete and 0 interrupted iterations
+default   [  24% ] 5 VUs  0m29.0s/2m0s
+time="2025-06-13T07:16:01Z" level=info msg="[DEBUG 2025-06-13T07:16:01.555Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:01Z" level=info msg="[DEBUG 2025-06-13T07:16:01.556Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:01Z" level=info msg="[DEBUG 2025-06-13T07:16:01.936Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:01Z" level=info msg="[DEBUG 2025-06-13T07:16:01.936Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m32.9s), 5/5 VUs, 29 complete and 0 interrupted iterations
+default   [  25% ] 5 VUs  0m30.0s/2m0s
+time="2025-06-13T07:16:02Z" level=info msg="[DEBUG 2025-06-13T07:16:02.258Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:02Z" level=info msg="[DEBUG 2025-06-13T07:16:02.258Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:02Z" level=info msg="[DEBUG 2025-06-13T07:16:02.719Z] Upload successful for small-100KB.txt, took 3195ms, file ID: d9554068-44c2-4115-a98d-4079aecccf86" source=console
+time="2025-06-13T07:16:02Z" level=info msg="[DEBUG 2025-06-13T07:16:02.877Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:02Z" level=info msg="[DEBUG 2025-06-13T07:16:02.878Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m33.9s), 5/5 VUs, 31 complete and 0 interrupted iterations
+default   [  26% ] 5 VUs  0m31.0s/2m0s
+time="2025-06-13T07:16:03Z" level=info msg="[DEBUG 2025-06-13T07:16:03.379Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:03Z" level=info msg="[DEBUG 2025-06-13T07:16:03.379Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m34.9s), 5/5 VUs, 31 complete and 0 interrupted iterations
+default   [  27% ] 5 VUs  0m32.0s/2m0s
+time="2025-06-13T07:16:04Z" level=info msg="[DEBUG 2025-06-13T07:16:04.248Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:04Z" level=info msg="[DEBUG 2025-06-13T07:16:04.249Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:04Z" level=info msg="[DEBUG 2025-06-13T07:16:04.532Z] Upload successful for small-100KB.txt, took 2976ms, file ID: 83d48bbe-b32c-427b-9294-0630d4f8a41f" source=console
+
+running (0m35.9s), 5/5 VUs, 32 complete and 0 interrupted iterations
+default   [  27% ] 5 VUs  0m33.0s/2m0s
+time="2025-06-13T07:16:05Z" level=info msg="[DEBUG 2025-06-13T07:16:05.335Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:05Z" level=info msg="[DEBUG 2025-06-13T07:16:05.335Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:05Z" level=info msg="[DEBUG 2025-06-13T07:16:05.791Z] Upload successful for small-100KB.txt, took 2913ms, file ID: 767ff31b-5f4e-44b0-ad39-8d259da51935" source=console
+
+running (0m36.9s), 5/5 VUs, 34 complete and 0 interrupted iterations
+default   [  28% ] 5 VUs  0m34.0s/2m0s
+time="2025-06-13T07:16:06Z" level=info msg="[DEBUG 2025-06-13T07:16:06.533Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:06Z" level=info msg="[DEBUG 2025-06-13T07:16:06.533Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:06Z" level=info msg="[DEBUG 2025-06-13T07:16:06.547Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:06Z" level=info msg="[DEBUG 2025-06-13T07:16:06.547Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:06Z" level=info msg="[DEBUG 2025-06-13T07:16:06.807Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:06Z" level=info msg="[DEBUG 2025-06-13T07:16:06.807Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (0m37.9s), 5/5 VUs, 35 complete and 0 interrupted iterations
+default   [  29% ] 5 VUs  0m35.0s/2m0s
+time="2025-06-13T07:16:07Z" level=info msg="[DEBUG 2025-06-13T07:16:07.325Z] Upload successful for small-100KB.txt, took 3945ms, file ID: 3607f0ab-967b-4be4-a20d-6c9c365898f0" source=console
+time="2025-06-13T07:16:07Z" level=info msg="[DEBUG 2025-06-13T07:16:07.787Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:07Z" level=info msg="[DEBUG 2025-06-13T07:16:07.787Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m38.9s), 5/5 VUs, 36 complete and 0 interrupted iterations
+default   [  30% ] 5 VUs  0m36.0s/2m0s
+time="2025-06-13T07:16:08Z" level=info msg="[DEBUG 2025-06-13T07:16:08.589Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:08Z" level=info msg="[DEBUG 2025-06-13T07:16:08.589Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:08Z" level=info msg="[DEBUG 2025-06-13T07:16:08.723Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:08Z" level=info msg="[DEBUG 2025-06-13T07:16:08.723Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:08Z" level=info msg="[DEBUG 2025-06-13T07:16:08.974Z] Upload successful for small-100KB.txt, took 2440ms, file ID: 8f33c554-89ed-40fc-af6e-9631701e0405" source=console
+time="2025-06-13T07:16:09Z" level=info msg="[DEBUG 2025-06-13T07:16:09.149Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:09Z" level=info msg="[DEBUG 2025-06-13T07:16:09.150Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m39.9s), 5/5 VUs, 38 complete and 0 interrupted iterations
+default   [  31% ] 5 VUs  0m37.0s/2m0s
+time="2025-06-13T07:16:10Z" level=info msg="[DEBUG 2025-06-13T07:16:10.062Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:10Z" level=info msg="[DEBUG 2025-06-13T07:16:10.063Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m40.9s), 5/5 VUs, 38 complete and 0 interrupted iterations
+default   [  32% ] 5 VUs  0m38.0s/2m0s
+time="2025-06-13T07:16:10Z" level=info msg="[DEBUG 2025-06-13T07:16:10.474Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:10Z" level=info msg="[DEBUG 2025-06-13T07:16:10.474Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:10Z" level=info msg="[DEBUG 2025-06-13T07:16:10.610Z] Upload successful for small-100KB.txt, took 2823ms, file ID: 9dd8a4b6-854f-475e-aca8-754ed67a8976" source=console
+
+running (0m41.9s), 5/5 VUs, 39 complete and 0 interrupted iterations
+default   [  32% ] 5 VUs  0m39.0s/2m0s
+time="2025-06-13T07:16:11Z" level=info msg="[DEBUG 2025-06-13T07:16:11.583Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:11Z" level=info msg="[DEBUG 2025-06-13T07:16:11.583Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:11Z" level=info msg="[DEBUG 2025-06-13T07:16:11.865Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:11Z" level=info msg="[DEBUG 2025-06-13T07:16:11.865Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:12Z" level=info msg="[DEBUG 2025-06-13T07:16:12.036Z] Upload successful for small-100KB.txt, took 2886ms, file ID: 2871dfc8-c198-4854-a848-f25f5859e7d9" source=console
+
+running (0m42.9s), 5/5 VUs, 41 complete and 0 interrupted iterations
+default   [  33% ] 5 VUs  0m40.0s/2m0s
+time="2025-06-13T07:16:13Z" level=info msg="[DEBUG 2025-06-13T07:16:13.124Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:13Z" level=info msg="[DEBUG 2025-06-13T07:16:13.124Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (0m43.9s), 5/5 VUs, 42 complete and 0 interrupted iterations
+default   [  34% ] 5 VUs  0m41.0s/2m0s
+time="2025-06-13T07:16:13Z" level=info msg="[DEBUG 2025-06-13T07:16:13.204Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:13Z" level=info msg="[DEBUG 2025-06-13T07:16:13.205Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:13Z" level=info msg="[DEBUG 2025-06-13T07:16:13.756Z] Upload successful for small-100KB.txt, took 3693ms, file ID: 1a3ecb44-ad92-4621-81f7-97d400392b08" source=console
+time="2025-06-13T07:16:13Z" level=info msg="[DEBUG 2025-06-13T07:16:13.932Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:13Z" level=info msg="[DEBUG 2025-06-13T07:16:13.932Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m44.9s), 5/5 VUs, 43 complete and 0 interrupted iterations
+default   [  35% ] 5 VUs  0m42.0s/2m0s
+time="2025-06-13T07:16:15Z" level=info msg="[DEBUG 2025-06-13T07:16:15.056Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:15Z" level=info msg="[DEBUG 2025-06-13T07:16:15.056Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:15Z" level=info msg="[DEBUG 2025-06-13T07:16:15.076Z] Upload successful for small-100KB.txt, took 3211ms, file ID: 4f45bfb5-1f24-479e-bf88-a48b63e0b26b" source=console
+
+running (0m45.9s), 5/5 VUs, 44 complete and 0 interrupted iterations
+default   [  36% ] 5 VUs  0m43.0s/2m0s
+time="2025-06-13T07:16:18Z" level=info msg="[DEBUG 2025-06-13T07:16:18.131Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:18Z" level=info msg="[DEBUG 2025-06-13T07:16:18.131Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:19Z" level=info msg="[DEBUG 2025-06-13T07:16:19.073Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:19Z" level=info msg="[DEBUG 2025-06-13T07:16:19.073Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (0m49.9s), 5/5 VUs, 45 complete and 0 interrupted iterations
+default   [  37% ] 5 VUs  0m44.0s/2m0s
+time="2025-06-13T07:16:19Z" level=info msg="[DEBUG 2025-06-13T07:16:19.570Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:19Z" level=info msg="[DEBUG 2025-06-13T07:16:19.570Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:19Z" level=info msg="[DEBUG 2025-06-13T07:16:19.750Z] Upload successful for small-100KB.txt, took 6545ms, file ID: 68919b2b-ceb3-4c2a-8c42-e6883754203a" source=console
+
+running (0m50.9s), 5/5 VUs, 46 complete and 0 interrupted iterations
+default   [  37% ] 5 VUs  0m45.0s/2m0s
+time="2025-06-13T07:16:20Z" level=info msg="[DEBUG 2025-06-13T07:16:20.549Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:20Z" level=info msg="[DEBUG 2025-06-13T07:16:20.549Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:20Z" level=info msg="[DEBUG 2025-06-13T07:16:20.583Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:20Z" level=info msg="[DEBUG 2025-06-13T07:16:20.584Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:20Z" level=info msg="[DEBUG 2025-06-13T07:16:20.886Z] Upload successful for small-100KB.txt, took 5830ms, file ID: c9c1445d-648b-4df1-ab0e-457449fe4037" source=console
+
+running (0m51.9s), 5/5 VUs, 48 complete and 0 interrupted iterations
+default   [  38% ] 5 VUs  0m46.0s/2m0s
+time="2025-06-13T07:16:21Z" level=info msg="[DEBUG 2025-06-13T07:16:21.635Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:21Z" level=info msg="[DEBUG 2025-06-13T07:16:21.636Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:21Z" level=info msg="[DEBUG 2025-06-13T07:16:21.674Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:21Z" level=info msg="[DEBUG 2025-06-13T07:16:21.674Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m52.9s), 5/5 VUs, 48 complete and 0 interrupted iterations
+default   [  39% ] 5 VUs  0m47.0s/2m0s
+time="2025-06-13T07:16:22Z" level=info msg="[DEBUG 2025-06-13T07:16:22.533Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:22Z" level=info msg="[DEBUG 2025-06-13T07:16:22.534Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:23Z" level=info msg="[DEBUG 2025-06-13T07:16:23.054Z] Upload successful for small-100KB.txt, took 3484ms, file ID: 14ee450c-0191-4161-8dbd-7d060563f31d" source=console
+
+running (0m53.9s), 5/5 VUs, 49 complete and 0 interrupted iterations
+default   [  40% ] 5 VUs  0m48.0s/2m0s
+time="2025-06-13T07:16:23Z" level=info msg="[DEBUG 2025-06-13T07:16:23.941Z] Upload successful for small-100KB.txt, took 3357ms, file ID: 177bb42f-8526-456e-8ddc-748b2ee9ea3f" source=console
+
+running (0m54.9s), 5/5 VUs, 50 complete and 0 interrupted iterations
+default   [  41% ] 5 VUs  0m49.0s/2m0s
+time="2025-06-13T07:16:24Z" level=info msg="[DEBUG 2025-06-13T07:16:24.229Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:24Z" level=info msg="[DEBUG 2025-06-13T07:16:24.229Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:25Z" level=info msg="[DEBUG 2025-06-13T07:16:25.080Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:25Z" level=info msg="[DEBUG 2025-06-13T07:16:25.080Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (0m55.9s), 5/5 VUs, 51 complete and 0 interrupted iterations
+default   [  42% ] 5 VUs  0m50.0s/2m0s
+time="2025-06-13T07:16:25Z" level=info msg="[DEBUG 2025-06-13T07:16:25.351Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:25Z" level=info msg="[DEBUG 2025-06-13T07:16:25.352Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:25Z" level=info msg="[DEBUG 2025-06-13T07:16:25.402Z] Upload successful for small-100KB.txt, took 3728ms, file ID: 5caad108-d8da-4b46-9e5c-07e201fcf252" source=console
+
+running (0m56.9s), 5/5 VUs, 52 complete and 0 interrupted iterations
+default   [  42% ] 5 VUs  0m51.0s/2m0s
+time="2025-06-13T07:16:26Z" level=info msg="[DEBUG 2025-06-13T07:16:26.461Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:26Z" level=info msg="[DEBUG 2025-06-13T07:16:26.461Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:26Z" level=info msg="[DEBUG 2025-06-13T07:16:26.565Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:26Z" level=info msg="[DEBUG 2025-06-13T07:16:26.566Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:26Z" level=info msg="[DEBUG 2025-06-13T07:16:26.936Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:26Z" level=info msg="[DEBUG 2025-06-13T07:16:26.936Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:26Z" level=info msg="[DEBUG 2025-06-13T07:16:26.999Z] Upload successful for small-100KB.txt, took 2770ms, file ID: 240dac82-653e-414a-93e0-3cee1d166e80" source=console
+
+running (0m57.9s), 5/5 VUs, 54 complete and 0 interrupted iterations
+default   [  43% ] 5 VUs  0m52.0s/2m0s
+time="2025-06-13T07:16:27Z" level=info msg="[DEBUG 2025-06-13T07:16:27.908Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:27Z" level=info msg="[DEBUG 2025-06-13T07:16:27.908Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (0m58.9s), 5/5 VUs, 54 complete and 0 interrupted iterations
+default   [  44% ] 5 VUs  0m53.0s/2m0s
+time="2025-06-13T07:16:28Z" level=info msg="[DEBUG 2025-06-13T07:16:28.404Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:28Z" level=info msg="[DEBUG 2025-06-13T07:16:28.404Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:28Z" level=info msg="[DEBUG 2025-06-13T07:16:28.550Z] Upload successful for small-100KB.txt, took 3198ms, file ID: 707454c1-0e37-4f9c-8a71-a28d6315d405" source=console
+
+running (0m59.9s), 5/5 VUs, 55 complete and 0 interrupted iterations
+default   [  45% ] 5 VUs  0m54.0s/2m0s
+time="2025-06-13T07:16:29Z" level=info msg="[DEBUG 2025-06-13T07:16:29.586Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:29Z" level=info msg="[DEBUG 2025-06-13T07:16:29.586Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:29Z" level=info msg="[DEBUG 2025-06-13T07:16:29.884Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:29Z" level=info msg="[DEBUG 2025-06-13T07:16:29.884Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m00.9s), 5/5 VUs, 56 complete and 0 interrupted iterations
+default   [  46% ] 5 VUs  0m55.0s/2m0s
+time="2025-06-13T07:16:30Z" level=info msg="[DEBUG 2025-06-13T07:16:30.139Z] Upload successful for small-100KB.txt, took 3203ms, file ID: c4e195a7-45f3-4d42-aa15-7cd40990ccb1" source=console
+
+running (1m01.9s), 5/5 VUs, 57 complete and 0 interrupted iterations
+default   [  47% ] 5 VUs  0m56.0s/2m0s
+time="2025-06-13T07:16:31Z" level=info msg="[DEBUG 2025-06-13T07:16:31.093Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:31Z" level=info msg="[DEBUG 2025-06-13T07:16:31.094Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:31Z" level=info msg="[DEBUG 2025-06-13T07:16:31.491Z] Upload successful for small-100KB.txt, took 3583ms, file ID: 6c291ae3-d539-45dd-8748-166885d95cdc" source=console
+time="2025-06-13T07:16:31Z" level=info msg="[DEBUG 2025-06-13T07:16:31.492Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:31Z" level=info msg="[DEBUG 2025-06-13T07:16:31.492Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:31Z" level=info msg="[DEBUG 2025-06-13T07:16:31.694Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:31Z" level=info msg="[DEBUG 2025-06-13T07:16:31.694Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m02.9s), 5/5 VUs, 59 complete and 0 interrupted iterations
+default   [  47% ] 5 VUs  0m57.0s/2m0s
+time="2025-06-13T07:16:32Z" level=info msg="[DEBUG 2025-06-13T07:16:32.551Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:32Z" level=info msg="[DEBUG 2025-06-13T07:16:32.552Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:32Z" level=info msg="[DEBUG 2025-06-13T07:16:32.741Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:32Z" level=info msg="[DEBUG 2025-06-13T07:16:32.741Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m03.9s), 5/5 VUs, 59 complete and 0 interrupted iterations
+default   [  48% ] 5 VUs  0m58.0s/2m0s
+time="2025-06-13T07:16:33Z" level=info msg="[DEBUG 2025-06-13T07:16:33.113Z] Upload successful for small-100KB.txt, took 3229ms, file ID: 82c4e5d1-904f-4b54-b758-d024ac88ceda" source=console
+
+running (1m04.9s), 5/5 VUs, 60 complete and 0 interrupted iterations
+default   [  49% ] 5 VUs  0m59.0s/2m0s
+time="2025-06-13T07:16:34Z" level=info msg="[DEBUG 2025-06-13T07:16:34.098Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:34Z" level=info msg="[DEBUG 2025-06-13T07:16:34.098Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:34Z" level=info msg="[DEBUG 2025-06-13T07:16:34.417Z] Upload successful for small-100KB.txt, took 2722ms, file ID: 9207dd56-1331-419b-9680-83c04204c735" source=console
+
+running (1m05.9s), 5/5 VUs, 62 complete and 0 interrupted iterations
+default   [  50% ] 5 VUs  1m00.0s/2m0s
+time="2025-06-13T07:16:35Z" level=info msg="[DEBUG 2025-06-13T07:16:35.089Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:35Z" level=info msg="[DEBUG 2025-06-13T07:16:35.089Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:35Z" level=info msg="[DEBUG 2025-06-13T07:16:35.542Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:35Z" level=info msg="[DEBUG 2025-06-13T07:16:35.542Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:35Z" level=info msg="[DEBUG 2025-06-13T07:16:35.590Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:35Z" level=info msg="[DEBUG 2025-06-13T07:16:35.591Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:35Z" level=info msg="[DEBUG 2025-06-13T07:16:35.632Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:35Z" level=info msg="[DEBUG 2025-06-13T07:16:35.632Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (1m06.9s), 5/5 VUs, 63 complete and 0 interrupted iterations
+default   [  51% ] 5 VUs  1m01.0s/2m0s
+time="2025-06-13T07:16:36Z" level=info msg="[DEBUG 2025-06-13T07:16:36.339Z] Upload successful for small-100KB.txt, took 3786ms, file ID: 382d1809-edab-4408-bb2e-eaaa621c4474" source=console
+time="2025-06-13T07:16:36Z" level=info msg="[DEBUG 2025-06-13T07:16:36.946Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:36Z" level=info msg="[DEBUG 2025-06-13T07:16:36.946Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m07.9s), 5/5 VUs, 64 complete and 0 interrupted iterations
+default   [  52% ] 5 VUs  1m02.0s/2m0s
+time="2025-06-13T07:16:37Z" level=info msg="[DEBUG 2025-06-13T07:16:37.478Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:37Z" level=info msg="[DEBUG 2025-06-13T07:16:37.478Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:37Z" level=info msg="[DEBUG 2025-06-13T07:16:37.788Z] Upload successful for small-100KB.txt, took 2698ms, file ID: 7bad8369-d0da-4d56-8a63-1de5ccdb161e" source=console
+
+running (1m08.9s), 5/5 VUs, 65 complete and 0 interrupted iterations
+default   [  52% ] 5 VUs  1m03.0s/2m0s
+time="2025-06-13T07:16:38Z" level=info msg="[DEBUG 2025-06-13T07:16:38.652Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:38Z" level=info msg="[DEBUG 2025-06-13T07:16:38.652Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:38Z" level=info msg="[DEBUG 2025-06-13T07:16:38.948Z] Upload successful for small-100KB.txt, took 3357ms, file ID: e9d2f9df-76b2-40a4-a49e-8c12f878db1e" source=console
+
+running (1m09.9s), 5/5 VUs, 67 complete and 0 interrupted iterations
+default   [  53% ] 5 VUs  1m04.0s/2m0s
+time="2025-06-13T07:16:39Z" level=info msg="[DEBUG 2025-06-13T07:16:39.155Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:39Z" level=info msg="[DEBUG 2025-06-13T07:16:39.155Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:40Z" level=info msg="[DEBUG 2025-06-13T07:16:40.083Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:40Z" level=info msg="[DEBUG 2025-06-13T07:16:40.083Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m10.9s), 5/5 VUs, 67 complete and 0 interrupted iterations
+default   [  54% ] 5 VUs  1m05.0s/2m0s
+time="2025-06-13T07:16:40Z" level=info msg="[DEBUG 2025-06-13T07:16:40.149Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:40Z" level=info msg="[DEBUG 2025-06-13T07:16:40.149Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:40Z" level=info msg="[DEBUG 2025-06-13T07:16:40.317Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:40Z" level=info msg="[DEBUG 2025-06-13T07:16:40.317Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:40Z" level=info msg="[DEBUG 2025-06-13T07:16:40.605Z] Upload successful for small-100KB.txt, took 3659ms, file ID: f814eb98-b65f-4383-8da8-7efab7cf7ccf" source=console
+
+running (1m11.9s), 5/5 VUs, 69 complete and 0 interrupted iterations
+default   [  55% ] 5 VUs  1m06.0s/2m0s
+time="2025-06-13T07:16:41Z" level=info msg="[DEBUG 2025-06-13T07:16:41.636Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:41Z" level=info msg="[DEBUG 2025-06-13T07:16:41.636Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:41Z" level=info msg="[DEBUG 2025-06-13T07:16:41.884Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:41Z" level=info msg="[DEBUG 2025-06-13T07:16:41.885Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m12.9s), 5/5 VUs, 69 complete and 0 interrupted iterations
+default   [  56% ] 5 VUs  1m07.0s/2m0s
+time="2025-06-13T07:16:42Z" level=info msg="[DEBUG 2025-06-13T07:16:42.169Z] Upload successful for small-100KB.txt, took 3014ms, file ID: 0f141631-992a-42fa-9271-1f9a6dc98d2c" source=console
+
+running (1m13.9s), 5/5 VUs, 70 complete and 0 interrupted iterations
+default   [  57% ] 5 VUs  1m08.0s/2m0s
+time="2025-06-13T07:16:43Z" level=info msg="[DEBUG 2025-06-13T07:16:43.118Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:43Z" level=info msg="[DEBUG 2025-06-13T07:16:43.118Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:43Z" level=info msg="[DEBUG 2025-06-13T07:16:43.377Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:43Z" level=info msg="[DEBUG 2025-06-13T07:16:43.377Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:43Z" level=info msg="[DEBUG 2025-06-13T07:16:43.571Z] Upload successful for small-100KB.txt, took 3487ms, file ID: 522e9c4a-956f-4b1d-b827-c1f2e70e21d8" source=console
+
+running (1m14.9s), 5/5 VUs, 72 complete and 0 interrupted iterations
+default   [  57% ] 5 VUs  1m09.0s/2m0s
+time="2025-06-13T07:16:44Z" level=info msg="[DEBUG 2025-06-13T07:16:44.555Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:44Z" level=info msg="[DEBUG 2025-06-13T07:16:44.555Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:44Z" level=info msg="[DEBUG 2025-06-13T07:16:44.677Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:44Z" level=info msg="[DEBUG 2025-06-13T07:16:44.677Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (1m15.9s), 5/5 VUs, 73 complete and 0 interrupted iterations
+default   [  58% ] 5 VUs  1m10.0s/2m0s
+time="2025-06-13T07:16:45Z" level=info msg="[DEBUG 2025-06-13T07:16:45.310Z] Upload successful for small-100KB.txt, took 3674ms, file ID: ba8b7ffc-9405-4851-866f-bceb540e227e" source=console
+time="2025-06-13T07:16:45Z" level=info msg="[DEBUG 2025-06-13T07:16:45.359Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:45Z" level=info msg="[DEBUG 2025-06-13T07:16:45.359Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m16.9s), 5/5 VUs, 74 complete and 0 interrupted iterations
+default   [  59% ] 5 VUs  1m11.0s/2m0s
+time="2025-06-13T07:16:46Z" level=info msg="[DEBUG 2025-06-13T07:16:46.103Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:46Z" level=info msg="[DEBUG 2025-06-13T07:16:46.104Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:46Z" level=info msg="[DEBUG 2025-06-13T07:16:46.727Z] Upload successful for small-100KB.txt, took 3350ms, file ID: 4d34a36c-3c30-4a4a-b6f6-fa929d5f5d58" source=console
+
+running (1m17.9s), 5/5 VUs, 75 complete and 0 interrupted iterations
+default   [  60% ] 5 VUs  1m12.0s/2m0s
+time="2025-06-13T07:16:47Z" level=info msg="[DEBUG 2025-06-13T07:16:47.233Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:47Z" level=info msg="[DEBUG 2025-06-13T07:16:47.233Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:47Z" level=info msg="[DEBUG 2025-06-13T07:16:47.735Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:47Z" level=info msg="[DEBUG 2025-06-13T07:16:47.735Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:47Z" level=info msg="[DEBUG 2025-06-13T07:16:47.836Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:47Z" level=info msg="[DEBUG 2025-06-13T07:16:47.836Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (1m18.9s), 5/5 VUs, 76 complete and 0 interrupted iterations
+default   [  61% ] 5 VUs  1m13.0s/2m0s
+time="2025-06-13T07:16:48Z" level=info msg="[DEBUG 2025-06-13T07:16:48.304Z] Upload successful for small-100KB.txt, took 3748ms, file ID: f09bc4cf-1cea-4953-b4c7-6b09f6d2f481" source=console
+
+running (1m19.9s), 5/5 VUs, 77 complete and 0 interrupted iterations
+default   [  62% ] 5 VUs  1m14.0s/2m0s
+time="2025-06-13T07:16:49Z" level=info msg="[DEBUG 2025-06-13T07:16:49.218Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:49Z" level=info msg="[DEBUG 2025-06-13T07:16:49.218Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:49Z" level=info msg="[DEBUG 2025-06-13T07:16:49.508Z] Upload successful for small-100KB.txt, took 3403ms, file ID: 845d681e-aa0e-4657-9e2a-1abfdd5b0957" source=console
+time="2025-06-13T07:16:49Z" level=info msg="[DEBUG 2025-06-13T07:16:49.694Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:49Z" level=info msg="[DEBUG 2025-06-13T07:16:49.695Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m20.9s), 5/5 VUs, 79 complete and 0 interrupted iterations
+default   [  62% ] 5 VUs  1m15.0s/2m0s
+time="2025-06-13T07:16:50Z" level=info msg="[DEBUG 2025-06-13T07:16:50.138Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:50Z" level=info msg="[DEBUG 2025-06-13T07:16:50.138Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:53Z" level=info msg="[DEBUG 2025-06-13T07:16:53.914Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:53Z" level=info msg="[DEBUG 2025-06-13T07:16:53.914Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m24.8s), 5/5 VUs, 79 complete and 0 interrupted iterations
+default   [  63% ] 5 VUs  1m16.0s/2m0s
+time="2025-06-13T07:16:54Z" level=info msg="[DEBUG 2025-06-13T07:16:54.076Z] Upload successful for small-100KB.txt, took 6341ms, file ID: 6b65f825-f6eb-46b9-951a-09946b797452" source=console
+time="2025-06-13T07:16:54Z" level=info msg="[DEBUG 2025-06-13T07:16:54.222Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:54Z" level=info msg="[DEBUG 2025-06-13T07:16:54.222Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m25.8s), 5/5 VUs, 80 complete and 0 interrupted iterations
+default   [  64% ] 5 VUs  1m17.0s/2m0s
+time="2025-06-13T07:16:55Z" level=info msg="[DEBUG 2025-06-13T07:16:55.216Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:55Z" level=info msg="[DEBUG 2025-06-13T07:16:55.217Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:16:55Z" level=info msg="[DEBUG 2025-06-13T07:16:55.496Z] Upload successful for small-100KB.txt, took 5358ms, file ID: 6fc4d5e8-4982-4ccb-bb69-8bd09358734b" source=console
+time="2025-06-13T07:16:55Z" level=info msg="[DEBUG 2025-06-13T07:16:55.809Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:55Z" level=info msg="[DEBUG 2025-06-13T07:16:55.809Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m26.8s), 5/5 VUs, 82 complete and 0 interrupted iterations
+default   [  65% ] 5 VUs  1m18.0s/2m0s
+time="2025-06-13T07:16:56Z" level=info msg="[DEBUG 2025-06-13T07:16:56.518Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:56Z" level=info msg="[DEBUG 2025-06-13T07:16:56.518Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:56Z" level=info msg="[DEBUG 2025-06-13T07:16:56.729Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:56Z" level=info msg="[DEBUG 2025-06-13T07:16:56.729Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (1m27.8s), 5/5 VUs, 83 complete and 0 interrupted iterations
+default   [  66% ] 5 VUs  1m19.0s/2m0s
+time="2025-06-13T07:16:57Z" level=info msg="[DEBUG 2025-06-13T07:16:57.087Z] Upload successful for small-100KB.txt, took 3173ms, file ID: cf0d6796-73e7-4ac2-822e-44334dfbc681" source=console
+time="2025-06-13T07:16:57Z" level=info msg="[DEBUG 2025-06-13T07:16:57.120Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:57Z" level=info msg="[DEBUG 2025-06-13T07:16:57.121Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:57Z" level=info msg="[DEBUG 2025-06-13T07:16:57.883Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:57Z" level=info msg="[DEBUG 2025-06-13T07:16:57.883Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m28.8s), 5/5 VUs, 84 complete and 0 interrupted iterations
+default   [  67% ] 5 VUs  1m20.0s/2m0s
+time="2025-06-13T07:16:58Z" level=info msg="[DEBUG 2025-06-13T07:16:58.667Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:16:58Z" level=info msg="[DEBUG 2025-06-13T07:16:58.668Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:16:58Z" level=info msg="[DEBUG 2025-06-13T07:16:58.896Z] Upload successful for small-100KB.txt, took 3087ms, file ID: 8fc4f0ab-39e7-4334-aaa0-d64bbd7eebe9" source=console
+
+running (1m29.8s), 5/5 VUs, 85 complete and 0 interrupted iterations
+default   [  67% ] 5 VUs  1m21.0s/2m0s
+time="2025-06-13T07:16:59Z" level=info msg="[DEBUG 2025-06-13T07:16:59.811Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:16:59Z" level=info msg="[DEBUG 2025-06-13T07:16:59.811Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (1m30.8s), 5/5 VUs, 86 complete and 0 interrupted iterations
+default   [  68% ] 5 VUs  1m22.0s/2m0s
+time="2025-06-13T07:17:00Z" level=info msg="[DEBUG 2025-06-13T07:17:00.090Z] Upload successful for small-100KB.txt, took 2969ms, file ID: 73ed0b16-e083-4f64-80ca-67a32a7efbe2" source=console
+time="2025-06-13T07:17:00Z" level=info msg="[DEBUG 2025-06-13T07:17:00.170Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:00Z" level=info msg="[DEBUG 2025-06-13T07:17:00.170Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m31.8s), 5/5 VUs, 87 complete and 0 interrupted iterations
+default   [  69% ] 5 VUs  1m23.0s/2m0s
+time="2025-06-13T07:17:01Z" level=info msg="[DEBUG 2025-06-13T07:17:01.317Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:01Z" level=info msg="[DEBUG 2025-06-13T07:17:01.318Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:01Z" level=info msg="[DEBUG 2025-06-13T07:17:01.333Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:01Z" level=info msg="[DEBUG 2025-06-13T07:17:01.333Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:17:01Z" level=info msg="[DEBUG 2025-06-13T07:17:01.558Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:01Z" level=info msg="[DEBUG 2025-06-13T07:17:01.558Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:01Z" level=info msg="[DEBUG 2025-06-13T07:17:01.850Z] Upload successful for small-100KB.txt, took 3966ms, file ID: 93f6a092-28f7-40d0-9f90-de9ad9ce6a22" source=console
+
+running (1m32.8s), 5/5 VUs, 89 complete and 0 interrupted iterations
+default   [  70% ] 5 VUs  1m24.0s/2m0s
+time="2025-06-13T07:17:02Z" level=info msg="[DEBUG 2025-06-13T07:17:02.437Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:02Z" level=info msg="[DEBUG 2025-06-13T07:17:02.438Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m33.8s), 5/5 VUs, 89 complete and 0 interrupted iterations
+default   [  71% ] 5 VUs  1m25.0s/2m0s
+time="2025-06-13T07:17:03Z" level=info msg="[DEBUG 2025-06-13T07:17:03.318Z] Upload successful for small-100KB.txt, took 3148ms, file ID: c18496ee-d810-49c4-bb7b-b4a5c20e6ba6" source=console
+time="2025-06-13T07:17:03Z" level=info msg="[DEBUG 2025-06-13T07:17:03.835Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:03Z" level=info msg="[DEBUG 2025-06-13T07:17:03.835Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m34.8s), 5/5 VUs, 90 complete and 0 interrupted iterations
+default   [  72% ] 5 VUs  1m26.0s/2m0s
+time="2025-06-13T07:17:04Z" level=info msg="[DEBUG 2025-06-13T07:17:04.433Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:04Z" level=info msg="[DEBUG 2025-06-13T07:17:04.434Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (1m35.8s), 5/5 VUs, 91 complete and 0 interrupted iterations
+default   [  72% ] 5 VUs  1m27.0s/2m0s
+time="2025-06-13T07:17:05Z" level=info msg="[DEBUG 2025-06-13T07:17:05.147Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:05Z" level=info msg="[DEBUG 2025-06-13T07:17:05.147Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:05Z" level=info msg="[DEBUG 2025-06-13T07:17:05.576Z] Upload successful for small-100KB.txt, took 4258ms, file ID: bf4021e4-59f7-47f4-aba7-bfe4c182969e" source=console
+time="2025-06-13T07:17:05Z" level=info msg="[DEBUG 2025-06-13T07:17:05.916Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:05Z" level=info msg="[DEBUG 2025-06-13T07:17:05.916Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (1m36.8s), 5/5 VUs, 93 complete and 0 interrupted iterations
+default   [  73% ] 5 VUs  1m28.0s/2m0s
+time="2025-06-13T07:17:06Z" level=info msg="[DEBUG 2025-06-13T07:17:06.233Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:06Z" level=info msg="[DEBUG 2025-06-13T07:17:06.233Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:06Z" level=info msg="[DEBUG 2025-06-13T07:17:06.367Z] Upload successful for small-100KB.txt, took 2532ms, file ID: eb575078-80c4-4ac7-85a4-2a90b588963f" source=console
+time="2025-06-13T07:17:06Z" level=info msg="[DEBUG 2025-06-13T07:17:06.679Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:06Z" level=info msg="[DEBUG 2025-06-13T07:17:06.679Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m37.8s), 5/5 VUs, 94 complete and 0 interrupted iterations
+default   [  74% ] 5 VUs  1m29.0s/2m0s
+time="2025-06-13T07:17:07Z" level=info msg="[DEBUG 2025-06-13T07:17:07.641Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:07Z" level=info msg="[DEBUG 2025-06-13T07:17:07.642Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:07Z" level=info msg="[DEBUG 2025-06-13T07:17:07.776Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:07Z" level=info msg="[DEBUG 2025-06-13T07:17:07.777Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:07Z" level=info msg="[DEBUG 2025-06-13T07:17:07.818Z] Upload successful for small-100KB.txt, took 2671ms, file ID: 4a023d23-dc19-4231-9411-c446f2886749" source=console
+
+running (1m38.8s), 5/5 VUs, 95 complete and 0 interrupted iterations
+default   [  75% ] 5 VUs  1m30.0s/2m0s
+time="2025-06-13T07:17:08Z" level=info msg="[DEBUG 2025-06-13T07:17:08.893Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:08Z" level=info msg="[DEBUG 2025-06-13T07:17:08.893Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:08Z" level=info msg="[DEBUG 2025-06-13T07:17:08.946Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:08Z" level=info msg="[DEBUG 2025-06-13T07:17:08.946Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (1m39.8s), 5/5 VUs, 96 complete and 0 interrupted iterations
+default   [  76% ] 5 VUs  1m31.0s/2m0s
+time="2025-06-13T07:17:09Z" level=info msg="[DEBUG 2025-06-13T07:17:09.450Z] Upload successful for small-100KB.txt, took 2771ms, file ID: f2ecbae7-5671-4bed-aae3-60c9f98d2eee" source=console
+time="2025-06-13T07:17:09Z" level=info msg="[DEBUG 2025-06-13T07:17:09.952Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:09Z" level=info msg="[DEBUG 2025-06-13T07:17:09.952Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m40.8s), 5/5 VUs, 97 complete and 0 interrupted iterations
+default   [  77% ] 5 VUs  1m32.0s/2m0s
+time="2025-06-13T07:17:10Z" level=info msg="[DEBUG 2025-06-13T07:17:10.483Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:10Z" level=info msg="[DEBUG 2025-06-13T07:17:10.483Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:17:10Z" level=info msg="[DEBUG 2025-06-13T07:17:10.816Z] Upload successful for small-100KB.txt, took 3174ms, file ID: 1bbcb303-678a-491d-9a6b-d191feb42efc" source=console
+
+running (1m41.8s), 5/5 VUs, 99 complete and 0 interrupted iterations
+default   [  77% ] 5 VUs  1m33.0s/2m0s
+time="2025-06-13T07:17:11Z" level=info msg="[DEBUG 2025-06-13T07:17:11.299Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:11Z" level=info msg="[DEBUG 2025-06-13T07:17:11.300Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:12Z" level=info msg="[DEBUG 2025-06-13T07:17:12.000Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:12Z" level=info msg="[DEBUG 2025-06-13T07:17:12.001Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (1m42.8s), 5/5 VUs, 100 complete and 0 interrupted iterations
+default   [  78% ] 5 VUs  1m34.0s/2m0s
+time="2025-06-13T07:17:12Z" level=info msg="[DEBUG 2025-06-13T07:17:12.094Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:12Z" level=info msg="[DEBUG 2025-06-13T07:17:12.094Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:12Z" level=info msg="[DEBUG 2025-06-13T07:17:12.360Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:12Z" level=info msg="[DEBUG 2025-06-13T07:17:12.360Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:12Z" level=info msg="[DEBUG 2025-06-13T07:17:12.425Z] Upload successful for small-100KB.txt, took 3532ms, file ID: e017f60d-9a09-4f42-a8f9-cc60a81076bc" source=console
+
+running (1m43.8s), 5/5 VUs, 101 complete and 0 interrupted iterations
+default   [  79% ] 5 VUs  1m35.0s/2m0s
+time="2025-06-13T07:17:13Z" level=info msg="[DEBUG 2025-06-13T07:17:13.301Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:13Z" level=info msg="[DEBUG 2025-06-13T07:17:13.301Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:13Z" level=info msg="[DEBUG 2025-06-13T07:17:13.911Z] Upload successful for small-100KB.txt, took 2611ms, file ID: d72aec4e-9c0d-4a9e-9ea3-f94534a05871" source=console
+time="2025-06-13T07:17:13Z" level=info msg="[DEBUG 2025-06-13T07:17:13.964Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:13Z" level=info msg="[DEBUG 2025-06-13T07:17:13.964Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m44.8s), 5/5 VUs, 102 complete and 0 interrupted iterations
+default   [  80% ] 5 VUs  1m36.0s/2m0s
+time="2025-06-13T07:17:14Z" level=info msg="[DEBUG 2025-06-13T07:17:14.960Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:14Z" level=info msg="[DEBUG 2025-06-13T07:17:14.961Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m45.8s), 5/5 VUs, 102 complete and 0 interrupted iterations
+default   [  81% ] 5 VUs  1m37.0s/2m0s
+time="2025-06-13T07:17:15Z" level=info msg="[DEBUG 2025-06-13T07:17:15.045Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:15Z" level=info msg="[DEBUG 2025-06-13T07:17:15.046Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:17:15Z" level=info msg="[DEBUG 2025-06-13T07:17:15.337Z] Upload successful for small-100KB.txt, took 2977ms, file ID: d5e8b8c5-24c0-4b62-a4fd-89647f187221" source=console
+
+running (1m46.8s), 5/5 VUs, 104 complete and 0 interrupted iterations
+default   [  82% ] 5 VUs  1m38.0s/2m0s
+time="2025-06-13T07:17:16Z" level=info msg="[DEBUG 2025-06-13T07:17:16.401Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:16Z" level=info msg="[DEBUG 2025-06-13T07:17:16.401Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:16Z" level=info msg="[DEBUG 2025-06-13T07:17:16.577Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:16Z" level=info msg="[DEBUG 2025-06-13T07:17:16.577Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:17:16Z" level=info msg="[DEBUG 2025-06-13T07:17:16.583Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:16Z" level=info msg="[DEBUG 2025-06-13T07:17:16.584Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m47.8s), 5/5 VUs, 105 complete and 0 interrupted iterations
+default   [  82% ] 5 VUs  1m39.0s/2m0s
+time="2025-06-13T07:17:17Z" level=info msg="[DEBUG 2025-06-13T07:17:17.223Z] Upload successful for small-100KB.txt, took 3922ms, file ID: 8a8510ca-94ec-4f74-a27f-67eb0def1910" source=console
+time="2025-06-13T07:17:17Z" level=info msg="[DEBUG 2025-06-13T07:17:17.580Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:17Z" level=info msg="[DEBUG 2025-06-13T07:17:17.580Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m48.8s), 5/5 VUs, 106 complete and 0 interrupted iterations
+default   [  83% ] 5 VUs  1m40.0s/2m0s
+time="2025-06-13T07:17:18Z" level=info msg="[DEBUG 2025-06-13T07:17:18.348Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:18Z" level=info msg="[DEBUG 2025-06-13T07:17:18.349Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:18Z" level=info msg="[DEBUG 2025-06-13T07:17:18.478Z] Upload successful for small-100KB.txt, took 3517ms, file ID: 42de724a-993a-4fb6-9897-df6dc5d78d9e" source=console
+
+running (1m49.8s), 5/5 VUs, 107 complete and 0 interrupted iterations
+default   [  84% ] 5 VUs  1m41.0s/2m0s
+time="2025-06-13T07:17:19Z" level=info msg="[DEBUG 2025-06-13T07:17:19.706Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:19Z" level=info msg="[DEBUG 2025-06-13T07:17:19.706Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:17:19Z" level=info msg="[DEBUG 2025-06-13T07:17:19.957Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:19Z" level=info msg="[DEBUG 2025-06-13T07:17:19.958Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m50.8s), 5/5 VUs, 108 complete and 0 interrupted iterations
+default   [  85% ] 5 VUs  1m42.0s/2m0s
+time="2025-06-13T07:17:20Z" level=info msg="[DEBUG 2025-06-13T07:17:20.032Z] Upload successful for small-100KB.txt, took 3631ms, file ID: b8bd16b7-3ca1-4087-b0ef-abe088e0c95d" source=console
+
+running (1m51.8s), 5/5 VUs, 109 complete and 0 interrupted iterations
+default   [  86% ] 5 VUs  1m43.0s/2m0s
+time="2025-06-13T07:17:21Z" level=info msg="[DEBUG 2025-06-13T07:17:21.067Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:21Z" level=info msg="[DEBUG 2025-06-13T07:17:21.067Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:21Z" level=info msg="[DEBUG 2025-06-13T07:17:21.200Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:21Z" level=info msg="[DEBUG 2025-06-13T07:17:21.201Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:17:21Z" level=info msg="[DEBUG 2025-06-13T07:17:21.608Z] Upload successful for small-100KB.txt, took 3259ms, file ID: 528df148-3232-4774-af43-ea947b7a602b" source=console
+time="2025-06-13T07:17:21Z" level=info msg="[DEBUG 2025-06-13T07:17:21.742Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:21Z" level=info msg="[DEBUG 2025-06-13T07:17:21.742Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m52.8s), 5/5 VUs, 111 complete and 0 interrupted iterations
+default   [  87% ] 5 VUs  1m44.0s/2m0s
+time="2025-06-13T07:17:22Z" level=info msg="[DEBUG 2025-06-13T07:17:22.745Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:22Z" level=info msg="[DEBUG 2025-06-13T07:17:22.746Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:22Z" level=info msg="[DEBUG 2025-06-13T07:17:22.923Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:22Z" level=info msg="[DEBUG 2025-06-13T07:17:22.924Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m53.8s), 5/5 VUs, 111 complete and 0 interrupted iterations
+default   [  87% ] 5 VUs  1m45.0s/2m0s
+time="2025-06-13T07:17:23Z" level=info msg="[DEBUG 2025-06-13T07:17:23.292Z] Upload successful for small-100KB.txt, took 3334ms, file ID: 80fc9507-5e82-4f0e-8ada-d12d7ff68781" source=console
+
+running (1m54.8s), 5/5 VUs, 112 complete and 0 interrupted iterations
+default   [  88% ] 5 VUs  1m46.0s/2m0s
+time="2025-06-13T07:17:24Z" level=info msg="[DEBUG 2025-06-13T07:17:24.225Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:24Z" level=info msg="[DEBUG 2025-06-13T07:17:24.225Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:17:24Z" level=info msg="[DEBUG 2025-06-13T07:17:24.545Z] Upload successful for small-100KB.txt, took 2802ms, file ID: 22eb7347-b06c-47b5-a14c-1d393523d1a5" source=console
+time="2025-06-13T07:17:24Z" level=info msg="[DEBUG 2025-06-13T07:17:24.918Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:24Z" level=info msg="[DEBUG 2025-06-13T07:17:24.919Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (1m55.8s), 5/5 VUs, 114 complete and 0 interrupted iterations
+default   [  89% ] 5 VUs  1m47.0s/2m0s
+time="2025-06-13T07:17:25Z" level=info msg="[DEBUG 2025-06-13T07:17:25.399Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:25Z" level=info msg="[DEBUG 2025-06-13T07:17:25.399Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:28Z" level=info msg="[DEBUG 2025-06-13T07:17:28.670Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:28Z" level=info msg="[DEBUG 2025-06-13T07:17:28.670Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:28Z" level=info msg="[DEBUG 2025-06-13T07:17:28.685Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:28Z" level=info msg="[DEBUG 2025-06-13T07:17:28.685Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (1m59.7s), 5/5 VUs, 115 complete and 0 interrupted iterations
+default   [  90% ] 5 VUs  1m48.0s/2m0s
+time="2025-06-13T07:17:29Z" level=info msg="[DEBUG 2025-06-13T07:17:29.333Z] Upload successful for small-100KB.txt, took 6586ms, file ID: 1e0ac9b3-df43-48b3-ad9f-8483da3ecb52" source=console
+
+running (2m00.7s), 5/5 VUs, 116 complete and 0 interrupted iterations
+default   [  91% ] 5 VUs  1m49.0s/2m0s
+time="2025-06-13T07:17:30Z" level=info msg="[DEBUG 2025-06-13T07:17:30.226Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:30Z" level=info msg="[DEBUG 2025-06-13T07:17:30.227Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:17:30Z" level=info msg="[DEBUG 2025-06-13T07:17:30.355Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:30Z" level=info msg="[DEBUG 2025-06-13T07:17:30.355Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:30Z" level=info msg="[DEBUG 2025-06-13T07:17:30.652Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:30Z" level=info msg="[DEBUG 2025-06-13T07:17:30.652Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:30Z" level=info msg="[DEBUG 2025-06-13T07:17:30.894Z] Upload successful for small-100KB.txt, took 5975ms, file ID: c92cae6c-7f59-49da-98c1-478a79d8ab37" source=console
+
+running (2m01.7s), 5/5 VUs, 118 complete and 0 interrupted iterations
+default   [  92% ] 5 VUs  1m50.0s/2m0s
+time="2025-06-13T07:17:31Z" level=info msg="[DEBUG 2025-06-13T07:17:31.345Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:31Z" level=info msg="[DEBUG 2025-06-13T07:17:31.345Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (2m02.7s), 5/5 VUs, 118 complete and 0 interrupted iterations
+default   [  92% ] 5 VUs  1m51.0s/2m0s
+time="2025-06-13T07:17:32Z" level=info msg="[DEBUG 2025-06-13T07:17:32.040Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:32Z" level=info msg="[DEBUG 2025-06-13T07:17:32.040Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:32Z" level=info msg="[DEBUG 2025-06-13T07:17:32.259Z] Upload successful for small-100KB.txt, took 3589ms, file ID: dc4a707f-d818-4d8f-9d00-11bde61699ae" source=console
+
+running (2m03.7s), 5/5 VUs, 119 complete and 0 interrupted iterations
+default   [  93% ] 5 VUs  1m52.0s/2m0s
+time="2025-06-13T07:17:33Z" level=info msg="[DEBUG 2025-06-13T07:17:33.658Z] Upload successful for small-100KB.txt, took 3303ms, file ID: e126971b-555a-4e50-8769-75bbdb19ead3" source=console
+
+running (2m04.7s), 5/5 VUs, 120 complete and 0 interrupted iterations
+default   [  94% ] 5 VUs  1m53.0s/2m0s
+time="2025-06-13T07:17:33Z" level=info msg="[DEBUG 2025-06-13T07:17:33.980Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:33Z" level=info msg="[DEBUG 2025-06-13T07:17:33.980Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:34Z" level=info msg="[DEBUG 2025-06-13T07:17:34.786Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:34Z" level=info msg="[DEBUG 2025-06-13T07:17:34.786Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (2m05.7s), 5/5 VUs, 121 complete and 0 interrupted iterations
+default   [  95% ] 5 VUs  1m54.0s/2m0s
+time="2025-06-13T07:17:35Z" level=info msg="[DEBUG 2025-06-13T07:17:35.013Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:35Z" level=info msg="[DEBUG 2025-06-13T07:17:35.013Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:35Z" level=info msg="[DEBUG 2025-06-13T07:17:35.159Z] Upload successful for small-100KB.txt, took 3814ms, file ID: 8b1a86da-00d7-4464-8bd7-0455546ab79f" source=console
+
+running (2m06.7s), 5/5 VUs, 122 complete and 0 interrupted iterations
+default   [  96% ] 5 VUs  1m55.0s/2m0s
+time="2025-06-13T07:17:36Z" level=info msg="[DEBUG 2025-06-13T07:17:36.264Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:36Z" level=info msg="[DEBUG 2025-06-13T07:17:36.264Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:17:36Z" level=info msg="[DEBUG 2025-06-13T07:17:36.588Z] Upload successful for small-100KB.txt, took 2608ms, file ID: 54d7ac33-e866-464c-8f8a-42299b326cd2" source=console
+time="2025-06-13T07:17:36Z" level=info msg="[DEBUG 2025-06-13T07:17:36.599Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:36Z" level=info msg="[DEBUG 2025-06-13T07:17:36.600Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:36Z" level=info msg="[DEBUG 2025-06-13T07:17:36.627Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:36Z" level=info msg="[DEBUG 2025-06-13T07:17:36.627Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (2m07.7s), 5/5 VUs, 124 complete and 0 interrupted iterations
+default   [  97% ] 5 VUs  1m56.0s/2m0s
+time="2025-06-13T07:17:37Z" level=info msg="[DEBUG 2025-06-13T07:17:37.859Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:37Z" level=info msg="[DEBUG 2025-06-13T07:17:37.859Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (2m08.7s), 5/5 VUs, 124 complete and 0 interrupted iterations
+default   [  97% ] 5 VUs  1m57.0s/2m0s
+time="2025-06-13T07:17:38Z" level=info msg="[DEBUG 2025-06-13T07:17:38.139Z] Upload successful for small-100KB.txt, took 3126ms, file ID: 54f491fd-352a-471a-b999-1e1bd7801478" source=console
+time="2025-06-13T07:17:38Z" level=info msg="[DEBUG 2025-06-13T07:17:38.368Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:38Z" level=info msg="[DEBUG 2025-06-13T07:17:38.368Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (2m09.7s), 5/5 VUs, 125 complete and 0 interrupted iterations
+default   [  98% ] 5 VUs  1m58.0s/2m0s
+time="2025-06-13T07:17:39Z" level=info msg="[DEBUG 2025-06-13T07:17:39.269Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:39Z" level=info msg="[DEBUG 2025-06-13T07:17:39.270Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+time="2025-06-13T07:17:39Z" level=info msg="[DEBUG 2025-06-13T07:17:39.333Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:39Z" level=info msg="[DEBUG 2025-06-13T07:17:39.333Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:39Z" level=info msg="[DEBUG 2025-06-13T07:17:39.604Z] Upload successful for small-100KB.txt, took 2977ms, file ID: 5eaa9a58-2ec8-4b6f-8849-fb3ab7244f46" source=console
+
+running (2m10.7s), 5/5 VUs, 127 complete and 0 interrupted iterations
+default   [  99% ] 5 VUs  1m59.0s/2m0s
+time="2025-06-13T07:17:40Z" level=info msg="[DEBUG 2025-06-13T07:17:40.835Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:40Z" level=info msg="[DEBUG 2025-06-13T07:17:40.835Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (2m11.7s), 5/5 VUs, 128 complete and 0 interrupted iterations
+default   [ 100% ] 5 VUs  2m00.0s/2m0s
+time="2025-06-13T07:17:40Z" level=info msg="[DEBUG 2025-06-13T07:17:40.972Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:40Z" level=info msg="[DEBUG 2025-06-13T07:17:40.972Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:41Z" level=info msg="[DEBUG 2025-06-13T07:17:41.213Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:41Z" level=info msg="[DEBUG 2025-06-13T07:17:41.213Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+time="2025-06-13T07:17:41Z" level=info msg="[DEBUG 2025-06-13T07:17:41.265Z] Upload successful for small-100KB.txt, took 3406ms, file ID: c92aedaf-8d11-4700-8a8e-cf03604dddd0" source=console
+
+running (2m12.7s), 4/5 VUs, 129 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+time="2025-06-13T07:17:42Z" level=info msg="[DEBUG 2025-06-13T07:17:42.430Z] Starting upload of small-100KB.txt (102400 bytes) from path /home/dev/WYSWYG/Load Testing/test_files/small-100KB.txt" source=console
+time="2025-06-13T07:17:42Z" level=info msg="[DEBUG 2025-06-13T07:17:42.430Z] HTTP request prepared, sending to https://axxessio.wyswyg.in/api/v1/files/" source=console
+
+running (2m13.7s), 4/5 VUs, 129 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+time="2025-06-13T07:17:43Z" level=info msg="[DEBUG 2025-06-13T07:17:43.089Z] Upload successful for small-100KB.txt, took 3756ms, file ID: 20a57376-4f90-4725-b823-d1d09af9880f" source=console
+time="2025-06-13T07:17:43Z" level=info msg="[DEBUG 2025-06-13T07:17:43.872Z] Upload FAILED for small-100KB.txt: Status 500" source=console
+time="2025-06-13T07:17:43Z" level=info msg="[DEBUG 2025-06-13T07:17:43.872Z] Response body: {\"detail\":\"Failed to convert file to PDF\"}" source=console
+
+running (2m14.7s), 2/5 VUs, 131 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+time="2025-06-13T07:17:44Z" level=info msg="[DEBUG 2025-06-13T07:17:44.258Z] Upload successful for small-100KB.txt, took 3286ms, file ID: 0d6e28bd-2be3-4d13-bbb8-b83f5fd0c1c0" source=console
+
+running (2m15.7s), 1/5 VUs, 132 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+time="2025-06-13T07:17:45Z" level=info msg="[DEBUG 2025-06-13T07:17:45.683Z] Upload successful for small-100KB.txt, took 3253ms, file ID: 05a70dfd-ec30-4cc8-92bc-a84098f0bae9" source=console
+
+
+  █ THRESHOLDS 
+
+    http_req_duration
+    ✗ 'p(95)<3000' p(95)=5.65s
+
+    http_req_failed
+    ✗ 'rate<0.05' rate=39.84%
+
+    success_rate
+    ✗ 'rate>0.95' rate=60.15%
+
+
+  █ TOTAL RESULTS 
+
+    CUSTOM
+    connection_time.........................................................: avg=9.576647    min=0           med=0           max=260.460236  p(90)=0         p(95)=0           p(99)=256.783402 
+    success_rate............................................................: 60.15%   80 out of 133
+    time_to_first_byte......................................................: avg=3341.401168 min=1969.800546 med=3153.089633 max=6586.183979 p(90)=4908.8776 p(95)=5652.819265 p(99)=6479.588792
+    upload_duration.........................................................: avg=3364.601504 min=1970        med=3158        max=6586        p(90)=4908.6    p(95)=5733.4      p(99)=6479.72    
+    uploaded_bytes..........................................................: 13619200 99808.884538/s
+
+    HTTP
+    http_req_duration.......................................................: avg=3.34s       min=1.97s       med=3.15s       max=6.58s       p(90)=4.9s      p(95)=5.65s       p(99)=6.47s      
+      { expected_response:true }............................................: avg=3.52s       min=2.43s       med=3.31s       max=6.58s       p(90)=4.36s     p(95)=5.83s       p(99)=6.55s      
+    http_req_failed.........................................................: 39.84%   53 out of 133
+    http_reqs...............................................................: 133      0.974696/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=4.61s       min=3.05s       med=4.56s       max=7.81s       p(90)=5.06s     p(95)=5.37s       p(99)=7.07s      
+    iterations..............................................................: 133      0.974696/s
+    vus.....................................................................: 1        min=1          max=5
+    vus_max.................................................................: 5        min=5          max=5
+
+    NETWORK
+    data_received...........................................................: 102 kB   745 B/s
+    data_sent...............................................................: 98 kB    721 B/s
+
+
+
+
+running (2m16.5s), 0/5 VUs, 133 complete and 0 interrupted iterations
+default ✓ [ 100% ] 5 VUs  2m0s
+time="2025-06-13T07:17:46Z" level=error msg="thresholds on metrics 'http_req_duration, http_req_failed, success_rate' have been crossed"

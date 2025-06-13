@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Load Testing Analytics Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #2c3e50, #34495e);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .success { color: #27ae60; }
+        .failure { color: #e74c3c; }
+        .info { color: #3498db; }
+        .warning { color: #f39c12; }
+        
+        .charts-section {
+            padding: 30px;
+        }
+        
+        .chart-container {
+            margin: 30px 0;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .chart-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .recommendations {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .recommendations h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Load Testing Analytics Dashboard</h1>
+            <p>Generated on 2025-06-13 06:35:25</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value success">40</div>
+                <h3>✅ Successful Uploads</h3>
+                <p>78.4% Success Rate</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-value failure">11</div>
+                <h3>❌ Failed Uploads</h3>
+                <p>21.6% Failure Rate</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-value info">3541ms</div>
+                <h3>⏱️ Average Response Time</h3>
+                <p>Overall Performance</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-value warning">51</div>
+                <h3>📊 Total Tests</h3>
+                <p>Requests Processed</p>
+            </div>
+        </div>
+        
+        <div class="charts-section">
+            <div class="chart-container">
+                <h3 class="chart-title">📈 Success vs Failure Rate</h3>
+                <canvas id="successChart" width="400" height="200"></canvas>
+            </div>
+            
+            <div class="chart-container">
+                <h3 class="chart-title">📁 File Types Distribution</h3>
+                <canvas id="fileTypesChart" width="400" height="200"></canvas>
+            </div>
+            
+            <div class="chart-container">
+                <h3 class="chart-title">⏱️ Response Time Trend</h3>
+                <canvas id="responseTimeChart" width="400" height="200"></canvas>
+            </div>
+            
+            <div class="recommendations">
+                <h3>💡 Performance Recommendations</h3>
+                <ul><li>⚠️ <strong>Moderate Issues:</strong> Some optimization needed for better reliability</li><li>⚡ <strong>Good Response Times:</strong> Performance within acceptable range</li><li>🔧 <strong>Server Errors (500):</strong> Check PDF conversion process and server resources</li><li>📋 <strong>General Suggestions:</strong></li><li>• Monitor PDF conversion process under load</li><li>• Consider implementing file upload queuing</li><li>• Review server resource allocation</li><li>• Implement progressive upload for large files</li></ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Load Testing Analytics Dashboard | Generated by k6 Log Analyzer</p>
+        </div>
+    </div>
+    
+    <script>
+        // Success vs Failure Chart
+        const successCtx = document.getElementById('successChart').getContext('2d');
+        new Chart(successCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Success', 'Failure'],
+                datasets: [{
+                    data: [40, 11],
+                    backgroundColor: ['#27ae60', '#e74c3c'],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+        
+        // File Types Chart
+        const fileTypesCtx = document.getElementById('fileTypesChart').getContext('2d');
+        new Chart(fileTypesCtx, {
+            type: 'bar',
+            data: {
+                labels: ["docx", "xlsx", "pptx", "txt"],
+                datasets: [{
+                    label: 'Count',
+                    data: [14, 14, 5, 18],
+                    backgroundColor: 'rgba(52, 152, 219, 0.8)',
+                    borderColor: 'rgba(52, 152, 219, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+        
+        // Response Time Trend
+        const responseTimeCtx = document.getElementById('responseTimeChart').getContext('2d');
+        new Chart(responseTimeCtx, {
+            type: 'line',
+            data: {
+                labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39],
+                datasets: [{
+                    label: 'Response Time (ms)',
+                    data: [6669, 3487, 3799, 4881, 2438, 2749, 2626, 2609, 2357, 2577, 2449, 3297, 5956, 2279, 2376, 2513, 3803, 2475, 2657, 2446, 2485, 2794, 2324, 3940, 3443, 6172, 3204, 8706, 9989, 2676, 4111, 4875, 2388, 2548, 3002, 3656, 2414, 2339, 2974, 3165],
+                    borderColor: 'rgba(155, 89, 182, 1)',
+                    backgroundColor: 'rgba(155, 89, 182, 0.1)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: { title: { display: true, text: 'Upload Sequence' } },
+                    y: { title: { display: true, text: 'Response Time (ms)' }, beginAtZero: true }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

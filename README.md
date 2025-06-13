@@ -2,6 +2,20 @@
 
 This directory contains k6 load testing scripts for testing the file upload functionality of the Axessio-open-webui application.
 
+## Directory Structure
+
+```
+Load Testing/
+├── scenarios/          # Test scenarios (k6 scripts)
+├── scripts/           # Utility scripts (generators, runners)
+├── analytics/         # Analytics and reporting tools
+├── test_files/        # Generated test files
+├── logs/             # Test execution logs
+├── run_test.sh       # Main test runner
+├── run_analytics.sh  # Main analytics runner
+└── README.md         # This file
+```
+
 ## Server Limitations
 
 The server has the following limitations that affect our load testing approach:
@@ -20,8 +34,8 @@ Our tests use small text files (10KB and 100KB) which work reliably with the ser
    First, generate the test files that will be used for the load testing by running:
 
    ```bash
-   chmod +x generate_test_files.sh
-   ./generate_test_files.sh
+   chmod +x scripts/generate_test_files.sh
+   ./scripts/generate_test_files.sh
    ```
 
    This will create various test files of different sizes and types in the `test_files` directory.
@@ -31,8 +45,8 @@ Our tests use small text files (10KB and 100KB) which work reliably with the ser
    For more realistic load testing with multiple users, you can create additional test accounts:
 
    ```bash
-   chmod +x create_test_users.sh
-   ./create_test_users.sh 5  # Creates 5 test users
+   chmod +x scripts/create_test_users.sh
+   ./scripts/create_test_users.sh 5  # Creates 5 test users
    ```
 
    This will:
@@ -91,17 +105,28 @@ Additional test functions have been added to support the new document types:
 
 ## Running the Tests
 
-Use the provided `run_test.sh` script to execute the tests:
+Use the main `run_test.sh` script to execute the tests:
 
 ```bash
-./run_test.sh [scenario_number]
+./run_test.sh [scenario_number] [options]
 ```
 
-For example, to run scenario 1 (Basic Concurrent Upload):
+### Examples:
 
 ```bash
-./run_test.sh 1
+# Basic test execution
+./run_test.sh 1                    # Run scenario 1 with log generation
+./run_test.sh 3 --analytics        # Run scenario 3 and generate analytics
+./run_test.sh 5 --no-log          # Run scenario 5 without log generation
+
+# Get help
+./run_test.sh --help
 ```
+
+### Options:
+- `--analytics`: Automatically run analytics after test completion  
+- `--no-log`: Skip log file generation
+- `--help`: Display usage information
 
 ## Available Scenarios
 
@@ -139,6 +164,69 @@ For example, to run scenario 1 (Basic Concurrent Upload):
 ## Logs
 
 Test logs are stored in the `logs` directory with timestamps for easy reference.
+
+## Analytics Dashboard
+
+After running tests, you can generate visual analytics to better understand your load testing results:
+
+### Quick Analytics (Recommended)
+```bash
+# Generate Python charts and analysis
+./run_analytics.sh
+
+# Generate HTML dashboard instead
+./run_analytics.sh --html
+
+# Text summary only (no charts)
+./run_analytics.sh --no-gui
+
+# Get help
+./run_analytics.sh --help
+```
+
+### Direct Analytics Tools
+```bash
+# Python analytics (run from analytics/ directory)
+cd analytics
+python3 analytics.py                           # Interactive charts
+python3 analytics.py --no-gui                  # Text summary only
+python3 analytics.py -f ../logs/scenario1_*.log # Specific log file
+python3 analytics.py --export                  # Export JSON data
+
+# HTML dashboard (run from analytics/ directory)  
+cd analytics
+python3 html_analytics.py                      # Generate HTML dashboard
+```
+
+### Analytics Features
+
+The analytics tools provide:
+
+📊 **Visual Charts:**
+- Success vs Failure rate (pie chart)
+- File types distribution (bar chart)
+- Response time trends (line chart)
+- Response time distribution (histogram)
+- Performance metrics summary
+
+💡 **Intelligent Recommendations:**
+- Performance bottleneck identification
+- Server optimization suggestions
+- Error analysis and solutions
+- Capacity planning insights
+
+📈 **Key Metrics:**
+- Average, median, 95th percentile response times
+- Success/failure rates
+- Throughput analysis
+- Error code breakdown
+- File type performance correlation
+
+📁 **Export Options:**
+- High-resolution PNG charts
+- Interactive HTML dashboards
+- Raw JSON data export
+- Text-based summaries
 
 ## Troubleshooting
 
