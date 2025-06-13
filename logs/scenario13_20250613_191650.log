@@ -1,0 +1,512 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: scenarios/scenario13_basic_chat_completion.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 5 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 5 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+running (0m01.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   1% ] 5 VUs  0m01.0s/2m0s
+time="2025-06-13T19:16:55Z" level=info msg="[DEBUG 2025-06-13T19:16:55.796Z] Starting chat completion with model: gpt-4o" source=console
+time="2025-06-13T19:16:56Z" level=info msg="[DEBUG 2025-06-13T19:16:56.168Z] Starting chat completion with model: gpt-4o" source=console
+
+running (0m02.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   2% ] 5 VUs  0m02.0s/2m0s
+time="2025-06-13T19:16:56Z" level=info msg="[DEBUG 2025-06-13T19:16:56.274Z] Starting chat completion with model: gpt-40-mini" source=console
+time="2025-06-13T19:16:56Z" level=info msg="[DEBUG 2025-06-13T19:16:56.699Z] Starting chat completion with model: gpt-4o" source=console
+time="2025-06-13T19:16:57Z" level=info msg="[DEBUG 2025-06-13T19:16:57.014Z] Starting chat completion with model: gpt-4o" source=console
+
+running (0m03.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   2% ] 5 VUs  0m03.0s/2m0s
+
+running (0m04.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   3% ] 5 VUs  0m04.0s/2m0s
+
+running (0m05.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   4% ] 5 VUs  0m05.0s/2m0s
+
+running (0m06.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   5% ] 5 VUs  0m06.0s/2m0s
+
+running (0m07.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   6% ] 5 VUs  0m07.0s/2m0s
+
+running (0m08.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   7% ] 5 VUs  0m08.0s/2m0s
+
+running (0m09.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   7% ] 5 VUs  0m09.0s/2m0s
+
+running (0m10.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   8% ] 5 VUs  0m10.0s/2m0s
+
+running (0m11.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   9% ] 5 VUs  0m11.0s/2m0s
+
+running (0m12.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [  10% ] 5 VUs  0m12.0s/2m0s
+
+running (0m13.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [  11% ] 5 VUs  0m13.0s/2m0s
+
+running (0m14.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [  12% ] 5 VUs  0m14.0s/2m0s
+
+running (0m15.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [  12% ] 5 VUs  0m15.0s/2m0s
+
+running (0m16.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [  13% ] 5 VUs  0m16.0s/2m0s
+
+running (0m17.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [  14% ] 5 VUs  0m17.0s/2m0s
+
+running (0m18.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [  15% ] 5 VUs  0m18.0s/2m0s
+
+running (0m19.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [  16% ] 5 VUs  0m19.0s/2m0s
+
+running (0m20.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [  17% ] 5 VUs  0m20.0s/2m0s
+
+running (0m21.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [  17% ] 5 VUs  0m21.0s/2m0s
+time="2025-06-13T19:17:15Z" level=info msg="[DEBUG 2025-06-13T19:17:15.795Z] Chat completion FAILED for model gpt-40-mini: Status 400" source=console
+time="2025-06-13T19:17:15Z" level=info msg="[DEBUG 2025-06-13T19:17:15.795Z] Response body: {\"detail\":\"'gpt-40-mini'\"}" source=console
+
+running (0m22.0s), 5/5 VUs, 1 complete and 0 interrupted iterations
+default   [  18% ] 5 VUs  0m22.0s/2m0s
+
+running (0m23.0s), 5/5 VUs, 1 complete and 0 interrupted iterations
+default   [  19% ] 5 VUs  0m23.0s/2m0s
+time="2025-06-13T19:17:17Z" level=info msg="[DEBUG 2025-06-13T19:17:17.912Z] Starting chat completion with model: gpt-4o" source=console
+
+running (0m24.0s), 5/5 VUs, 1 complete and 0 interrupted iterations
+default   [  20% ] 5 VUs  0m24.0s/2m0s
+
+running (0m25.0s), 5/5 VUs, 1 complete and 0 interrupted iterations
+default   [  21% ] 5 VUs  0m25.0s/2m0s
+
+running (0m28.9s), 5/5 VUs, 1 complete and 0 interrupted iterations
+default   [  22% ] 5 VUs  0m26.0s/2m0s
+
+running (0m29.9s), 5/5 VUs, 1 complete and 0 interrupted iterations
+default   [  22% ] 5 VUs  0m27.0s/2m0s
+time="2025-06-13T19:17:24Z" level=info msg="[DEBUG 2025-06-13T19:17:24.270Z] Chat completion successful for model gpt-4o, took 28101ms" source=console
+
+running (0m30.9s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [  23% ] 5 VUs  0m28.0s/2m0s
+time="2025-06-13T19:17:26Z" level=info msg="[DEBUG 2025-06-13T19:17:26.024Z] Starting chat completion with model: gpt-4o" source=console
+
+running (0m31.9s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [  24% ] 5 VUs  0m29.0s/2m0s
+
+running (0m32.9s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [  25% ] 5 VUs  0m30.0s/2m0s
+
+running (0m33.9s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [  26% ] 5 VUs  0m31.0s/2m0s
+
+running (0m34.9s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [  27% ] 5 VUs  0m32.0s/2m0s
+
+running (0m35.9s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [  27% ] 5 VUs  0m33.0s/2m0s
+
+running (0m36.9s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [  28% ] 5 VUs  0m34.0s/2m0s
+
+running (0m37.9s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [  29% ] 5 VUs  0m35.0s/2m0s
+
+running (0m38.9s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [  30% ] 5 VUs  0m36.0s/2m0s
+
+running (0m39.9s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [  31% ] 5 VUs  0m37.0s/2m0s
+
+running (0m40.9s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [  32% ] 5 VUs  0m38.0s/2m0s
+
+running (0m41.9s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [  32% ] 5 VUs  0m39.0s/2m0s
+
+running (0m42.9s), 5/5 VUs, 2 complete and 0 interrupted iterations
+default   [  33% ] 5 VUs  0m40.0s/2m0s
+time="2025-06-13T19:17:38Z" level=info msg="[DEBUG 2025-06-13T19:17:38.100Z] Chat completion successful for model gpt-4o, took 42267ms" source=console
+
+running (0m43.9s), 5/5 VUs, 3 complete and 0 interrupted iterations
+default   [  34% ] 5 VUs  0m41.0s/2m0s
+time="2025-06-13T19:17:38Z" level=info msg="[DEBUG 2025-06-13T19:17:38.350Z] Chat completion successful for model gpt-4o, took 41336ms" source=console
+time="2025-06-13T19:17:38Z" level=info msg="[DEBUG 2025-06-13T19:17:38.350Z] Chat completion successful for model gpt-4o, took 41650ms" source=console
+
+running (0m44.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  35% ] 5 VUs  0m42.0s/2m0s
+time="2025-06-13T19:17:39Z" level=info msg="[DEBUG 2025-06-13T19:17:39.285Z] Starting chat completion with model: gpt-4o" source=console
+time="2025-06-13T19:17:39Z" level=info msg="[DEBUG 2025-06-13T19:17:39.573Z] Starting chat completion with model: gpt-40-mini" source=console
+
+running (0m45.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  36% ] 5 VUs  0m43.0s/2m0s
+time="2025-06-13T19:17:40Z" level=info msg="[DEBUG 2025-06-13T19:17:40.893Z] Starting chat completion with model: gpt-40-mini" source=console
+
+running (0m46.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  37% ] 5 VUs  0m44.0s/2m0s
+
+running (0m47.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  37% ] 5 VUs  0m45.0s/2m0s
+
+running (0m48.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  38% ] 5 VUs  0m46.0s/2m0s
+
+running (0m49.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  39% ] 5 VUs  0m47.0s/2m0s
+
+running (0m50.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  40% ] 5 VUs  0m48.0s/2m0s
+
+running (0m51.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  41% ] 5 VUs  0m49.0s/2m0s
+
+running (0m52.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  42% ] 5 VUs  0m50.0s/2m0s
+
+running (0m53.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  42% ] 5 VUs  0m51.0s/2m0s
+
+running (0m54.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  43% ] 5 VUs  0m52.0s/2m0s
+
+running (0m55.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  44% ] 5 VUs  0m53.0s/2m0s
+
+running (0m56.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  45% ] 5 VUs  0m54.0s/2m0s
+
+running (0m57.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  46% ] 5 VUs  0m55.0s/2m0s
+
+running (0m58.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  47% ] 5 VUs  0m56.0s/2m0s
+
+running (0m59.9s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  47% ] 5 VUs  0m57.0s/2m0s
+time="2025-06-13T19:17:55Z" level=info msg="[DEBUG 2025-06-13T19:17:55.021Z] Chat completion successful for model gpt-4o, took 37109ms" source=console
+
+running (1m03.9s), 5/5 VUs, 6 complete and 0 interrupted iterations
+default   [  48% ] 5 VUs  0m58.0s/2m0s
+time="2025-06-13T19:17:58Z" level=info msg="[DEBUG 2025-06-13T19:17:58.212Z] Chat completion successful for model gpt-4o, took 32187ms" source=console
+time="2025-06-13T19:17:58Z" level=info msg="[DEBUG 2025-06-13T19:17:58.221Z] Chat completion FAILED for model gpt-40-mini: Status 400" source=console
+time="2025-06-13T19:17:58Z" level=info msg="[DEBUG 2025-06-13T19:17:58.221Z] Chat completion FAILED for model gpt-40-mini: Status 400" source=console
+time="2025-06-13T19:17:58Z" level=info msg="[DEBUG 2025-06-13T19:17:58.221Z] Response body: {\"detail\":\"'gpt-40-mini'\"}" source=console
+time="2025-06-13T19:17:58Z" level=info msg="[DEBUG 2025-06-13T19:17:58.221Z] Response body: {\"detail\":\"'gpt-40-mini'\"}" source=console
+time="2025-06-13T19:17:59Z" level=info msg="[DEBUG 2025-06-13T19:17:59.056Z] Starting chat completion with model: gpt-40-mini" source=console
+
+running (1m04.9s), 5/5 VUs, 9 complete and 0 interrupted iterations
+default   [  49% ] 5 VUs  0m59.0s/2m0s
+time="2025-06-13T19:17:59Z" level=info msg="[DEBUG 2025-06-13T19:17:59.298Z] Starting chat completion with model: gpt-4o" source=console
+time="2025-06-13T19:17:59Z" level=info msg="[DEBUG 2025-06-13T19:17:59.453Z] Starting chat completion with model: gpt-4o" source=console
+
+running (1m05.9s), 5/5 VUs, 9 complete and 0 interrupted iterations
+default   [  50% ] 5 VUs  1m00.0s/2m0s
+time="2025-06-13T19:18:01Z" level=info msg="[DEBUG 2025-06-13T19:18:01.060Z] Starting chat completion with model: gpt-4o" source=console
+
+running (1m06.9s), 5/5 VUs, 9 complete and 0 interrupted iterations
+default   [  51% ] 5 VUs  1m01.0s/2m0s
+
+running (1m07.9s), 5/5 VUs, 9 complete and 0 interrupted iterations
+default   [  52% ] 5 VUs  1m02.0s/2m0s
+
+running (1m08.9s), 5/5 VUs, 9 complete and 0 interrupted iterations
+default   [  52% ] 5 VUs  1m03.0s/2m0s
+
+running (1m09.9s), 5/5 VUs, 9 complete and 0 interrupted iterations
+default   [  53% ] 5 VUs  1m04.0s/2m0s
+
+running (1m10.9s), 5/5 VUs, 9 complete and 0 interrupted iterations
+default   [  54% ] 5 VUs  1m05.0s/2m0s
+time="2025-06-13T19:18:05Z" level=info msg="[DEBUG 2025-06-13T19:18:05.807Z] Chat completion successful for model gpt-4o, took 26522ms" source=console
+
+running (1m11.9s), 5/5 VUs, 10 complete and 0 interrupted iterations
+default   [  55% ] 5 VUs  1m06.0s/2m0s
+time="2025-06-13T19:18:06Z" level=info msg="[DEBUG 2025-06-13T19:18:06.343Z] Chat completion FAILED for model gpt-40-mini: Status 400" source=console
+time="2025-06-13T19:18:06Z" level=info msg="[DEBUG 2025-06-13T19:18:06.343Z] Response body: {\"detail\":\"'gpt-40-mini'\"}" source=console
+
+running (1m12.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  56% ] 5 VUs  1m07.0s/2m0s
+time="2025-06-13T19:18:07Z" level=info msg="[DEBUG 2025-06-13T19:18:07.359Z] Starting chat completion with model: gpt-4o" source=console
+time="2025-06-13T19:18:07Z" level=info msg="[DEBUG 2025-06-13T19:18:07.422Z] Starting chat completion with model: gpt-4o" source=console
+
+running (1m13.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  57% ] 5 VUs  1m08.0s/2m0s
+
+running (1m14.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  57% ] 5 VUs  1m09.0s/2m0s
+
+running (1m15.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  58% ] 5 VUs  1m10.0s/2m0s
+
+running (1m16.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  59% ] 5 VUs  1m11.0s/2m0s
+
+running (1m17.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  60% ] 5 VUs  1m12.0s/2m0s
+
+running (1m18.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  61% ] 5 VUs  1m13.0s/2m0s
+
+running (1m19.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  62% ] 5 VUs  1m14.0s/2m0s
+
+running (1m20.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  62% ] 5 VUs  1m15.0s/2m0s
+
+running (1m21.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  63% ] 5 VUs  1m16.0s/2m0s
+
+running (1m22.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  64% ] 5 VUs  1m17.0s/2m0s
+
+running (1m23.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  65% ] 5 VUs  1m18.0s/2m0s
+
+running (1m24.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  66% ] 5 VUs  1m19.0s/2m0s
+
+running (1m25.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  67% ] 5 VUs  1m20.0s/2m0s
+
+running (1m26.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  67% ] 5 VUs  1m21.0s/2m0s
+
+running (1m27.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  68% ] 5 VUs  1m22.0s/2m0s
+
+running (1m28.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  69% ] 5 VUs  1m23.0s/2m0s
+
+running (1m29.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  70% ] 5 VUs  1m24.0s/2m0s
+
+running (1m30.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  71% ] 5 VUs  1m25.0s/2m0s
+
+running (1m31.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  72% ] 5 VUs  1m26.0s/2m0s
+
+running (1m32.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  72% ] 5 VUs  1m27.0s/2m0s
+
+running (1m33.9s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  73% ] 5 VUs  1m28.0s/2m0s
+time="2025-06-13T19:18:28Z" level=info msg="[DEBUG 2025-06-13T19:18:28.177Z] Chat completion successful for model gpt-4o, took 28879ms" source=console
+time="2025-06-13T19:18:28Z" level=info msg="[DEBUG 2025-06-13T19:18:28.470Z] Chat completion successful for model gpt-4o, took 29017ms" source=console
+time="2025-06-13T19:18:28Z" level=info msg="[DEBUG 2025-06-13T19:18:28.472Z] Chat completion successful for model gpt-4o, took 27412ms" source=console
+
+running (1m34.9s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  74% ] 5 VUs  1m29.0s/2m0s
+time="2025-06-13T19:18:30Z" level=info msg="[DEBUG 2025-06-13T19:18:30.050Z] Starting chat completion with model: gpt-40-mini" source=console
+time="2025-06-13T19:18:30Z" level=info msg="[DEBUG 2025-06-13T19:18:30.063Z] Starting chat completion with model: gpt-40-mini" source=console
+
+running (1m35.9s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  75% ] 5 VUs  1m30.0s/2m0s
+time="2025-06-13T19:18:33Z" level=info msg="[DEBUG 2025-06-13T19:18:33.373Z] Starting chat completion with model: gpt-4o" source=console
+
+running (1m39.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  76% ] 5 VUs  1m31.0s/2m0s
+
+running (1m40.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  77% ] 5 VUs  1m32.0s/2m0s
+
+running (1m41.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  77% ] 5 VUs  1m33.0s/2m0s
+
+running (1m42.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  78% ] 5 VUs  1m34.0s/2m0s
+
+running (1m43.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  79% ] 5 VUs  1m35.0s/2m0s
+
+running (1m44.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  80% ] 5 VUs  1m36.0s/2m0s
+
+running (1m45.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  81% ] 5 VUs  1m37.0s/2m0s
+
+running (1m46.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  82% ] 5 VUs  1m38.0s/2m0s
+
+running (1m47.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  82% ] 5 VUs  1m39.0s/2m0s
+
+running (1m48.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  83% ] 5 VUs  1m40.0s/2m0s
+
+running (1m49.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  84% ] 5 VUs  1m41.0s/2m0s
+
+running (1m50.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  85% ] 5 VUs  1m42.0s/2m0s
+
+running (1m51.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  86% ] 5 VUs  1m43.0s/2m0s
+
+running (1m52.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  87% ] 5 VUs  1m44.0s/2m0s
+
+running (1m53.8s), 5/5 VUs, 14 complete and 0 interrupted iterations
+default   [  87% ] 5 VUs  1m45.0s/2m0s
+time="2025-06-13T19:18:48Z" level=info msg="[DEBUG 2025-06-13T19:18:48.618Z] Chat completion successful for model gpt-4o, took 41259ms" source=console
+time="2025-06-13T19:18:48Z" level=info msg="[DEBUG 2025-06-13T19:18:48.833Z] Chat completion successful for model gpt-4o, took 41410ms" source=console
+
+running (1m54.8s), 5/5 VUs, 16 complete and 0 interrupted iterations
+default   [  88% ] 5 VUs  1m46.0s/2m0s
+
+running (1m55.8s), 5/5 VUs, 16 complete and 0 interrupted iterations
+default   [  89% ] 5 VUs  1m47.0s/2m0s
+time="2025-06-13T19:18:50Z" level=info msg="[DEBUG 2025-06-13T19:18:50.176Z] Starting chat completion with model: gpt-4o" source=console
+time="2025-06-13T19:18:50Z" level=info msg="[DEBUG 2025-06-13T19:18:50.982Z] Starting chat completion with model: gpt-40-mini" source=console
+
+running (1m56.8s), 5/5 VUs, 16 complete and 0 interrupted iterations
+default   [  90% ] 5 VUs  1m48.0s/2m0s
+
+running (1m57.8s), 5/5 VUs, 16 complete and 0 interrupted iterations
+default   [  91% ] 5 VUs  1m49.0s/2m0s
+
+running (1m58.8s), 5/5 VUs, 16 complete and 0 interrupted iterations
+default   [  92% ] 5 VUs  1m50.0s/2m0s
+
+running (1m59.8s), 5/5 VUs, 16 complete and 0 interrupted iterations
+default   [  92% ] 5 VUs  1m51.0s/2m0s
+
+running (2m00.8s), 5/5 VUs, 16 complete and 0 interrupted iterations
+default   [  93% ] 5 VUs  1m52.0s/2m0s
+
+running (2m01.8s), 5/5 VUs, 16 complete and 0 interrupted iterations
+default   [  94% ] 5 VUs  1m53.0s/2m0s
+time="2025-06-13T19:18:56Z" level=info msg="[DEBUG 2025-06-13T19:18:56.098Z] Chat completion FAILED for model gpt-40-mini: Status 400" source=console
+time="2025-06-13T19:18:56Z" level=info msg="[DEBUG 2025-06-13T19:18:56.098Z] Response body: {\"detail\":\"'gpt-40-mini'\"}" source=console
+time="2025-06-13T19:18:56Z" level=info msg="[DEBUG 2025-06-13T19:18:56.098Z] Chat completion FAILED for model gpt-40-mini: Status 400" source=console
+time="2025-06-13T19:18:56Z" level=info msg="[DEBUG 2025-06-13T19:18:56.098Z] Response body: {\"detail\":\"'gpt-40-mini'\"}" source=console
+time="2025-06-13T19:18:56Z" level=info msg="[DEBUG 2025-06-13T19:18:56.116Z] Chat completion successful for model gpt-4o, took 22741ms" source=console
+time="2025-06-13T19:18:56Z" level=info msg="[DEBUG 2025-06-13T19:18:56.345Z] Chat completion FAILED for model gpt-40-mini: Status 400" source=console
+time="2025-06-13T19:18:56Z" level=info msg="[DEBUG 2025-06-13T19:18:56.345Z] Response body: {\"detail\":\"'gpt-40-mini'\"}" source=console
+
+running (2m02.8s), 5/5 VUs, 20 complete and 0 interrupted iterations
+default   [  95% ] 5 VUs  1m54.0s/2m0s
+time="2025-06-13T19:18:57Z" level=info msg="[DEBUG 2025-06-13T19:18:57.496Z] Starting chat completion with model: gpt-40-mini" source=console
+
+running (2m03.8s), 5/5 VUs, 20 complete and 0 interrupted iterations
+default   [  96% ] 5 VUs  1m55.0s/2m0s
+time="2025-06-13T19:18:58Z" level=info msg="[DEBUG 2025-06-13T19:18:58.233Z] Starting chat completion with model: gpt-40-mini" source=console
+time="2025-06-13T19:18:58Z" level=info msg="[DEBUG 2025-06-13T19:18:58.542Z] Starting chat completion with model: gpt-4o" source=console
+time="2025-06-13T19:18:58Z" level=info msg="[DEBUG 2025-06-13T19:18:58.696Z] Starting chat completion with model: gpt-4o" source=console
+
+running (2m04.8s), 5/5 VUs, 20 complete and 0 interrupted iterations
+default   [  97% ] 5 VUs  1m56.0s/2m0s
+
+running (2m05.8s), 5/5 VUs, 20 complete and 0 interrupted iterations
+default   [  97% ] 5 VUs  1m57.0s/2m0s
+
+running (2m06.8s), 5/5 VUs, 20 complete and 0 interrupted iterations
+default   [  98% ] 5 VUs  1m58.0s/2m0s
+
+running (2m07.8s), 5/5 VUs, 20 complete and 0 interrupted iterations
+default   [  99% ] 5 VUs  1m59.0s/2m0s
+
+running (2m08.8s), 5/5 VUs, 20 complete and 0 interrupted iterations
+default   [ 100% ] 5 VUs  2m00.0s/2m0s
+
+running (2m09.8s), 5/5 VUs, 20 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+
+running (2m10.8s), 5/5 VUs, 20 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+time="2025-06-13T19:19:08Z" level=info msg="[DEBUG 2025-06-13T19:19:08.438Z] Chat completion successful for model gpt-4o, took 18261ms" source=console
+
+running (2m14.7s), 4/5 VUs, 21 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+
+running (2m15.7s), 4/5 VUs, 21 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+
+running (2m16.7s), 4/5 VUs, 21 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+
+running (2m17.7s), 4/5 VUs, 21 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+
+running (2m18.7s), 4/5 VUs, 21 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+
+running (2m19.7s), 4/5 VUs, 21 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+
+running (2m20.7s), 4/5 VUs, 21 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+
+running (2m21.7s), 4/5 VUs, 21 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+
+running (2m22.7s), 4/5 VUs, 21 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  2m0s
+time="2025-06-13T19:19:17Z" level=info msg="[DEBUG 2025-06-13T19:19:17.432Z] Chat completion FAILED for model gpt-40-mini: Status 400" source=console
+time="2025-06-13T19:19:17Z" level=info msg="[DEBUG 2025-06-13T19:19:17.432Z] Response body: {\"detail\":\"'gpt-40-mini'\"}" source=console
+time="2025-06-13T19:19:17Z" level=info msg="[DEBUG 2025-06-13T19:19:17.434Z] Chat completion FAILED for model gpt-40-mini: Status 400" source=console
+time="2025-06-13T19:19:17Z" level=info msg="[DEBUG 2025-06-13T19:19:17.434Z] Response body: {\"detail\":\"'gpt-40-mini'\"}" source=console
+time="2025-06-13T19:19:17Z" level=info msg="[DEBUG 2025-06-13T19:19:17.449Z] Chat completion successful for model gpt-4o, took 18907ms" source=console
+time="2025-06-13T19:19:17Z" level=info msg="[DEBUG 2025-06-13T19:19:17.449Z] Chat completion successful for model gpt-4o, took 18753ms" source=console
+
+
+  █ THRESHOLDS 
+
+    chat_response_time
+    ✗ 'p(95)<5000' p(95)=41602
+
+    chat_success_rate
+    ✗ 'rate>0.95' rate=64.00%
+
+    http_req_failed
+    ✗ 'rate<0.05' rate=36.00%
+
+
+  █ TOTAL RESULTS 
+
+    CUSTOM
+    chat_messages_processed.................................................: 25     0.174562/s
+    chat_response_time......................................................: avg=26206.96     min=5362        med=26048        max=42267        p(90)=41380.4      p(95)=41602        p(99)=42118.92   
+    chat_success_rate.......................................................: 64.00% 16 out of 25
+    chat_tokens_generated...................................................: 7452   52.033519/s
+    connection_time.........................................................: avg=0.080437     min=0           med=0            max=0.478136     p(90)=0.390997     p(95)=0.427969     p(99)=0.468136   
+    time_to_first_byte......................................................: avg=24226.378317 min=5360.410507 med=22739.855729 max=42257.716725 p(90)=41376.133232 p(95)=41596.981638 p(99)=42110.56777
+
+    HTTP
+    http_req_duration.......................................................: avg=26.2s        min=5.36s       med=26.04s       max=42.26s       p(90)=41.37s       p(95)=41.6s        p(99)=42.11s     
+      { expected_response:true }............................................: avg=30.98s       min=18.26s      med=28.94s       max=42.26s       p(90)=41.52s       p(95)=41.8s        p(99)=42.17s     
+    http_req_failed.........................................................: 36.00% 9 out of 25
+    http_reqs...............................................................: 25     0.174562/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=25.93s       min=7.72s       med=24.77s       max=41.17s       p(90)=40.58s       p(95)=41.12s       p(99)=41.17s     
+    iterations..............................................................: 25     0.174562/s
+    vus.....................................................................: 4      min=4        max=5
+    vus_max.................................................................: 5      min=5        max=5
+
+    NETWORK
+    data_received...........................................................: 38 kB  264 B/s
+    data_sent...............................................................: 13 kB  87 B/s
+
+
+
+
+running (2m23.2s), 0/5 VUs, 25 complete and 0 interrupted iterations
+default ✓ [ 100% ] 5 VUs  2m0s
+time="2025-06-13T19:19:17Z" level=error msg="thresholds on metrics 'chat_response_time, chat_success_rate, http_req_failed' have been crossed"

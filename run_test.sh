@@ -18,7 +18,7 @@ usage() {
   echo -e "${BLUE}Usage:${NC}"
   echo -e "  ./run_test.sh [scenario_number] [options]"
   echo
-  echo -e "${BLUE}Available scenarios:${NC}"
+  echo -e "${BLUE}File Upload Scenarios:${NC}"
   echo -e "  1: Basic Concurrent Upload"
   echo -e "  2: Gradual User Scaling"
   echo -e "  3: Realistic Office Pattern"
@@ -30,6 +30,15 @@ usage() {
   echo -e "  9: Mixed File Types with Longer Delays"
   echo -e "  10: Document Upload Stress Test"
   echo -e "  11: PDF-Only Upload (bypasses conversion)"
+  echo -e "  12: Sequential PDF Upload"
+  echo
+  echo -e "${BLUE}Chat Completion Scenarios:${NC}"
+  echo -e "  13: Basic Chat Completion"
+  echo -e "  14: Multi-Turn Conversation"
+  echo -e "  15: Concurrent Chat Load"
+  echo -e "  16: Streaming Chat Test"
+  echo -e "  17: Mixed Model Chat"
+  echo -e "  18: Long Conversation Test"
   echo
   echo -e "${BLUE}Options:${NC}"
   echo -e "  --no-log     Don't generate log file"
@@ -89,8 +98,8 @@ main() {
   fi
 
   # Check if scenario number is valid
-  if [ "$scenario_number" -lt 1 ] || [ "$scenario_number" -gt 12 ]; then
-    echo -e "${RED}❌ Error: Invalid scenario number. Must be between 1 and 12${NC}"
+  if [ "$scenario_number" -lt 1 ] || [ "$scenario_number" -gt 18 ]; then
+    echo -e "${RED}❌ Error: Invalid scenario number. Must be between 1 and 18${NC}"
     usage
   fi
 
@@ -122,6 +131,18 @@ main() {
         scenario_name="PDF-Only Upload (bypasses conversion)" ;;
     12) scenario_file="scenarios/scenario12_sequential_pdf_upload.js"
         scenario_name="Sequential PDF Upload" ;;
+    13) scenario_file="scenarios/scenario13_basic_chat_completion.js"
+        scenario_name="Basic Chat Completion" ;;
+    14) scenario_file="scenarios/scenario14_multi_turn_conversation.js"
+        scenario_name="Multi-Turn Conversation" ;;
+    15) scenario_file="scenarios/scenario15_concurrent_chat_load.js"
+        scenario_name="Concurrent Chat Load" ;;
+    16) scenario_file="scenarios/scenario16_streaming_chat_test.js"
+        scenario_name="Streaming Chat Test" ;;
+    17) scenario_file="scenarios/scenario17_mixed_model_chat.js"
+        scenario_name="Mixed Model Chat" ;;
+    18) scenario_file="scenarios/scenario18_long_conversation_test.js"
+        scenario_name="Long Conversation Test" ;;
   esac
 
   # Check if scenario file exists

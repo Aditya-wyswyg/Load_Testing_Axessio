@@ -36,6 +36,7 @@ echo -e "${GREEN}✅ Found log files, starting analysis...${NC}"
 # Parse command line arguments
 ANALYTICS_TYPE="python"
 NO_GUI=false
+ANALYZE_ALL=false
 
 for arg in "$@"; do
     case $arg in
@@ -45,6 +46,9 @@ for arg in "$@"; do
         --no-gui)
             NO_GUI=true
             ;;
+        --all)
+            ANALYZE_ALL=true
+            ;;
         --help)
             echo -e "${BLUE}Usage:${NC}"
             echo -e "  ./run_analytics.sh [options]"
@@ -52,10 +56,12 @@ for arg in "$@"; do
             echo -e "${BLUE}Options:${NC}"
             echo -e "  --html     Generate HTML dashboard instead of Python charts"
             echo -e "  --no-gui   Generate text summary only (Python charts only)"
+            echo -e "  --all      Analyze ALL log files instead of just the latest"
             echo -e "  --help     Display this help message"
             echo
             echo -e "${BLUE}Examples:${NC}"
-            echo -e "  ./run_analytics.sh                # Generate Python charts"
+            echo -e "  ./run_analytics.sh                # Analyze latest log file"
+            echo -e "  ./run_analytics.sh --all          # Analyze all log files"
             echo -e "  ./run_analytics.sh --html         # Generate HTML dashboard"
             echo -e "  ./run_analytics.sh --no-gui       # Text summary only"
             exit 0
@@ -71,11 +77,24 @@ if [ "$ANALYTICS_TYPE" = "html" ]; then
     echo -e "${GREEN}✅ HTML dashboard generated! Check the main directory for the .html file.${NC}"
 else
     echo -e "${BLUE}📊 Generating Python analytics...${NC}"
+    
+    # Show what we're analyzing
+    if [ "$ANALYZE_ALL" = true ]; then
+        echo -e "${YELLOW}💡 Analyzing ALL log files${NC}"
+    else
+        echo -e "${YELLOW}💡 Analyzing LATEST log file (use --all to analyze all files)${NC}"
+    fi
+    echo
+    
     cd analytics
-    if [ "$NO_GUI" = true ]; then
+    if [ "$NO_GUI" = true ] && [ "$ANALYZE_ALL" = true ]; then
+        python3 analytics.py --no-gui --all
+    elif [ "$NO_GUI" = true ]; then
         python3 analytics.py --no-gui
+    elif [ "$ANALYZE_ALL" = true ]; then
+        python3 analytics.py --all
     else
         python3 analytics.py
     fi
-    echo -e "${GREEN}✅ Analytics generation complete!${NC}"
+    echo -e "${GREEN}✅ Analytics generation complete! Check the results/ folder for output files.${NC}"
 fi 

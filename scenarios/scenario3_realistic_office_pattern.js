@@ -1,7 +1,8 @@
-import { realisticOfficePattern, uploadFileToOpenAI, getUserTokenByVU, getRandomUserToken, smallFileTest, mediumFileTest, largeFileTest, textFileTest, officeDocumentTest, allDocumentTypesTest } from "../scripts/Load.js";
+import { realisticOfficePattern, uploadFileToOpenAI, getUserTokenByVU, getRandomUserToken, smallFileTest, mediumFileTest, largeFileTest, textFileTest, officeDocumentTest, allDocumentTypesTest, pdfOnlyUpload } from "../scripts/Load.js";
 
 export default function() {
-  realisticOfficePattern();
+  // realisticOfficePattern();
+  pdfOnlyUpload()
 }
 
 export const options = {

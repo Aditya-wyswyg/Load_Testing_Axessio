@@ -11,6 +11,12 @@ const uploadDuration = new Trend('upload_duration');
 const ttfb = new Trend('time_to_first_byte');
 const connectionTime = new Trend('connection_time');
 
+// Chat completion specific metrics
+const chatSuccessRate = new Rate('chat_success_rate');
+const chatResponseTime = new Trend('chat_response_time');
+const chatTokensGenerated = new Counter('chat_tokens_generated');
+const chatMessagesProcessed = new Counter('chat_messages_processed');
+
 // For enhanced debugging
 const debugLog = [];
 function log(message) {
@@ -19,21 +25,13 @@ function log(message) {
 }
 
 // Configuration Constants
-export const API_BASE_URL = 'https://axxessio.wyswyg.in/api/v1'; // Updated with actual server URL
+export const API_BASE_URL = 'http://localhost:8080/api/v1'; // Updated with actual server URL
 const FILE_UPLOAD_ENDPOINT = `${API_BASE_URL}/files/?type=chat`;
+const CHAT_COMPLETIONS_ENDPOINT = `${API_BASE_URL.replace('/v1', '')}/chat/completions`;
 
 // Multiple user tokens for realistic load testing
 const USER_TOKENS = [
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmN2RjZGFhLTgzNmYtNDc2OS05NDdkLTkyZjcwYTQ4NTc3NSJ9.VU4IMu7-KED8BhphzNiKF4HoXDGp7bzRhvuzJK006Tk',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmZDJjZWM2LWVmYzAtNDU4MS1hMDA3LTU2MWJhZTEwYTVhNSJ9.DVT76JkMxpKE6m907KWSwUi0iwjo1C-BCHr5mfOydus',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwOTlkNzQzLWUxNDctNGE1NC05Nzg5LTZhMzllNTgzZWU2ZCJ9.rUcarQctc5rPvGCbOo1zjloqh7LGdYwo1hYk-EKEDu8',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2ZmZlYjQ0LWQzNmQtNGViOS04NmRmLWY0NDFmNmE0OTVhZCJ9.L9fKhVu7eiYAFZZuDbjBSqFJolzzEbAjn4D6PU6Kgi0',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMzY2OTI0LThjNmMtNGU1OS04NWY0LTc2NDY4MmFjZmNjZCJ9.vHYCJ0I3Xz_dIq9fVUNsD1dGziTgHQukPCFbF5B5AKU',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY3MTkzOGFhLTllYTgtNDAxOC04MzlmLTI5OTEwODM4MmE0NyJ9.5PIiXOcxhTriMBeuv0NOsqewfpzhMyR6iCaq6i6oaZk',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRlMTYxMTMxLTJkMzAtNDZiNS04OTBkLTJlZmE3NDM0MjUzNyJ9.v7XL5j-spteI40QHBuqoiejomojBcbAhE9wny4CVmI4',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA2NTY3YmVhLWZiOGItNDJhMS1hZGQxLTA3NDc5YWMzMDU1MSJ9.Ckz_XqQ8mqN1XGi2yS9C3vsFWUbUoj9ynBKJRm5DJjg',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3ZDMxZjRjLWNiMzctNDdiNC1iZGVlLWY5MmMzMWNlZmY0OSJ9.dzVF8vSeKtVfxpcWokkLUklCg2pwnoNaX7hQJHwGoxM',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI0MGJlMTMwLTU1YjYtNGIzZS1iZmVlLTA1ZDg5OGYxMjIzNSJ9.42h1T_Tf4qhuUHOxyTxTd1LfeG2LR5A-o6Mr3BI2dvQ',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJiMDJkNmQ3LTc1MjEtNDc3YS1iZDUxLWViOWM0MmUyYzM0MCJ9.mhO2pouAnnDVDyOqo-XDqToRKoVsoX_rxIiB2gS75bM'
 ];
 
 // Function to get a random user token
@@ -103,405 +101,807 @@ const TEST_FILES = {
   'Cyber-Security.pdf': { contentType: 'application/pdf', size: 113 * 1024 },
 };
 
-// Helper function to upload a file from pre-loaded content
-function uploadFile(file, simulatedNetworkDelay = 0) {
-  try {
-    // Simulate network latency if specified
-    if (simulatedNetworkDelay > 0) {
-      sleep(simulatedNetworkDelay / 1000); // Convert ms to seconds
-    }
+// ==============================================
+// FILE UPLOAD TESTING CLASS
+// ==============================================
 
-    log(`Starting upload of ${file.name} (${file.size} bytes)`);
+class FileUploadTester {
+  constructor() {
+    this.endpoint = FILE_UPLOAD_ENDPOINT;
+  }
 
-    // Use pre-loaded file content
-    const fileContent = FILE_CONTENTS[file.name];
-    if (!fileContent) {
-      throw new Error(`File content not found for ${file.name}`);
-    }
-
-    log(`Using pre-loaded file content, size: ${fileContent.length} bytes`);
-
-    const formData = {
-      file: http.file(fileContent, file.name, file.contentType),
+  // Helper to get a random file from all available types
+  getRandomFile() {
+    const fileKeys = Object.keys(TEST_FILES);
+    const randomKey = fileKeys[Math.floor(Math.random() * fileKeys.length)];
+    const selectedFile = TEST_FILES[randomKey];
+    
+    return {
+      name: randomKey,
+      contentType: selectedFile.contentType,
+      size: selectedFile.size
     };
+  }
 
-    // IMPORTANT: Don't specify Content-Type here, k6 will set it correctly with boundary
-    const params = {
-      headers: {
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${getUserTokenByVU()}`,
-      },
-      tags: { name: `Upload ${file.name}` },
-      timeout: '120s', // Longer timeout for larger files
+  // Helper to get a random text file
+  getRandomTextFile() {
+    const textFiles = ['very-small-10KB.txt', 'small-100KB.txt', 'medium-1MB.txt'];
+    const randomKey = textFiles[Math.floor(Math.random() * textFiles.length)];
+    const selectedFile = TEST_FILES[randomKey];
+    
+    return {
+      name: randomKey,
+      contentType: selectedFile.contentType,
+      size: selectedFile.size
     };
+  }
 
-    // Measure the start time to calculate our own metrics
-    const startTime = new Date().getTime();
-    log(`HTTP request prepared, sending to ${FILE_UPLOAD_ENDPOINT}`);
+  // Helper to get a random Word file
+  getRandomWordFile() {
+    const wordFiles = ['document-50KB.docx', 'document-100KB.docx'];
+    const randomKey = wordFiles[Math.floor(Math.random() * wordFiles.length)];
+    const selectedFile = TEST_FILES[randomKey];
     
-    const response = http.post(FILE_UPLOAD_ENDPOINT, formData, params);
+    return {
+      name: randomKey,
+      contentType: selectedFile.contentType,
+      size: selectedFile.size
+    };
+  }
+
+  // Helper to get a random PowerPoint file
+  getRandomPowerPointFile() {
+    const pptFiles = ['presentation-50KB.pptx', 'presentation-100KB.pptx'];
+    const randomKey = pptFiles[Math.floor(Math.random() * pptFiles.length)];
+    const selectedFile = TEST_FILES[randomKey];
     
-    // Calculate and add metrics
-    const endTime = new Date().getTime();
-    const duration = endTime - startTime;
+    return {
+      name: randomKey,
+      contentType: selectedFile.contentType,
+      size: selectedFile.size
+    };
+  }
+
+  // Helper to get a random Excel file
+  getRandomExcelFile() {
+    const excelFiles = ['spreadsheet-50KB.xlsx', 'spreadsheet-100KB.xlsx'];
+    const randomKey = excelFiles[Math.floor(Math.random() * excelFiles.length)];
+    const selectedFile = TEST_FILES[randomKey];
     
-    uploadDuration.add(duration);
-    ttfb.add(response.timings.waiting);
-    connectionTime.add(response.timings.connecting);
-    uploadedBytes.add(file.size);
+    return {
+      name: randomKey,
+      contentType: selectedFile.contentType,
+      size: selectedFile.size
+    };
+  }
+
+  // Helper to get a random office file (Word, PowerPoint, Excel)
+  getRandomOfficeFile() {
+    const fileType = Math.random();
+    return fileType < 0.33 ? this.getRandomWordFile() : 
+           fileType < 0.66 ? this.getRandomPowerPointFile() : 
+           this.getRandomExcelFile();
+  }
+
+  // Helper to get a random PDF file
+  getRandomPdfFile() {
+    const pdfFiles = [
+      'Data Science.pdf',
+      'Software Development Engineer.pdf',
+      'Resume.pdf',
+      'Cyber-Security.pdf'
+    ];
+    const randomKey = pdfFiles[Math.floor(Math.random() * pdfFiles.length)];
+    const selectedFile = TEST_FILES[randomKey];
     
-    // Check if the upload was successful
-    let success = false;
-    let uploadedFileInfo = null;
-    
-    if (response.status === 200) {
-      try {
-        // The response is an array with the file info
-        if (response.body) {
-          const responseData = JSON.parse(response.body);
-          if (Array.isArray(responseData) && responseData.length > 0) {
-            uploadedFileInfo = responseData[0];
-            if (uploadedFileInfo && uploadedFileInfo.id) {
-              success = true;
+    return {
+      name: randomKey,
+      contentType: selectedFile.contentType,
+      size: selectedFile.size
+    };
+  }
+
+  // Helper to get a random non-PDF file (to test conversion)
+  getRandomNonPdfFile() {
+    return Math.random() < 0.5 ? this.getRandomTextFile() : this.getRandomOfficeFile();
+  }
+
+  // Core file upload function
+  uploadFile(file, simulatedNetworkDelay = 0) {
+    try {
+      // Simulate network latency if specified
+      if (simulatedNetworkDelay > 0) {
+        sleep(simulatedNetworkDelay / 1000); // Convert ms to seconds
+      }
+
+      log(`Starting upload of ${file.name} (${file.size} bytes)`);
+
+      // Use pre-loaded file content
+      const fileContent = FILE_CONTENTS[file.name];
+      if (!fileContent) {
+        throw new Error(`File content not found for ${file.name}`);
+      }
+
+      log(`Using pre-loaded file content, size: ${fileContent.length} bytes`);
+
+      const formData = {
+        file: http.file(fileContent, file.name, file.contentType),
+      };
+
+      // IMPORTANT: Don't specify Content-Type here, k6 will set it correctly with boundary
+      const params = {
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${getUserTokenByVU()}`,
+        },
+        tags: { name: `Upload ${file.name}` },
+        timeout: '120s', // Longer timeout for larger files
+      };
+
+      // Measure the start time to calculate our own metrics
+      const startTime = new Date().getTime();
+      log(`HTTP request prepared, sending to ${this.endpoint}`);
+      
+      const response = http.post(this.endpoint, formData, params);
+      
+      // Calculate and add metrics
+      const endTime = new Date().getTime();
+      const duration = endTime - startTime;
+      
+      uploadDuration.add(duration);
+      ttfb.add(response.timings.waiting);
+      connectionTime.add(response.timings.connecting);
+      uploadedBytes.add(file.size);
+      
+      // Check if the upload was successful
+      let success = false;
+      let uploadedFileInfo = null;
+      
+      if (response.status === 200) {
+        try {
+          // The response is an array with the file info
+          if (response.body) {
+            const responseData = JSON.parse(response.body);
+            if (Array.isArray(responseData) && responseData.length > 0) {
+              uploadedFileInfo = responseData[0];
+              if (uploadedFileInfo && uploadedFileInfo.id) {
+                success = true;
+              }
             }
           }
+        } catch (e) {
+          log(`Error parsing response: ${e}`);
+          log(`Response body: ${response.body}`);
         }
-      } catch (e) {
-        log(`Error parsing response: ${e}`);
-        log(`Response body: ${response.body}`);
       }
+      
+      successRate.add(success);
+      
+      if (success) {
+        log(`Upload successful for ${file.name}, took ${duration}ms, file ID: ${uploadedFileInfo.id}`);
+      } else {
+        log(`Upload FAILED for ${file.name}: Status ${response.status}`);
+        if (response.body) {
+          log(`Response body: ${response.body}`);
+        }
+      }
+      
+      return response;
+    } catch (error) {
+      log(`ERROR during upload of ${file.name}: ${error.message}`);
+      successRate.add(false); // Ensure failed attempts are counted in metrics
+      throw error;
     }
+  }
+
+  // Test functions for different file sizes
+  smallFileTest() {
+    const file = {
+      name: 'very-small-10KB.txt',
+      contentType: TEST_FILES['very-small-10KB.txt'].contentType,
+      size: TEST_FILES['very-small-10KB.txt'].size
+    };
     
-    successRate.add(success);
+    const delay = randomIntBetween(1000, 3000);
+    this.uploadFile(file, delay);
+  }
+
+  mediumFileTest() {
+    const file = {
+      name: 'small-100KB.txt',
+      contentType: TEST_FILES['small-100KB.txt'].contentType,
+      size: TEST_FILES['small-100KB.txt'].size
+    };
     
-    if (success) {
-      log(`Upload successful for ${file.name}, took ${duration}ms, file ID: ${uploadedFileInfo.id}`);
+    const delay = randomIntBetween(2000, 5000);
+    this.uploadFile(file, delay);
+  }
+
+  largeFileTest() {
+    const file = {
+      name: 'medium-1MB.txt',
+      contentType: TEST_FILES['medium-1MB.txt'].contentType,
+      size: TEST_FILES['medium-1MB.txt'].size
+    };
+    
+    const delay = randomIntBetween(3000, 8000);
+    this.uploadFile(file, delay);
+  }
+
+  textFileTest() {
+    const file = this.getRandomTextFile();
+    const delay = randomIntBetween(2000, 6000);
+    this.uploadFile(file, delay);
+  }
+
+  officeDocumentTest() {
+    const file = this.getRandomOfficeFile();
+    const delay = randomIntBetween(6000, 10000);
+    this.uploadFile(file, delay);
+  }
+
+  allDocumentTypesTest() {
+    const fileType = Math.random();
+    let file;
+    
+    if (fileType < 0.25) {
+      file = this.getRandomTextFile();
+    } else if (fileType < 0.5) {
+      file = this.getRandomWordFile();
+    } else if (fileType < 0.75) {
+      file = this.getRandomPowerPointFile();
     } else {
-      log(`Upload FAILED for ${file.name}: Status ${response.status}`);
-      if (response.body) {
-        log(`Response body: ${response.body}`);
-      }
+      file = this.getRandomExcelFile();
     }
     
-    return response;
-  } catch (error) {
-    log(`ERROR during upload of ${file.name}: ${error.message}`);
-    throw error;
+    const delay = randomIntBetween(5000, 12000);
+    this.uploadFile(file, delay);
+  }
+
+  pdfOnlyUpload() {
+    const file = this.getRandomPdfFile();
+    const delay = randomIntBetween(500, 1500);
+    this.uploadFile(file, delay);
   }
 }
 
-// Helper to get a random file from all available types
-function getRandomFile() {
-  const fileKeys = Object.keys(TEST_FILES);
-  const randomKey = fileKeys[Math.floor(Math.random() * fileKeys.length)];
-  const selectedFile = TEST_FILES[randomKey];
-  
-  return {
-    name: randomKey,
-    contentType: selectedFile.contentType,
-    size: selectedFile.size
-  };
+// ==============================================
+// CHAT COMPLETION TESTING CLASS
+// ==============================================
+
+class ChatCompletionTester {
+  constructor() {
+    this.endpoint = CHAT_COMPLETIONS_ENDPOINT;
+    // Default models - can be overridden via environment or configuration
+    this.models = [
+      'gpt-4o',
+      'gpt-4o-mini'
+    ];
+    this.conversationTopics = [
+      'Tell me about artificial intelligence',
+      'Explain quantum computing in simple terms',
+      'What are the benefits of renewable energy?',
+      'How does machine learning work?',
+      'Describe the process of photosynthesis',
+      'What is the history of the internet?',
+      'Explain the concept of blockchain technology',
+      'How do neural networks function?',
+      'What are the principles of sustainable development?',
+      'Describe the structure of DNA'
+    ];
+  }
+
+  // Method to update available models (useful for different test environments)
+  setModels(models) {
+    if (Array.isArray(models) && models.length > 0) {
+      this.models = models;
+    } else {
+      throw new Error('Models must be a non-empty array');
+    }
+  }
+
+  // Helper function to get a random model for testing
+  getRandomModel() {
+    if (this.models.length === 0) {
+      throw new Error('No models available for testing');
+    }
+    return this.models[Math.floor(Math.random() * this.models.length)];
+  }
+
+  // Helper function to get a random conversation starter
+  getRandomConversationTopic() {
+    return this.conversationTopics[Math.floor(Math.random() * this.conversationTopics.length)];
+  }
+
+  // Helper function to generate random follow-up questions
+  generateFollowUpQuestion(topic) {
+    const followUps = [
+      `Can you provide more details about ${topic}?`,
+      `What are the practical applications of ${topic}?`,
+      `How has ${topic} evolved over time?`,
+      `What are the challenges related to ${topic}?`,
+      `Can you give examples of ${topic} in real life?`
+    ];
+    return followUps[Math.floor(Math.random() * followUps.length)];
+  }
+
+  // Core function to send chat completion requests
+  sendChatCompletion(payload, simulatedNetworkDelay = 0) {
+    try {
+      // Simulate network latency if specified
+      if (simulatedNetworkDelay > 0) {
+        sleep(simulatedNetworkDelay / 1000);
+      }
+
+      log(`Starting chat completion with model: ${payload.model}`);
+
+      const params = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${getUserTokenByVU()}`,
+        },
+        tags: { name: `Chat Completion ${payload.model}` },
+        timeout: '120s',
+      };
+
+      const startTime = new Date().getTime();
+      const response = http.post(this.endpoint, JSON.stringify(payload), params);
+      const endTime = new Date().getTime();
+      const duration = endTime - startTime;
+
+      // Update metrics
+      chatResponseTime.add(duration);
+      ttfb.add(response.timings.waiting);
+      connectionTime.add(response.timings.connecting);
+      chatMessagesProcessed.add(payload.messages.length);
+
+      let success = false;
+      let responseData = null;
+
+      if (response.status === 200) {
+        try {
+          responseData = JSON.parse(response.body);
+          if (responseData && responseData.choices && responseData.choices.length > 0) {
+            success = true;
+            const content = responseData.choices[0].message.content;
+            if (content) {
+              // Rough token estimation (1 token ≈ 4 characters)
+              const estimatedTokens = Math.ceil(content.length / 4);
+              chatTokensGenerated.add(estimatedTokens);
+            }
+          }
+        } catch (e) {
+          log(`Error parsing chat completion response: ${e}`);
+          log(`Response body: ${response.body}`);
+        }
+      }
+
+      chatSuccessRate.add(success);
+
+      if (success) {
+        log(`Chat completion successful for model ${payload.model}, took ${duration}ms`);
+      } else {
+        log(`Chat completion FAILED for model ${payload.model}: Status ${response.status}`);
+        if (response.body) {
+          log(`Response body: ${response.body}`);
+        }
+      }
+
+      return response;
+    } catch (error) {
+      log(`ERROR during chat completion: ${error.message}`);
+      chatSuccessRate.add(false); // Ensure failed attempts are counted in metrics
+      throw error;
+    }
+  }
+
+  // Basic chat completion test - single message
+  basicChatCompletion() {
+    const model = this.getRandomModel();
+    const topic = this.getRandomConversationTopic();
+    
+    const payload = {
+      model: model,
+      messages: [
+        {
+          role: "user",
+          content: topic
+        }
+      ],
+      stream: false,
+      temperature: 0.7,
+      max_tokens: 150
+    };
+
+    const delay = randomIntBetween(1000, 3000);
+    this.sendChatCompletion(payload, delay);
+  }
+
+  // Multi-turn conversation test
+  multiTurnConversation() {
+    const model = this.getRandomModel();
+    const topic = this.getRandomConversationTopic();
+    
+    const payload = {
+      model: model,
+      messages: [
+        {
+          role: "system",
+          content: "You are a helpful assistant that provides clear and concise answers."
+        },
+        {
+          role: "user",
+          content: topic
+        },
+        {
+          role: "assistant",
+          content: "I'd be happy to help you with that topic. Let me provide you with some information."
+        },
+        {
+          role: "user",
+          content: this.generateFollowUpQuestion(topic)
+        }
+      ],
+      stream: false,
+      temperature: 0.7,
+      max_tokens: 200
+    };
+
+    const delay = randomIntBetween(2000, 5000);
+    this.sendChatCompletion(payload, delay);
+  }
+
+  // Long conversation test - tests memory and context handling
+  longConversationTest() {
+    const model = this.getRandomModel();
+    const topic = this.getRandomConversationTopic();
+    
+    const messages = [
+      {
+        role: "system",
+        content: "You are a knowledgeable assistant helping with detailed explanations."
+      },
+      {
+        role: "user",
+        content: topic
+      }
+    ];
+
+    // Add multiple turns to create a longer conversation
+    for (let i = 0; i < 5; i++) {
+      messages.push({
+        role: "assistant",
+        content: `This is response ${i + 1} providing information about the topic.`
+      });
+      messages.push({
+        role: "user",
+        content: this.generateFollowUpQuestion(topic)
+      });
+    }
+
+    const payload = {
+      model: model,
+      messages: messages,
+      stream: false,
+      temperature: 0.5,
+      max_tokens: 300
+    };
+
+    const delay = randomIntBetween(3000, 8000);
+    this.sendChatCompletion(payload, delay);
+  }
+
+  // Streaming chat completion test
+  streamingChatCompletion() {
+    const model = this.getRandomModel();
+    const topic = this.getRandomConversationTopic();
+    
+    const payload = {
+      model: model,
+      messages: [
+        {
+          role: "user",
+          content: `Please provide a detailed explanation of: ${topic}`
+        }
+      ],
+      stream: true,
+      temperature: 0.7,
+      max_tokens: 500
+    };
+
+    const delay = randomIntBetween(1000, 4000);
+    this.sendChatCompletion(payload, delay);
+  }
+
+  // Chat completion with files test
+  chatWithFilesCompletion() {
+    const model = this.getRandomModel();
+    const topic = this.getRandomConversationTopic();
+    
+    // Simulate file references (you may need to adjust based on your file upload implementation)
+    const payload = {
+      model: model,
+      messages: [
+        {
+          role: "user",
+          content: `Based on the uploaded documents, please explain: ${topic}`
+        }
+      ],
+      files: [
+        // Simulate file references - adjust based on your actual file structure
+        { id: "file_123", name: "document.pdf" },
+        { id: "file_456", name: "data.txt" }
+      ],
+      stream: false,
+      temperature: 0.6,
+      max_tokens: 250
+    };
+
+    const delay = randomIntBetween(2000, 6000);
+    this.sendChatCompletion(payload, delay);
+  }
+
+  // High concurrency chat test
+  concurrentChatCompletion() {
+    const model = this.getRandomModel();
+    const topic = this.getRandomConversationTopic();
+    
+    const payload = {
+      model: model,
+      messages: [
+        {
+          role: "user",
+          content: topic
+        }
+      ],
+      stream: false,
+      temperature: 0.8,
+      max_tokens: 100
+    };
+
+    // Minimal delay for high concurrency
+    const delay = randomIntBetween(500, 1500);
+    this.sendChatCompletion(payload, delay);
+  }
+
+  // Mixed model chat test - tests different models in parallel
+  mixedModelChatTest() {
+    // Randomly select model for each request
+    const model = this.getRandomModel();
+    const topic = this.getRandomConversationTopic();
+    
+    const payload = {
+      model: model,
+      messages: [
+        {
+          role: "user",
+          content: topic
+        }
+      ],
+      stream: Math.random() < 0.5, // 50% chance of streaming
+      temperature: Math.random() * 0.9 + 0.1, // Random temperature between 0.1 and 1.0
+      max_tokens: randomIntBetween(100, 400)
+    };
+
+    const delay = randomIntBetween(1000, 4000);
+    this.sendChatCompletion(payload, delay);
+  }
 }
 
-// Helper to get a random text file
-function getRandomTextFile() {
-  const textFiles = ['very-small-10KB.txt', 'small-100KB.txt', 'medium-1MB.txt'];
-  const randomKey = textFiles[Math.floor(Math.random() * textFiles.length)];
-  const selectedFile = TEST_FILES[randomKey];
-  
-  return {
-    name: randomKey,
-    contentType: selectedFile.contentType,
-    size: selectedFile.size
-  };
-}
+// ==============================================
+// INITIALIZE CLASS INSTANCES
+// ==============================================
 
-// Helper to get a random Word document
-function getRandomWordFile() {
-  const wordFiles = ['document-50KB.docx', 'document-100KB.docx'];
-  const randomKey = wordFiles[Math.floor(Math.random() * wordFiles.length)];
-  const selectedFile = TEST_FILES[randomKey];
-  
-  return {
-    name: randomKey,
-    contentType: selectedFile.contentType,
-    size: selectedFile.size
-  };
-}
+const fileUploader = new FileUploadTester();
+const chatTester = new ChatCompletionTester();
 
-// Helper to get a random PowerPoint file
-function getRandomPowerPointFile() {
-  const pptFiles = ['presentation-50KB.pptx', 'presentation-100KB.pptx'];
-  const randomKey = pptFiles[Math.floor(Math.random() * pptFiles.length)];
-  const selectedFile = TEST_FILES[randomKey];
-  
-  return {
-    name: randomKey,
-    contentType: selectedFile.contentType,
-    size: selectedFile.size
-  };
-}
+// ==============================================
+// SCENARIO FUNCTION EXPORTS
+// ==============================================
 
-// Helper to get a random Excel file
-function getRandomExcelFile() {
-  const excelFiles = ['spreadsheet-50KB.xlsx', 'spreadsheet-100KB.xlsx'];
-  const randomKey = excelFiles[Math.floor(Math.random() * excelFiles.length)];
-  const selectedFile = TEST_FILES[randomKey];
-  
-  return {
-    name: randomKey,
-    contentType: selectedFile.contentType,
-    size: selectedFile.size
-  };
-}
+// ==============================================
+// FILE UPLOAD SCENARIO FUNCTIONS
+// ==============================================
 
-// Helper to get a random office document (Word, PowerPoint, or Excel)
-function getRandomOfficeFile() {
-  const officeTypes = [getRandomWordFile, getRandomPowerPointFile, getRandomExcelFile];
-  const randomFunction = officeTypes[Math.floor(Math.random() * officeTypes.length)];
-  return randomFunction();
-}
-
-// Helper to get a random PDF file (actual PDF files that bypass conversion)
-function getRandomPdfFile() {
-  // Only include PDF files that actually exist in the test_files directory
-  const pdfFiles = [
-    'Data Science.pdf',
-    'Software Development Engineer.pdf',
-    'Resume.pdf',
-    'Cyber-Security.pdf'
-  ];
-  const randomKey = pdfFiles[Math.floor(Math.random() * pdfFiles.length)];
-  const selectedFile = TEST_FILES[randomKey];
-  
-  return {
-    name: randomKey,
-    contentType: selectedFile.contentType,
-    size: selectedFile.size
-  };
-}
-
-// Helper to get a random non-PDF file (office documents)
-function getRandomNonPdfFile() {
-  return getRandomOfficeFile(); // Word, PowerPoint, or Excel files
-}
-
-// Simulate a basic concurrent upload test - 5 users uploading small files (100KB)
 export function basicConcurrentUpload() {
-  // Use specifically small 100KB files for baseline testing
   const file = {
     name: 'small-100KB.txt',
     contentType: TEST_FILES['small-100KB.txt'].contentType,
     size: TEST_FILES['small-100KB.txt'].size
   };
   
-  // Minimal delay for concurrent testing
-  const delay = randomIntBetween(1000, 2000);
-  uploadFile(file, delay);
+  const delay = randomIntBetween(1000, 3000);
+  fileUploader.uploadFile(file, delay);
 }
 
-// Simulate gradual scaling with pause between batches
 export function gradualUserScaling() {
-  // Get a random file
-  const file = getRandomFile();
-  
-  // Simulate some thinking/waiting time - longer delays (8-12 seconds)
-  const delay = randomIntBetween(8000, 12000);
-  uploadFile(file, delay);
+  const file = fileUploader.getRandomTextFile();
+  const delay = randomIntBetween(2000, 5000);
+  fileUploader.uploadFile(file, delay);
 }
 
-// Simulate a realistic office usage pattern - 10 users with varied behavior
 export function realisticOfficePattern() {
-  // Determine user behavior based on VU number
   const vuNumber = __VU;
   let file;
   
   if (vuNumber <= 2) {
-    // 2 users uploading large files (5-10MB) - use medium-1MB.txt as proxy since server has 10MB limit
+    // 2 users uploading large files
     file = {
       name: 'medium-1MB.txt',
       contentType: TEST_FILES['medium-1MB.txt'].contentType,
       size: TEST_FILES['medium-1MB.txt'].size
     };
   } else if (vuNumber <= 7) {
-    // 5 users uploading medium files (1-2MB) - use medium-1MB.txt and small-100KB.txt
-    const mediumFiles = ['medium-1MB.txt', 'small-100KB.txt'];
-    const randomMediumFile = mediumFiles[Math.floor(Math.random() * mediumFiles.length)];
+    // 5 users uploading medium files
     file = {
-      name: randomMediumFile,
-      contentType: TEST_FILES[randomMediumFile].contentType,
-      size: TEST_FILES[randomMediumFile].size
+      name: 'small-100KB.txt',
+      contentType: TEST_FILES['small-100KB.txt'].contentType,
+      size: TEST_FILES['small-100KB.txt'].size
     };
   } else {
-    // 3 users uploading small files (100-500KB)
-    const smallFiles = ['small-100KB.txt', 'very-small-10KB.txt'];
-    const randomSmallFile = smallFiles[Math.floor(Math.random() * smallFiles.length)];
+    // 3 users uploading small files
     file = {
-      name: randomSmallFile,
-      contentType: TEST_FILES[randomSmallFile].contentType,
-      size: TEST_FILES[randomSmallFile].size
+      name: 'very-small-10KB.txt',
+      contentType: TEST_FILES['very-small-10KB.txt'].contentType,
+      size: TEST_FILES['very-small-10KB.txt'].size
     };
   }
   
-  // Random 1-3 second delays between actions as specified
-  const delay = randomIntBetween(1000, 3000);
-  uploadFile(file, delay);
+  const delay = randomIntBetween(3000, 10000);
+  fileUploader.uploadFile(file, delay);
 }
 
-// Simulate a burst upload activity - 10 users simultaneously uploading 1MB files
 export function burstUploadActivity() {
-  // Use 1MB files for burst testing
   const file = {
     name: 'medium-1MB.txt',
     contentType: TEST_FILES['medium-1MB.txt'].contentType,
     size: TEST_FILES['medium-1MB.txt'].size
   };
   
-  // Minimal delay to simulate simultaneous burst
-  const delay = randomIntBetween(500, 1500);
-  uploadFile(file, delay);
+  // Shorter delay to simulate burst
+  const delay = randomIntBetween(1000, 3000);
+  fileUploader.uploadFile(file, delay);
 }
 
-// Test large file uploads
 export function largeFileHandling() {
-  // Use small file instead of large one due to server limitations
   const file = {
-    name: 'small-100KB.txt',
-    
-    contentType: TEST_FILES['small-100KB.txt'].contentType,
-    size: TEST_FILES['small-100KB.txt'].size
+    name: 'medium-1MB.txt',
+    contentType: TEST_FILES['medium-1MB.txt'].contentType,
+    size: TEST_FILES['medium-1MB.txt'].size
   };
   
-  // Longer delay for large file uploads (8-12 seconds)
-  const delay = randomIntBetween(8000, 12000);
-  uploadFile(file, delay);
+  const delay = randomIntBetween(5000, 10000);
+  fileUploader.uploadFile(file, delay);
 }
 
-// Mixed operations test - 5 uploading, 2 downloading, 3 browsing
 export function mixedOperations() {
-  // Determine operation based on VU number
   const vuNumber = __VU;
   
   if (vuNumber <= 5) {
-    // 5 users uploading files (mix of sizes)
-    const file = getRandomFile();
-    const delay = randomIntBetween(2000, 5000);
-    uploadFile(file, delay);
+    // 5 users uploading
+    const file = fileUploader.getRandomFile();
+    const delay = randomIntBetween(2000, 6000);
+    fileUploader.uploadFile(file, delay);
   } else if (vuNumber <= 7) {
-    // 2 users downloading (simulated by API health check)
+    // 2 users "downloading" (simulated with API health check)
     apiHealthCheck();
-    const browseTime = randomIntBetween(3000, 8000);
-    sleep(browseTime / 1000);
   } else {
-    // 3 users browsing/searching (simulated by sleep)
-    const browseTime = randomIntBetween(5000, 15000);
-    sleep(browseTime / 1000);
+    // 3 users "browsing" (simulated with API health check)
+    sleep(randomIntBetween(3, 8));
+    apiHealthCheck();
   }
 }
 
-// Network variance test - different connection qualities
 export function networkVariance() {
-  // Determine network condition based on VU number
   const vuNumber = __VU;
   const file = {
     name: 'small-100KB.txt',
-    
     contentType: TEST_FILES['small-100KB.txt'].contentType,
     size: TEST_FILES['small-100KB.txt'].size
   };
   
   let delay;
   if (vuNumber <= 3) {
-    // 3 users with excellent connection (100Mbps) - minimal delay
     delay = randomIntBetween(500, 1500);
   } else if (vuNumber <= 7) {
-    // 4 users with moderate connection (10Mbps) - moderate delay
     delay = randomIntBetween(2000, 5000);
   } else {
-    // 3 users with poor connection (2Mbps with packet loss) - high delay
     delay = randomIntBetween(8000, 15000);
   }
   
-  uploadFile(file, delay);
+  fileUploader.uploadFile(file, delay);
 }
 
-// Maximum capacity test - 10 users continuously uploading for sustained load
 export function maximumCapacity() {
-  // Use 1MB files for sustained capacity testing
   const file = {
     name: 'medium-1MB.txt',
-    
     contentType: TEST_FILES['medium-1MB.txt'].contentType,
     size: TEST_FILES['medium-1MB.txt'].size
   };
   
-  // Minimal delay to maximize load
   const delay = randomIntBetween(1000, 2000);
-  uploadFile(file, delay);
+  fileUploader.uploadFile(file, delay);
 }
 
-// Test with mixed file types and longer delays
 export function mixedFileTypesWithLongerDelays() {
-  // 50/50 chance of PDF or non-PDF
-  const file = Math.random() < 0.5 ? getRandomPdfFile() : getRandomNonPdfFile();
-  
-  // Longer delay (8-12 seconds)
+  const file = Math.random() < 0.5 ? fileUploader.getRandomPdfFile() : fileUploader.getRandomNonPdfFile();
   const delay = randomIntBetween(8000, 12000);
-  uploadFile(file, delay);
+  fileUploader.uploadFile(file, delay);
 }
 
-// Test specifically for office document uploads (Word, PowerPoint, Excel)
-export function officeDocumentTest() {
-  // Choose randomly between Word, PowerPoint, and Excel files
-  const fileType = Math.random();
-  let file;
-  
-  if (fileType < 0.33) {
-    file = getRandomWordFile();
-  } else if (fileType < 0.66) {
-    file = getRandomPowerPointFile();
-  } else {
-    file = getRandomExcelFile();
-  }
-  
-  // Standard delay for office document uploads
-  const delay = randomIntBetween(6000, 10000);
-  uploadFile(file, delay);
-}
-
-// Test all document types with equal probability
-export function allDocumentTypesTest() {
-  // Equal chance for text files, Word, PowerPoint, and Excel
-  const fileType = Math.random();
-  let file;
-  
-  if (fileType < 0.25) {
-    file = getRandomTextFile();
-  } else if (fileType < 0.5) {
-    file = getRandomWordFile();
-  } else if (fileType < 0.75) {
-    file = getRandomPowerPointFile();
-  } else {
-    file = getRandomExcelFile();
-  }
-  
-  // Variable delay based on file type
-  const delay = randomIntBetween(5000, 12000);
-  uploadFile(file, delay);
-}
-
-// Test uploading many documents to see if UI/APIs stall
 export function documentUploadStressTest() {
-  // Alternate between PDF and non-PDF uploads
   const iteration = __ITER;
-  const file = iteration % 2 === 0 ? getRandomPdfFile() : getRandomNonPdfFile();
-  
-  // Use shorter delays to simulate batch uploads
+  const file = iteration % 2 === 0 ? fileUploader.getRandomPdfFile() : fileUploader.getRandomNonPdfFile();
   const delay = randomIntBetween(4000, 8000);
-  uploadFile(file, delay);
+  fileUploader.uploadFile(file, delay);
 }
 
-// API health check function 
+export function pdfOnlyUpload() {
+  fileUploader.pdfOnlyUpload();
+}
+
+// ==============================================
+// CHAT COMPLETION SCENARIO FUNCTIONS
+// ==============================================
+export function basicChatCompletion() {
+  chatTester.basicChatCompletion();
+}
+
+export function multiTurnConversation() {
+  chatTester.multiTurnConversation();
+}
+
+export function longConversationTest() {
+  chatTester.longConversationTest();
+}
+
+export function streamingChatCompletion() {
+  chatTester.streamingChatCompletion();
+}
+
+export function chatWithFilesCompletion() {
+  chatTester.chatWithFilesCompletion();
+}
+
+export function concurrentChatCompletion() {
+  chatTester.concurrentChatCompletion();
+}
+
+export function mixedModelChatTest() {
+  chatTester.mixedModelChatTest();
+}
+
+// ==============================================
+// LEGACY SUPPORT FUNCTIONS
+// ==============================================
+export function smallFileTest() {
+  fileUploader.smallFileTest();
+}
+
+export function mediumFileTest() {
+  fileUploader.mediumFileTest();
+}
+
+export function largeFileTest() {
+  fileUploader.largeFileTest();
+}
+
+export function textFileTest() {
+  fileUploader.textFileTest();
+}
+
+export function officeDocumentTest() {
+  fileUploader.officeDocumentTest();
+}
+
+export function allDocumentTypesTest() {
+  fileUploader.allDocumentTypesTest();
+}
+
+// ==============================================
+// UTILITY FUNCTIONS
+// ==============================================
 export function apiHealthCheck() {
   try {
     log(`Running API health check, VU: ${__VU}`);
@@ -526,74 +926,39 @@ export function apiHealthCheck() {
   }
 }
 
-// Function to get debugging logs
 export function getDebugLogs() {
   return debugLog.join("\n");
 }
 
-// Export uploadFile with alias for backward compatibility
-export { uploadFile as uploadFileToOpenAI };
+// ==============================================
+// CONFIGURATION AND UTILITY EXPORTS
+// ==============================================
 
-// Test functions for different file sizes
-export function smallFileTest() {
-  const file = {
-    name: 'very-small-10KB.txt',
-    
-    contentType: TEST_FILES['very-small-10KB.txt'].contentType,
-    size: TEST_FILES['very-small-10KB.txt'].size
-  };
-  
-  const delay = randomIntBetween(1000, 3000);
-  uploadFile(file, delay);
+// Export uploadFile function for backward compatibility
+export function uploadFileToOpenAI(file, simulatedNetworkDelay = 0) {
+  return fileUploader.uploadFile(file, simulatedNetworkDelay);
 }
 
-export function mediumFileTest() {
-  const file = {
-    name: 'small-100KB.txt',
-    
-    contentType: TEST_FILES['small-100KB.txt'].contentType,
-    size: TEST_FILES['small-100KB.txt'].size
-  };
-  
-  const delay = randomIntBetween(2000, 5000);
-  uploadFile(file, delay);
+// Export utility functions for external configuration
+export function updateChatModels(models) {
+  return chatTester.setModels(models);
 }
 
-export function largeFileTest() {
-  const file = {
-    name: 'medium-1MB.txt',
-    
-    contentType: TEST_FILES['medium-1MB.txt'].contentType,
-    size: TEST_FILES['medium-1MB.txt'].size
-  };
-  
-  const delay = randomIntBetween(3000, 8000);
-  uploadFile(file, delay);
+export function getChatModels() {
+  return chatTester.models;
 }
 
-export function textFileTest() {
-  const file = getRandomTextFile();
-  const delay = randomIntBetween(2000, 6000);
-  uploadFile(file, delay);
+export function getAvailableFileTypes() {
+  return Object.keys(TEST_FILES);
 }
 
-// PDF-only upload test - bypasses conversion for faster/more reliable uploads
-export function pdfOnlyUpload() {
-  // Use actual PDF files to bypass LibreOffice conversion
-  const file = getRandomPdfFile();
-  
-  // Minimal delay since no conversion is needed
-  const delay = randomIntBetween(500, 1500);
-  uploadFile(file, delay);
-}
-
-// Main test configuration - you'll use this to run specific scenarios
+// Main test configuration
 export const options = {
-  // Default configuration for all scenarios
   thresholds: {
-    'http_req_duration': ['p(95)<10000'], // 95% of requests should complete within 10s
-    'http_req_failed': ['rate<0.05'],     // Less than 5% of requests should fail
-    'success_rate': ['rate>0.95'],        // Success rate should be above 95%
+    'http_req_duration': ['p(95)<10000'],
+    'http_req_failed': ['rate<0.05'],
+    'success_rate': ['rate>0.95'],
+    'chat_success_rate': ['rate>0.90'],
+    'chat_response_time': ['p(95)<15000'],
   },
-  // Scenario-specific configurations follow
 };

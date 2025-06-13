@@ -1,6 +1,6 @@
-# File Upload Load Testing
+# Load Testing Suite for Axessio-open-webui
 
-This directory contains k6 load testing scripts for testing the file upload functionality of the Axessio-open-webui application.
+This directory contains k6 load testing scripts for testing both the **file upload functionality** and **chat completion API** of the Axessio-open-webui application.
 
 ## Directory Structure
 
@@ -56,6 +56,21 @@ Our tests use small text files (10KB and 100KB) which work reliably with the ser
    - You can then copy these tokens to the `USER_TOKENS` array in `Load.js`
 
    **Note**: The current setup works fine with a single user for most performance testing scenarios.
+
+## Chat Completion Configuration
+
+Before running chat completion scenarios (13-18), ensure you have:
+
+1. **Available Models**: The test uses these models by default:
+   - `gpt-3.5-turbo`
+   - `gpt-4`
+   - `gpt-4-turbo`
+
+2. **Model Configuration**: Update the `TEST_MODELS` array in `Load.js` to match your available models.
+
+3. **API Endpoint**: The tests target `/api/chat/completions` endpoint. Ensure this endpoint is available and properly configured.
+
+4. **Authentication**: Uses the same JWT tokens as file upload tests.
 
 ## Supported File Types
 
@@ -130,6 +145,7 @@ Use the main `run_test.sh` script to execute the tests:
 
 ## Available Scenarios
 
+### File Upload Scenarios (1-12)
 1. **Basic Concurrent Upload**: 5 users simultaneously uploading small files (100KB) - Baseline test
 2. **Gradual User Scaling**: Simulates gradually increasing user load
 3. **Realistic Office Pattern**: 10 users with varied behavior (2 large, 5 medium, 3 small files)
@@ -141,9 +157,19 @@ Use the main `run_test.sh` script to execute the tests:
 9. **Mixed File Types with Longer Delays**: Tests a mix of file types with realistic delays
 10. **Document Upload Stress Test**: Tests if uploading many documents stalls the UI/APIs
 11. **PDF-Only Upload**: 5 users uploading pre-converted PDF files (bypasses LibreOffice conversion)
+12. **Sequential PDF Upload**: One-by-one PDF processing
+
+### Chat Completion Scenarios (13-18)
+13. **Basic Chat Completion**: 5 users sending simple chat requests with various models
+14. **Multi-Turn Conversation**: 8 users engaging in complex multi-message conversations
+15. **Concurrent Chat Load**: 15 users sending simultaneous chat requests (high concurrency test)
+16. **Streaming Chat Test**: 6 users testing streaming chat completions
+17. **Mixed Model Chat**: 10 users testing different AI models simultaneously
+18. **Long Conversation Test**: 4 users testing context handling with extended conversations
 
 ## Key Metrics Measured
 
+### File Upload Metrics
 - **Response time** (average, median, 95th percentile)
 - **Error rate** and success rate
 - **Throughput** (uploads/second)
@@ -152,8 +178,17 @@ Use the main `run_test.sh` script to execute the tests:
 - **Upload duration** (custom metric)
 - **Data transferred** (uploaded_bytes)
 
+### Chat Completion Metrics
+- **Chat response time** (average, median, 95th percentile)
+- **Chat success rate** and failure rate
+- **Tokens generated** (estimated)
+- **Messages processed** per second
+- **Model performance** comparison
+- **Conversation length** handling
+
 ## Expected Outcomes by Scenario
 
+### File Upload Scenarios
 - **Scenario 1**: All uploads complete successfully with response time < 3 seconds
 - **Scenario 3**: System maintains responsiveness, 95% of uploads complete in < 10 seconds  
 - **Scenario 4**: System handles burst without failures, may show temporary slowdown
@@ -162,6 +197,14 @@ Use the main `run_test.sh` script to execute the tests:
 - **Scenario 7**: All uploads eventually complete successfully despite connection variance
 - **Scenario 8**: Identify system limits and degradation patterns under sustained load
 - **Scenario 11**: Significantly better success rate and faster response times (no conversion overhead)
+
+### Chat Completion Scenarios
+- **Scenario 13**: Basic chat requests complete within 5 seconds with >95% success rate
+- **Scenario 14**: Multi-turn conversations handle context properly with <8 second response times
+- **Scenario 15**: High concurrency maintains >85% success rate under heavy load
+- **Scenario 16**: Streaming responses start quickly and maintain consistent throughput
+- **Scenario 17**: Different models perform within expected parameters
+- **Scenario 18**: Long conversations don't degrade performance or exceed memory limits
 
 ## Logs
 
@@ -173,8 +216,11 @@ After running tests, you can generate visual analytics to better understand your
 
 ### Quick Analytics (Recommended)
 ```bash
-# Generate Python charts and analysis
+# Analyze latest log file (default, fastest)
 ./run_analytics.sh
+
+# Analyze ALL log files (comprehensive historical analysis)
+./run_analytics.sh --all
 
 # Generate HTML dashboard instead
 ./run_analytics.sh --html
@@ -186,11 +232,14 @@ After running tests, you can generate visual analytics to better understand your
 ./run_analytics.sh --help
 ```
 
+> **💡 Note**: By default, only the latest log file is analyzed for faster results. Use `--all` to analyze all historical log files. Results are saved in the `results/` folder.
+
 ### Direct Analytics Tools
 ```bash
 # Python analytics (run from analytics/ directory)
 cd analytics
-python3 analytics.py                           # Interactive charts
+python3 analytics.py                           # Latest log file only (default)
+python3 analytics.py --all                     # All log files
 python3 analytics.py --no-gui                  # Text summary only
 python3 analytics.py -f ../logs/scenario1_*.log # Specific log file
 python3 analytics.py --export                  # Export JSON data
