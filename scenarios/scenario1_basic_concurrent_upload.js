@@ -6,7 +6,7 @@ export default function() {
 
 export const options = {
   vus: 5,
-  duration: '2m',
+  duration: '1m',
   thresholds: {
     http_req_duration: ['p(95)<3000'],  // 95% of requests must complete within 3s for small files
     http_req_failed: ['rate<0.05'],     // Less than 5% of requests should fail

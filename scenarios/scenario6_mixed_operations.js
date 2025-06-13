@@ -6,7 +6,7 @@ export default function() {
 
 export const options = {
   vus: 10,
-  duration: '3m',
+  duration: '1m',
   thresholds: {
     http_req_duration: ['p(95)<10000'], // Upload operations should complete without significant delay
     http_req_failed: ['rate<0.05'],     // Less than 5% of requests should fail

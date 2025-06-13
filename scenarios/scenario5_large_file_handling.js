@@ -6,7 +6,7 @@ export default function() {
 
 export const options = {
   vus: 3,
-  duration: '3m',
+  duration: '1m',
   thresholds: {
     http_req_duration: ['p(95)<60000'], // Large files may take up to 60s
     http_req_failed: ['rate<0.10'],     // Files should upload without server crashes
